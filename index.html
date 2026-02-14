@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIC Homepage</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 70px;
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.logo-area img{
+    height:45px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+nav a:first-child{
+    color:#6C4CF1;
+}
+
+.member-btn{
+    background:linear-gradient(90deg,#6C4CF1,#7F5AF0);
+    padding:10px 22px;
+    border-radius:8px;
+    color:white;
+    font-weight:600;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    position:relative;
+    text-align:center;
+    padding:100px 20px 80px;
+}
+
+.hero h1{
+    font-size:64px;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.hero h1 span{
+    color:#6C4CF1;
+}
+
+.hero p{
+    margin-top:30px;
+    font-size:26px;
+    max-width:950px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.6;
+    color:#111827;
+}
+
+.join-btn{
+    margin-top:40px;
+    display:inline-block;
+    background:linear-gradient(90deg,#6C4CF1,#7F5AF0);
+    padding:14px 40px;
+    border-radius:10px;
+    color:white;
+    font-weight:600;
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* Floating Icons */
+
+.float-box{
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:white;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.float-left{
+    top:90px;
+    left:60px;
+}
+
+.float-right{
+    top:100px;
+    right:80px;
+}
+
+.float-bottom-left{
+    top:380px;
+    left:40px;
+}
+
+.float-bottom-right{
+    top:420px;
+    right:60px;
+}
+
+.float-box img{
+    width:55px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    margin-top:60px;
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    font-size:22px;
+    font-weight:600;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.check{
+    width:35px;
+    height:35px;
+    background:#d1fae5;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#059669;
+    font-weight:bold;
+}
+
+/* ================= BACKED BY ================= */
+
+.backed{
+    margin-top:120px;
+    padding:80px 20px;
+    text-align:center;
+    background:white;
+}
+
+.backed h3{
+    letter-spacing:6px;
+    color:#6C4CF1;
+    font-weight:600;
+    margin-bottom:50px;
+}
+
+.backed-logos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+.backed-logos img{
+    height:70px;
+    object-fit:contain;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo-area">
+        <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png" alt="Amrita Logo">
+        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="event.html">Events</a>
+        <a href="contact.html">Contact</a>
+	<a href="team.html">Team Lead</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="member-btn">Be a Member</a>
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <!-- Floating Icons -->
+    <div class="float-box float-left">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JS">
+    </div>
+
+    <div class="float-box float-right">
+        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/webpack-icon.png" alt="Webpack">
+    </div>
+
+    <div class="float-box float-bottom-left">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt2dFGhzLqRKRXtT4NQl7A5VYmA7Q1oHI1gw&s.png" alt="GraphQL">
+    </div>
+
+    <div class="float-box float-bottom-right">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/330px-Vue.js_Logo_2.svg.png" alt="Vue">
+    </div>
+
+    <h1>Build Better <span>Skill</span></h1>
+
+    <p>
+        Welcome to Software Innovators Club an Initiative by
+        the Department of Computer Science and IT at Amrita
+        School of Computing, Kochi Campus
+    </p>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="join-btn">Join NOW</a>
+
+    <div class="features">
+        <div class="feature">
+            <div class="check">✓</div> 100+ Members
+        </div>
+
+        <div class="feature">
+            <div class="check">✓</div> Expert Guidence
+        </div>
+
+        <div class="feature">
+            <div class="check">✓</div> Resources
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= BACKED BY ================= -->
+
+<section class="backed">
+
+    <h3>BACKED BY</h3>
+
+    <div class="backed-logos">
+        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png"width="200" alt="IEDC">
+        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedcasas.jpg"width="200" alt="Innovation Centre">
+        <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png"width="200" alt="Amrita">
+        <img src="https://csi.coep.org.in/csi_logo.png"width="200" alt="CSI">
+    </div>
+
+</section>
+<!DOCTYPE html>
+<html>
+<head>
+<title>SIC Website</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    text-align:center;
+}
+
+/* Common Section Style */
+.section{
+    padding:80px 20px;
+}
+
+/* Headings */
+h1{
+    font-size:48px;
+    color:#111827;
+}
+
+h2{
+    font-size:34px;
+    margin-bottom:20px;
+    color:#6C4CF1;
+}
+
+h3{
+    font-weight:normal;
+    color:#333;
+}
+
+/* Paragraph */
+p{
+    font-size:18px;
+    color:#444;
+}
+
+/* Images */
+.section img{
+    margin:20px 0;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Button */
+button{
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(90deg,#6C4CF1,#7F5AF0);
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== Home Section ===== -->
+<section id="home" class="section">
+    <h1>Build Better Teams</h1>
+    <p>Welcome to Software Innovators Club</p>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Tools</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+/* Section */
+.tools-section {
+  padding: 80px 50px;
+}
+
+/* Heading */
+.tools-section h1 {
+  font-size: 42px;
+  color: #1f2a44;
+  margin-bottom: 20px;
+}
+
+.tools-section p {
+  font-size: 18px;
+  color: #5a6d85;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  line-height: 1.6;
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Individual Card */
+.card {
+  background: white;
+  width: 260px;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* Logo */
+.card img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+/* Title */
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #1f2a44;
+}
+
+/* Description */
+.card p {
+  font-size: 15px;
+  color: #6c7b90;
+  line-height: 1.6;
+}
+
+/* Button */
+.view-btn {
+  margin-top: 50px;
+}
+
+.view-btn button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view-btn button:hover {
+  background: #574bdb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tools-section h1 {
+    font-size: 28px;
+  }
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="tools-section">
+
+  <h1>"Let these tools assist in evaluating your skills."</h1>
+
+  <p>
+    These tools will help you identify and enhance your existing strengths,
+    allowing you to improve your overall skill set.
+  </p>
+
+  <div class="cards-container">
+
+    <!-- HackerRank -->
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
+      <h3>HackerRank</h3>
+      <p>Help companies develop the strongest tech teams around.</p>
+    </div>
+
+    <!-- CodeChef -->
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR7LBSu7kHUGQ1I8dcitkf50EohWiMoikTZw&s.png" alt="CodeChef">
+      <h3>CodeChef</h3>
+      <p>Learn to code from scratch with job focused courses designed by experts.</p>
+    </div>
+
+    <!-- LeetCode -->
+    <div class="card">
+      <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="Leetcode">
+      <h3>Leetcode</h3>
+      <p>LeetCode is the best platform to help you enhance your skills.</p>
+    </div>
+
+    <!-- Codewars -->
+    <div class="card">
+      <img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/224027/cw-512-12b281b9-f8a8-4512-9050-dcc2a2c7bb89.png" alt="Codewars">
+      <h3>Codewars</h3>
+      <p>Improve your development skills by training with peers and push your coding practice.</p>
+    </div>
+
+    <!-- HackerEarth -->
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/HackerEarth_logo.png" alt="HackerEarth">
+      <h3>HackerEarth</h3>
+      <p>Matching great developers with world-class companies.</p>
+    </div>
+
+    <!-- Topcoder -->
+    <div class="card">
+      <img src="https://avatars.githubusercontent.com/u/25333036?s=280&v=4.png" alt="Topcoder">
+      <h3>Topcoder</h3>
+      <p>No negotiations. No onboarding. Work starts right away with our Talent Network.</p>
+    </div>
+
+  </div>
+
+  <div class="view-btn">
+    <button>View All Apps</button>
+    <a class="view-btn"
+       href="https://docs.google.com/document/d/1bzwWlO8Qmd5M2T1bz-eFarRRGnZONSodxGajxZFWjqI/edit?tab=t.0"target="blank">
+  </div>
+
+</section>
+
+</body>
+</html>
+
+
+<!-- ===== About Section ===== -->
+<section id="about" class="section">
+    <h2>About Us</h2>
+    <img src="https://media.istockphoto.com/id/1256096552/vector/about-us-rgb-color-icon.jpg?s=612x612&w=0&k=20&c=KKozSJIgaX2lu1OIRY9Oc5Rp1GhQzpTIKatBtc_4lQQ="width="200" alt="about">
+    <h3>
+        <p>Software Innovators Club is an initiative by the Department</p> 
+        <p>of Computer Science & IT at Amrita School of Computing.</p>
+    </h3>
+</section>
+
+</body>
+</html>
+
+
+<!-- ===== Events Section ===== -->
+<section id="events" class="section">
+    <h2>Events</h2>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/021/957/793/small_2x/event-outline-icons-simple-stock-illustration-stock-vector.jpg" width="200" alt="Events">
+    <h3>
+        Workshops, Hackathons, Coding Competitions, and Technical Seminars.
+    </h3>
+</section>
+
+<!-- ===== Contact Section ===== -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <img src="https://www.shutterstock.com/image-vector/contact-information-icons-vector-business-600nw-1923724598.jpg" width="200" alt="Contact">
+    <p>Email: sic@amrita.edu</p>
+    <p>Phone: +91 9876543210</p>
+</section>
+
+<!-- ===== Faculty Coordinator Section ===== -->
+<section id="faculty" class="section">
+    <h2>Faculty Coordinator</h2>
+    <img src="https://www.shutterstock.com/image-vector/conference-icon-vector-graphic-illustration-260nw-1511728778.jpg" width="200" alt="Faculty">
+    <p>Name: Ms. Anupama KN</p>
+    <p>Email: anupamakn@kh.amrita.edu</p>
+</section>
+
+<!-- ===== Join Section ===== -->
+<section id="join" class="section">
+    <h2>Join Now</h2>
+    <a class="register-btn"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSc9IYNR7hAA5029QGllaXLU7O335CHFIsuzg5ZN-O1qGmmZ7w/viewform"
+       target="_blank">
+    <button>Register</button>
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join SIC</title>
+
+<style>
+
+/* ===== General ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eef1f7;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading */
+.hero h1 {
+    font-size: 48px;
+    color: #1f2d3d;
+    margin-bottom: 20px;
+}
+
+/* Subtitle */
+.hero p {
+    font-size: 20px;
+    color: #5a6a7a;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* ===== Buttons ===== */
+.button-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-btn {
+    text-decoration: none;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #6c5ce7, #7d5fff);
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Join more than 150+ Innovators within Campus</h1>
+    <p>
+        Effective learning starts with assessment. Learning a new skill is hard work.
+        Practice makes it easier.
+    </p>
+
+    <div class="button-group">
+        <a href="join.html" class="hero-btn">Join SIC</a>
+        <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="hero-btn">Join us on WhatsApp</a>
+        <a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="hero-btn">Follow us on Instagram</a>
+    </div>
+</section>
+
+</body>
+</html>
+
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIC Footer</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+.footer{
+    background:#f2f2f2;
+    padding:50px 80px 20px 80px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.sic-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.sic-text{
+    font-weight:bold;
+    font-size:20px;
+    color:#1b4ea1;
+}
+
+.sic-sub{
+    font-size:12px;
+    color:#555;
+}
+
+.footer h3{
+    margin-bottom:20px;
+    font-size:26px;
+    color:#1f2d3d;
+}
+
+.footer ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer ul li{
+    margin-bottom:12px;
+    font-size:18px;
+    color:#333;
+}
+
+.footer a{
+    text-decoration:none;
+    color:#5a4fff;
+}
+
+.contact p{
+    margin:6px 0;
+    font-size:18px;
+    line-height:1.5;
+}
+
+.bottom{
+    margin-top:40px;
+    padding-top:15px;
+    border-top:1px solid #ccc;
+    display:flex;
+    justify-content:space-between;
+    font-size:18px;
+    color:#444;
+    flex-wrap:wrap;
+}
+
+.bottom-links a{
+    margin-left:25px;
+    text-decoration:none;
+    color:#333;
+}
+</style>
+</head>
+<body>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Logo Section -->
+        <div class="logo-section">
+
+            <!-- Gear SVG Logo -->
+            <div class="sic-logo">
+                <svg width="70" height="70" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="25" fill="#1b4ea1"/>
+                    <g fill="#1b4ea1">
+                        <rect x="45" y="5" width="10" height="20"/>
+                        <rect x="45" y="75" width="10" height="20"/>
+                        <rect x="5" y="45" width="20" height="10"/>
+                        <rect x="75" y="45" width="20" height="10"/>
+                        <rect x="18" y="18" width="15" height="10" transform="rotate(-45 25 25)"/>
+                        <rect x="67" y="67" width="15" height="10" transform="rotate(-45 75 75)"/>
+                        <rect x="67" y="18" width="15" height="10" transform="rotate(45 75 25)"/>
+                        <rect x="18" y="67" width="15" height="10" transform="rotate(45 25 75)"/>
+                    </g>
+                    <text x="50%" y="55%" text-anchor="middle" fill="white" font-size="20" font-weight="bold" dy=".3em">SIC</text>
+                </svg>
+
+                <div>
+                    <div class="sic-text">SIC</div>
+                    <div class="sic-sub">Software Innovator's Club</div>
+                </div>
+            </div>
+
+            <!-- Amrita Text Logo -->
+            <div>
+                <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png"width="200">
+            </div>
+
+        </div>
+
+        <!-- Clubs -->
+        <div>
+            <h3>Clubs</h3>
+            <ul>
+                <li>IEDC</li>
+                <li>CSI</li>
+                <li>IIC</li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div>
+            <h3>Support</h3>
+            <ul>
+                <li>Join community</li>
+                <li>Become a Member</li>
+                <li>FAQ’s</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact">
+            <h3>Get in Touch</h3>
+            <p>
+                27WW+H26, Old NH17, Edappally<br>
+                North, Amrita Nagar, Brahmasthanam,<br>
+                Kochi, Ernakulam, Kerala 682024
+            </p>
+            <p>Email: <a href="mailto:sicasaskochi@gmail.com">sicasaskochi@gmail.com</a></p>
+            <p>Phone: <a href="tel:+916238314481">+91 6238314481</a></p>
+        </div>
+
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom">
+        <div>© 2026 SIC, Inc. All Rights Reserved</div>
+        <div class="bottom-links">
+            Developed by SIC Tech Head
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>
+
+
+</body>
+</html>
