@@ -4,475 +4,398 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIC - Software Innovators Club</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-/* ===== Core Variables ===== */
-:root {
-    --primary: #6c5ce7;
-    --primary-light: #a29bfe;
-    --bg-light: #f4f6ff;
-    --text-dark: #2d3436;
+
+/* ===== ROOT VARIABLES ===== */
+:root{
+  --primary:#6c5ce7;
+  --light:#f4f6ff;
+  --dark:#2d3436;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-body { background: var(--bg-light); color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
-
-/* ===== Animations ===== */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-@keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+body{
+  background:var(--light);
+  color:var(--dark);
+  overflow-x:hidden;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+/* ===== HEADER ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 8%;
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  flex-wrap:wrap;
 }
 
-/* ===== Navigation Header ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 8%;
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-}
-.logo-area { display: flex; align-items: center; gap: 15px; }
-.logo-area img { height: 45px; }
-nav { display: flex; align-items: center; gap: 25px; }
-nav a { text-decoration: none; color: #636e72; font-weight: 500; transition: 0.3s; }
-nav a:hover, nav a.active { color: var(--primary); }
-.join-btn { background: var(--primary); color: white !important; padding: 10px 25px; border-radius: 50px; font-weight: 600; text-decoration: none; }
-
-/* ===== Hero Section ===== */
-.hero {
-    padding: 120px 20px 100px;
-    text-align: center;
-    background: white;
-    position: relative;
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
-.welcome-msg {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    animation: fadeInUp 0.8s ease-out;
+.logo-area img{
+  height:40px;
 }
 
-.hero h1 {
-    font-size: clamp(35px, 6vw, 65px);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #2d3436, #6c5ce7, #2d3436);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 4s linear infinite, fadeInUp 1s ease-out;
+nav{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
-.hero p {
-    max-width: 750px;
-    margin: 0 auto 40px;
-    font-size: 19px;
-    color: #636e72;
-    animation: fadeInUp 1.2s ease-out;
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:500;
+  transition:0.3s;
 }
 
-.floating {
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    background: white;
-    padding: 12px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    animation: float 5s ease-in-out infinite;
-    z-index: 1;
+nav a:hover{
+  color:var(--primary);
 }
 
-/* ===== Stats Section ===== */
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-    animation: fadeInUp 1.4s ease-out;
-}
-.stat-box { background: var(--bg-light); padding: 20px 30px; border-radius: 20px; min-width: 160px; }
-.stat-box h2 { font-size: 32px; color: var(--primary); margin: 0; }
-.stat-box p { font-size: 13px; font-weight: 600; opacity: 0.7; }
-
-/* ===== Skills Section ===== */
-.skills-section { padding: 100px 8%; }
-.section-title { text-align: center; margin-bottom: 60px; }
-.section-title h2 { font-size: 36px; color: var(--primary); }
-
-.tools-grid {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.tool-card {
-    background: white;
-    flex: 1;
-    min-width: 300px;
-    max-width: 360px;
-    padding: 40px 30px;
-    border-radius: 30px;
-    text-align: center;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    border: 1px solid rgba(108, 92, 231, 0.1);
-}
-.tool-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(108, 92, 231, 0.15); }
-.tool-card img { height: 65px; margin-bottom: 25px; object-fit: contain; }
-
-/* ===== Backed By Section ===== */
-.backed-section { padding: 80px 20px; text-align: center; background: white; }
-.backed-logos { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; align-items: center; margin-top: 30px; }
-.backed-logos img { height: 50px; opacity: 0.6; filter: grayscale(100%); transition: 0.3s; }
-.backed-logos img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
-
-/* ===== NEW PREMIUM FOOTER STYLES ===== */
-.site-footer {
-    background: #1a1a2e; /* The deep blackish-navy color */
-    color: #ffffff;
-    padding: 80px 8% 40px;
-    margin-top: 60px;
+.join-btn{
+  background:var(--primary);
+  color:white !important;
+  padding:8px 20px;
+  border-radius:50px;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:100px 20px;
+  background:white;
 }
 
-.footer-col h3 { 
-    color: #a29bfe; /* Light purple accent */
-    margin-bottom: 25px; 
-    font-size: 20px;
-    font-weight: 700;
-    position: relative;
+.hero h1{
+  font-size:clamp(32px,6vw,60px);
+  margin-bottom:20px;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.footer-col h3::after {
-    content: '';
-    position: absolute;
-    bottom: -8px; 
-    left: 0;
-    width: 35px; 
-    height: 2px;
-    background: #6c5ce7;
+.hero p{
+  max-width:700px;
+  margin:0 auto 30px;
+  color:#555;
+  font-size:18px;
 }
 
-.footer-col ul { 
-    list-style: none; 
-    padding: 0;
+.stats-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-top:30px;
 }
 
-.footer-col ul li { 
-    margin-bottom: 12px; 
-    opacity: 0.7; 
-    transition: 0.3s; 
-    cursor: pointer;
-    font-size: 15px;
+.stat-box{
+  background:var(--light);
+  padding:20px 30px;
+  border-radius:20px;
+  min-width:140px;
 }
 
-.footer-col ul li:hover { 
-    opacity: 1; 
-    padding-left: 8px;
-    color: #a29bfe; 
+.stat-box h2{
+  color:var(--primary);
 }
 
-.footer-col p { 
-    opacity: 0.7; 
-    font-size: 14px; 
-    margin-bottom: 15px; 
-    line-height: 1.8; 
+/* ===== SKILLS ===== */
+.skills-section{
+  padding:80px 8%;
+  text-align:center;
 }
 
-.footer-contact i {
-    margin-right: 12px;
-    color: #a29bfe;
-    width: 20px;
+.section-title h2{
+  font-size:32px;
+  margin-bottom:10px;
+  color:var(--primary);
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 40px;
-    margin-top: 50px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    font-size: 13px;
-    opacity: 0.5;
-    letter-spacing: 1px;
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:50px;
 }
 
-@media (max-width: 768px) {
-    .floating { display: none; }
-    header { flex-direction: column; gap: 15px; }
-    .site-footer { padding: 60px 5% 30px; text-align: center; }
-    .footer-col h3::after { left: 50%; transform: translateX(-50%); }
-    .footer-col ul li:hover { padding-left: 0; }
+.tool-card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  transition:0.3s;
 }
+
+.tool-card:hover{
+  transform:translateY(-8px);
+}
+
+.tool-card img{
+  height:60px;
+  margin-bottom:20px;
+}
+
+/* ===== SECOND HERO ===== */
+.hero-secondary{
+  background:#e9edf5;
+  padding:100px 20px;
+  text-align:center;
+}
+
+.hero-secondary h1{
+  font-size:clamp(28px,5vw,45px);
+  margin-bottom:20px;
+}
+
+.hero-secondary p{
+  max-width:700px;
+  margin:0 auto 30px;
+}
+
+.button-group{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.hero-btn{
+  padding:12px 25px;
+  background:var(--primary);
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+.hero-btn:hover{
+  background:#574bdb;
+}
+
+/* ===== BACKED SECTION ===== */
+.backed-section{
+  padding:80px 20px;
+  background:white;
+  text-align:center;
+}
+
+.backed-logos{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.backed-logos img{
+  height:50px;
+  opacity:0.6;
+  transition:0.3s;
+}
+
+.backed-logos img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  background:#1a1a2e;
+  color:white;
+  padding:70px 8% 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+.footer-col h3{
+  color:#a29bfe;
+  margin-bottom:20px;
+}
+
+.footer-col ul{
+  list-style:none;
+}
+
+.footer-col ul li{
+  margin-bottom:10px;
+  opacity:0.7;
+}
+
+.footer-col ul li:hover{
+  opacity:1;
+  color:#a29bfe;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  font-size:13px;
+  opacity:0.6;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .hero{
+    padding:80px 15px;
+  }
+
+  .skills-section{
+    padding:60px 5%;
+  }
+
+  .site-footer{
+    text-align:center;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-    <div class="logo-area">
-        <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png" alt="Amrita Logo">
-        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
-    </div>
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="event.html">Events</a>
-        <a href="team.html">Our Team</a>
-        <a href="contact.html">Contact</a>
-        <a href="join.html" class="join-btn">Be a Member</a>
-    </nav>
+  <div class="logo-area">
+    <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png">
+    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png">
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Events</a>
+    <a href="#">Team</a>
+    <a href="#">Contact</a>
+    <a href="#" class="join-btn">Be a Member</a>
+  </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="floating" style="top:10%; left:10%;" alt="JS">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/330px-Vue.js_Logo_2.svg.png" class="floating" style="top:35%; right:10%; animation-delay: 1s;" alt="Vue">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" class="floating" style="bottom:15%; left:15%; animation-delay: 2s;" alt="React">
+  <h1>Software Innovators Club</h1>
+  <p>A dynamic student community dedicated to real-world software innovation and technical excellence.</p>
 
-    <p class="welcome-msg">WELCOME TO</p>
-    <h1>Software Innovators Club</h1>
-    <p>A dynamic student community at Amrita School of Computing, Kochi, dedicated to real-world software innovation and technical excellence.</p>
-    
-    <div class="stats-container">
-        <div class="stat-box"><h2>20+</h2><p>Mentors</p></div>
-        <div class="stat-box"><h2>150+</h2><p>Students</p></div>
-        <div class="stat-box"><h2>6</h2><p>Active Projects</p></div>
-    </div>
-
-    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="join-btn" style="padding: 15px 40px; font-size: 18px;">Join Community</a>
-        <a href="about.html" style="color: var(--primary); text-decoration: none; font-weight: 600; padding: 15px;">Read Our Story →</a>
-    </div>
+  <div class="stats-container">
+    <div class="stat-box"><h2>20+</h2><p>Mentors</p></div>
+    <div class="stat-box"><h2>150+</h2><p>Students</p></div>
+    <div class="stat-box"><h2>6</h2><p>Projects</p></div>
+  </div>
 </section>
 
+<!-- SKILLS -->
 <section class="skills-section">
-    <div class="section-title">
-        <h2>Evaluate Your Skills</h2>
-        <p>Master these industry-leading platforms to enhance your coding portfolio.</p>
+  <div class="section-title">
+    <h2>Evaluate Your Skills</h2>
+    <p>Master these industry-leading platforms.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
+      <h3>HackerRank</h3>
     </div>
-    
-    <div class="tools-grid">
-        <div class="tool-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
-            <h3>HackerRank</h3>
-            <p>Develop strong technical logic and compete in hiring challenges.</p>
-        </div>
-        
-        <div class="tool-card">
-            <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="Leetcode">
-            <h3>Leetcode</h3>
-            <p>Enhance your data structure and algorithm skills for top-tier tech roles.</p>
-        </div>
-        
-        <div class="tool-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR7LBSu7kHUGQ1I8dcitkf50EohWiMoikTZw&s.png" alt="CodeChef">
-            <h3>CodeChef</h3>
-            <p>Compete in monthly contests and learn with job-focused roadmaps.</p>
-        </div>
+
+    <div class="tool-card">
+      <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
+      <h3>LeetCode</h3>
     </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hero Secondary Section</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f4f6ff;
-}
+    <div class="tool-card">
+      <img src="https://cdn.codechef.com/sites/all/themes/abessive/cc-logo.png">
+      <h3>CodeChef</h3>
+    </div>
+  </div>
+</section>
 
-/* ===== Hero Section ===== */
-.hero-secondary {
-    position: relative;
-    text-align: center;
-    padding: 120px 20px;
-    background: #e9edf5;   /* Light grey like screenshot */
-    overflow: hidden;
-}
-
-.hero-secondary h1 {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    color: #1f2d3d;
-    margin-bottom: 20px;
-}
-
-.hero-secondary p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    color: #5f6c7b;
-}
-
-/* ===== Buttons ===== */
-.button-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.hero-btn {
-    padding: 12px 28px;
-    background: linear-gradient(90deg, #6c5ce7, #8e7bff);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
-}
-
-.hero-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 10px rgba(108, 92, 231, 0.3);
-}
-
-/* ===== Floating Icons ===== */
-.floating-icon {
-    position: absolute;
-    width: 60px;
-    animation: float 6s ease-in-out infinite;
-    opacity: 0.9;
-}
-
-.js { bottom: 20%; left: 10%; }
-.react { top: 15%; left: 20%; animation-delay: 1s; }
-.vue { bottom: 25%; right: 15%; animation-delay: 2s; }
-.cpp { top: 20%; right: 10%; animation-delay: 3s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-/* Hide icons on small screens */
-@media(max-width:768px){
-    .floating-icon { display: none; }
-}
-</style>
-</head>
-
-<body>
-
+<!-- SECOND HERO -->
 <section class="hero-secondary">
+  <h1>Join 150+ Innovators</h1>
+  <p>Effective learning starts with assessment and practice.</p>
 
-    <!-- Floating Tech Icons -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="floating-icon js" alt="JS">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="floating-icon react" alt="React">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" class="floating-icon vue" alt="Vue">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" class="floating-icon cpp" alt="C++">
-
-    <h1>Join more than 150+ Innovators within Campus</h1>
-    <p>
-        Effective learning starts with assessment. Learning a new skill is hard work.
-        Practice makes it easier.
-    </p>
-
-    <div class="button-group">
-        <a href="join.html" class="hero-btn">Join SIC</a>
-        <a href="#" class="hero-btn">Join us on WhatsApp</a>
-        <a href="#" class="hero-btn">Follow us on Instagram</a>
-    </div>
-
+  <div class="button-group">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?pli=1" class="hero-btn">Join SIC</a>
+    <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="hero-btn">WhatsApp</a>
+    <a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="hero-btn">Instagram</a>
+  </div>
 </section>
 
-</body>
-</html>
-
+<!-- BACKED -->
 <section class="backed-section">
-    <p style="letter-spacing: 5px; opacity: 0.5; font-size: 12px; font-weight: 800;">BACKED BY</p>
-    <div class="backed-logos">
-        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png" alt="IEDC">
-        <img src="https://csi.coep.org.in/csi_logo.png" alt="CSI">
-        <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png" alt="Amrita">
-    </div>
+  <p style="letter-spacing:5px;font-size:12px;opacity:0.5;">BACKED BY</p>
+  <div class="backed-logos">
+    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
+    <img src="https://csi.coep.org.in/csi_logo.png">
+    <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png">
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <img src="https://www.amritaiedc.site/assets/2024/AVV-Kochi-Logo-New.png" width="200" style="filter: brightness(0) invert(1); margin-bottom: 25px;" alt="Amrita Logo">
-            <p>Empowering the next generation of software engineers and innovators at Amrita Vishwa Vidyapeetham, Kochi Campus.</p>
-        </div>
+  <div class="footer-grid">
 
-        <div class="footer-col">
-            <h3>Associated Clubs</h3>
-            <ul>
-                <li>IEDC (Innovation Cell)</li>
-                <li>CSI (Computer Society)</li>
-                <li>IIC (Institution's Council)</li>
-                <li>ACM Student Chapter</li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul>
-                <li>Join Community</li>
-                <li>Become a Member</li>
-                <li>Upcoming Events</li>
-                <li>Terms & FAQ's</li>
-            </ul>
-        </div>
-
-        <div class="footer-col footer-contact">
-            <h3>Get in Touch</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Amrita Nagar, Edappally North, Kochi, 682024</p>
-            <p><i class="fas fa-envelope"></i> sicasaskochi@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 6238314481</p>
-        </div>
+    <div class="footer-col">
+      <h3>About SIC</h3>
+      <p>Empowering future software engineers at Amrita Kochi Campus.</p>
     </div>
 
-    <div class="footer-bottom">
-        &copy; 2026 SOFTWARE INNOVATORS CLUB | AMRITA SCHOOL OF COMPUTING, KOCHI
+    <div class="footer-col">
+      <h3>Associated Clubs</h3>
+      <ul>
+        <li>IEDC</li>
+        <li>CSI</li>
+        <li>IIC</li>
+        <li>ACM</li>
+      </ul>
     </div>
+
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>Email: sicasaskochi@gmail.com</p>
+      <p>Phone: +91 6238314481</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 SOFTWARE INNOVATORS CLUB | AMRITA SCHOOL OF COMPUTING
+  </div>
 </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
