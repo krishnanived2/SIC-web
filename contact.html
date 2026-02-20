@@ -1,67 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIC Footer</title>
 
 <style>
 
-body{
+/* ===== Reset ===== */
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family: Arial, sans-serif;
 }
 
-/* ===== Footer Main ===== */
-
+/* ===== Footer ===== */
 .footer{
     background:#f2f4f8;
-    padding:60px 80px 20px;
+    padding:60px 20px 20px;
 }
 
 .footer-container{
+    max-width:1200px;
+    margin:auto;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:40px;
 }
 
+/* Footer Columns */
+.footer-column{
+    flex:1 1 220px;
+    min-width:220px;
+}
+
 /* Headings */
 .footer h3{
-    font-size:22px;
-    margin-bottom:20px;
+    font-size:20px;
+    margin-bottom:18px;
     color:#111827;
 }
 
 /* Lists */
 .footer ul{
     list-style:none;
-    padding:0;
 }
 
 .footer ul li{
-    margin-bottom:12px;
-    color:#444;
-    cursor:pointer;
+    margin-bottom:10px;
 }
 
-.footer ul li:hover{
+.footer ul li a{
+    text-decoration:none;
+    color:#444;
+    transition:0.3s;
+}
+
+.footer ul li a:hover{
     color:#6C4CF1;
 }
 
-/* Address Section */
-.address{
-    max-width:300px;
+/* Contact Text */
+.footer p{
+    margin-bottom:10px;
     color:#444;
     line-height:1.6;
 }
 
-/* Bottom */
+.footer a{
+    color:#444;
+    text-decoration:none;
+}
+
+.footer a:hover{
+    color:#6C4CF1;
+}
+
+/* Bottom Section */
 .bottom{
     margin-top:40px;
-    padding-top:15px;
+    padding-top:20px;
     border-top:1px solid #ccc;
     text-align:center;
     font-size:14px;
     color:#555;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablet */
+@media (max-width: 992px){
+    .footer-container{
+        gap:30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+    .footer{
+        padding:40px 15px 15px;
+    }
+
+    .footer-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-column{
+        width:100%;
+    }
+
+    .bottom{
+        font-size:13px;
+    }
 }
 
 </style>
@@ -74,44 +130,49 @@ body{
     <div class="footer-container">
 
         <!-- Clubs -->
-        <div>
+        <div class="footer-column">
             <h3>Clubs</h3>
             <ul>
-                <li>IEDC</li>
-                <li>CSI</li>
-                <li>IIC</li>
+                <li><a href="#">IEDC</a></li>
+                <li><a href="#">CSI</a></li>
+                <li><a href="#">IIC</a></li>
             </ul>
         </div>
 
         <!-- Support -->
-        <div>
+        <div class="footer-column">
             <h3>Support</h3>
             <ul>
-                <li>Join Community</li>
-                <li>Become a Member</li>
-                <li>FAQ’s</li>
+                <li><a href="#">Join Community</a></li>
+                <li><a href="#">Become a Member</a></li>
+                <li><a href="#">FAQ’s</a></li>
             </ul>
         </div>
 
-        <!-- Contact Form -->
-        <div>
+        <!-- Contact -->
+        <div class="footer-column">
             <h3>Contact</h3>
-                <p>Pavithra R Menon</p>
-                <p>9947244199</p>
-                <p>KH.SC.I5MCA23083@kh.students.amrita.edu</p>
+            <p>Pavithra R Menon</p>
+            <p><a href="tel:+919947244199">+91 9947244199</a></p>
+            <p><a href="mailto:KH.SC.I5MCA23083@kh.students.amrita.edu">
+                KH.SC.I5MCA23083@kh.students.amrita.edu
+            </a></p>
         </div>
 
         <!-- Address -->
-        <div class="address">
+        <div class="footer-column">
             <h3>Get in Touch</h3>
             <p>
                 27WW+H26, Old NH17, Edappally North,<br>
                 Amrita Nagar, Brahmasthanam,<br>
                 Kochi, Ernakulam, Kerala 682024
             </p>
-
-            <p><strong>Email:</strong> sicasaskochi@gmail.com</p>
-            <p><strong>Phone:</strong> +91 6238314481</p>
+            <p><strong>Email:</strong> 
+                <a href="mailto:sicasaskochi@gmail.com">sicasaskochi@gmail.com</a>
+            </p>
+            <p><strong>Phone:</strong> 
+                <a href="tel:+916238314481">+91 6238314481</a>
+            </p>
         </div>
 
     </div>
@@ -123,5 +184,4 @@ body{
 </footer>
 
 </body>
-
 </html>
