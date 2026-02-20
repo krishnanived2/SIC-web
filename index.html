@@ -301,8 +301,106 @@ nav a:hover, nav a.active { color: var(--primary); }
             <p>Compete in monthly contests and learn with job-focused roadmaps.</p>
         </div>
     </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Secondary Section</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6ff;
+}
+
+/* ===== Hero Section ===== */
+.hero-secondary {
+    position: relative;
+    text-align: center;
+    padding: 120px 20px;
+    background: #e9edf5;   /* Light grey like screenshot */
+    overflow: hidden;
+}
+
+.hero-secondary h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: #1f2d3d;
+    margin-bottom: 20px;
+}
+
+.hero-secondary p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #5f6c7b;
+}
+
+/* ===== Buttons ===== */
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hero-btn {
+    padding: 12px 28px;
+    background: linear-gradient(90deg, #6c5ce7, #8e7bff);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+}
+
+.hero-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(108, 92, 231, 0.3);
+}
+
+/* ===== Floating Icons ===== */
+.floating-icon {
+    position: absolute;
+    width: 60px;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.9;
+}
+
+.js { bottom: 20%; left: 10%; }
+.react { top: 15%; left: 20%; animation-delay: 1s; }
+.vue { bottom: 25%; right: 15%; animation-delay: 2s; }
+.cpp { top: 20%; right: 10%; animation-delay: 3s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Hide icons on small screens */
+@media(max-width:768px){
+    .floating-icon { display: none; }
+}
+</style>
+</head>
+
+<body>
 
 <section class="hero-secondary">
+
+    <!-- Floating Tech Icons -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="floating-icon js" alt="JS">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="floating-icon react" alt="React">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" class="floating-icon vue" alt="Vue">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" class="floating-icon cpp" alt="C++">
+
     <h1>Join more than 150+ Innovators within Campus</h1>
     <p>
         Effective learning starts with assessment. Learning a new skill is hard work.
@@ -314,7 +412,11 @@ nav a:hover, nav a.active { color: var(--primary); }
         <a href="#" class="hero-btn">Join us on WhatsApp</a>
         <a href="#" class="hero-btn">Follow us on Instagram</a>
     </div>
+
 </section>
+
+</body>
+</html>
 
 <section class="backed-section">
     <p style="letter-spacing: 5px; opacity: 0.5; font-size: 12px; font-weight: 800;">BACKED BY</p>
@@ -367,6 +469,7 @@ nav a:hover, nav a.active { color: var(--primary); }
 
 </body>
 </html>
+
 
 
 
