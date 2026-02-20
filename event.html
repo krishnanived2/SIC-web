@@ -6,96 +6,110 @@
 <title>Upcoming Events</title>
 
 <style>
-body {
-  margin: 0;
+
+/* ===== Reset ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background:#f4f6fb;
 }
 
-.events-section {
-  padding: 50px;
-  text-align: center;
+/* ===== Section ===== */
+.events-section{
+  padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
 }
 
-.events-section h1 {
-  font-size: 40px;
-  margin-bottom: 40px;
+.events-section h1{
+  font-size:36px;
+  margin-bottom:40px;
 }
 
-.events-section span {
-  color: #6c63ff;
-  text-decoration: underline;
+.events-section span{
+  color:#6c63ff;
+  border-bottom:3px solid #6c63ff;
 }
 
-.events-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+/* ===== Grid Layout ===== */
+.events-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
 }
 
-.event-card {
-  width: 350px;
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: 0.3s;
+/* ===== Card ===== */
+.event-card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s ease;
+  display:flex;
+  flex-direction:column;
 }
 
-.event-card:hover {
-  transform: translateY(-10px);
+.event-card:hover{
+  transform:translateY(-8px);
 }
 
-.image-slider {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
+/* ===== Image ===== */
+.event-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
 }
 
-.image-slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* ===== Content ===== */
+.event-content{
+  padding:20px;
+  text-align:left;
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
-.event-content {
-  padding: 20px;
-  text-align: left;
+.event-content h2{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-.event-content h2 {
-  margin-top: 0;
-  font-size: 22px;
+.event-content p{
+  font-size:15px;
+  color:#555;
+  margin-bottom:6px;
 }
 
-.event-content p {
-  margin: 8px 0;
-  color: #555;
+/* ===== Button ===== */
+.event-content button{
+  margin-top:auto;
+  padding:10px;
+  border:none;
+  background:#6c63ff;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.3s;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: #6c63ff;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+.event-content button:hover{
+  background:#574bdb;
 }
 
-button:hover {
-  background: #574bdb;
-}
-
-@media(max-width: 768px){
-  .events-container{
-    flex-direction: column;
-    align-items: center;
+/* ===== Responsive Adjustments ===== */
+@media (max-width:768px){
+  .events-section h1{
+    font-size:28px;
   }
 }
+
 </style>
 </head>
 
@@ -108,9 +122,7 @@ button:hover {
 
     <!-- Event 1 -->
     <div class="event-card">
-      <div class="image-slider">
-        <img src="images/sprint.jpg" alt="Sprint & Solve">
-      </div>
+      <img src="images/sprint.jpg" alt="Sprint & Solve">
       <div class="event-content">
         <h2>Sprint & Solve</h2>
         <p>📅 27-08-2025</p>
@@ -121,9 +133,7 @@ button:hover {
 
     <!-- Event 2 -->
     <div class="event-card">
-      <div class="image-slider">
-        <img src="images/code.jpg" alt="Code Conquest">
-      </div>
+      <img src="images/code.jpg" alt="Code Conquest">
       <div class="event-content">
         <h2>Code Conquest</h2>
         <p>📅 Coming Soon</p>
@@ -134,22 +144,18 @@ button:hover {
 
     <!-- Event 3 -->
     <div class="event-card">
-      <div class="image-slider">
-        <img src="images/mindspark.jpg" alt="Mind Spark">
-      </div>
+      <img src="images/mindspark.jpg" alt="Mind Spark">
       <div class="event-content">
-        <h2>MIND SPARK</h2>
+        <h2>Mind Spark</h2>
         <p>📅 28-02-2025</p>
-        <p>⏰ 1:15PM - 3:15PM</p>
+        <p>⏰ 1:15 PM - 3:15 PM</p>
         <button>Register Now</button>
       </div>
     </div>
 
     <!-- Event 4 -->
     <div class="event-card">
-      <div class="image-slider">
-        <img src="images/treasure.jpg" alt="Treasure Hunt">
-      </div>
+      <img src="images/treasure.jpg" alt="Treasure Hunt">
       <div class="event-content">
         <h2>Treasure Hunt</h2>
         <p>📅 08-04-2025</p>
@@ -160,9 +166,7 @@ button:hover {
 
     <!-- Event 5 -->
     <div class="event-card">
-      <div class="image-slider">
-        <img src="images/synergy.jpg" alt="Synergy Sprint">
-      </div>
+      <img src="images/synergy.jpg" alt="Synergy Sprint">
       <div class="event-content">
         <h2>Synergy Sprint</h2>
         <p>📅 23-01-2026</p>
