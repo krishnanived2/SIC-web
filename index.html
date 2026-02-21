@@ -47,27 +47,35 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px 6%;
-  position:absolute;
+  padding:15px 6%;
+  position:fixed;
   width:100%;
   top:0;
   z-index:1000;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
   flex-wrap:wrap;
+}
+
+header img{
+  height:45px;
+  object-fit:contain;
 }
 
 nav{
   display:flex;
-  gap:20px;
+  gap:18px;
   flex-wrap:wrap;
   justify-content:center;
+  align-items:center;
 }
 
 nav a{
   text-decoration:none;
   color:white;
   font-weight:500;
-  transition:0.3s;
   font-size:14px;
+  transition:0.3s;
 }
 
 nav a:hover{
@@ -75,10 +83,10 @@ nav a:hover{
 }
 
 .join-btn{
-  padding:8px 18px;
+  padding:7px 16px;
   border-radius:30px;
   background:var(--primary);
-  box-shadow:0 0 15px var(--primary);
+  box-shadow:0 0 12px var(--primary);
 }
 
 /* ================= HERO ================= */
@@ -92,17 +100,17 @@ nav a:hover{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:120px 20px 60px 20px;
+  padding:140px 20px 80px 20px;
 }
 
 .hero-content{
   max-width:900px;
   width:100%;
-  padding:60px;
+  padding:50px 30px;
 }
 
 .hero h1{
-  font-size:clamp(28px,5vw,58px);
+  font-size:clamp(28px,5vw,60px);
   font-weight:800;
   margin-bottom:20px;
   background:linear-gradient(90deg,#ffffff,#8a7dff);
@@ -140,11 +148,11 @@ nav a:hover{
 .primary-btn{
   background:var(--primary);
   color:white;
-  box-shadow:0 0 20px var(--primary);
+  box-shadow:0 0 15px var(--primary);
 }
 
 .primary-btn:hover{
-  transform:translateY(-5px);
+  transform:translateY(-4px);
 }
 
 .secondary-btn{
@@ -178,7 +186,7 @@ nav a:hover{
 
 .stat-box{
   padding:25px;
-  min-width:140px;
+  min-width:150px;
   text-align:center;
 }
 
@@ -190,7 +198,7 @@ nav a:hover{
 /* ================= SKILLS ================= */
 
 .skills{
-  padding:80px 6%;
+  padding:90px 6%;
   text-align:center;
 }
 
@@ -206,18 +214,20 @@ nav a:hover{
 }
 
 .tool-card{
-  width:260px;
+  width:280px;
+  max-width:100%;
   padding:35px 20px;
   transition:0.3s;
 }
 
 .tool-card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-8px);
 }
 
 .tool-card img{
   height:60px;
   margin-bottom:20px;
+  max-width:100%;
 }
 
 /* ================= BACKED BY ================= */
@@ -245,7 +255,7 @@ nav a:hover{
 /* ================= FOOTER ================= */
 
 footer{
-  padding:50px 6%;
+  padding:60px 6%;
   background:rgba(0,0,0,0.4);
 }
 
@@ -253,7 +263,6 @@ footer{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:40px;
-  text-align:left;
 }
 
 .footer-col h3{
@@ -263,7 +272,6 @@ footer{
 
 .footer-col ul{
   list-style:none;
-  padding:0;
 }
 
 .footer-col ul li{
@@ -289,12 +297,20 @@ footer{
 
   header{
     flex-direction:column;
-    gap:15px;
+    gap:12px;
     text-align:center;
   }
 
+  nav{
+    justify-content:center;
+  }
+
+  .hero{
+    padding-top:160px;
+  }
+
   .hero-content{
-    padding:30px 20px;
+    padding:35px 20px;
   }
 
   .hero p{
@@ -420,4 +436,3 @@ footer{
 
 </body>
 </html>
-
