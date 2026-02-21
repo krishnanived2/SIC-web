@@ -5,119 +5,106 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About - Software Innovators Club</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 
-/* ===== General Styles ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===== GLOBAL RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
-    background-color: #f9f9f9;
+body{
+    min-height:100vh;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
+    background-size:400% 400%;
+    animation:gradientMove 15s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    color:white;
 }
 
-/* ===== Navbar ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    flex-wrap: wrap;
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #6c5ce7;
+/* ===== SECTION ===== */
+.section{
+    width:100%;
+    max-width:1000px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+/* ===== GLASS BOX ===== */
+.about-box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
+    padding:60px 40px;
+    text-align:center;
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    transition:0.4s ease;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: 0.3s;
+.about-box:hover{
+    box-shadow:0 0 30px rgba(138,125,255,0.6);
 }
 
-.nav-links a:hover {
-    color: #6c5ce7;
+/* ===== HEADING ===== */
+h1{
+    font-size:36px;
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#ffffff,#8a7dff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.member-btn {
-    background-color: #6c5ce7;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
+/* ===== IMAGE ===== */
+.about-box img{
+    width:100%;
+    max-width:420px;
+    border-radius:20px;
+    margin:25px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    transition:0.4s ease;
 }
 
-.member-btn:hover {
-    background-color: #5a4cd1;
+.about-box img:hover{
+    transform:scale(1.05);
 }
 
-/* ===== About Section ===== */
-.section {
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* ===== PARAGRAPH ===== */
+.about-box p{
+    font-size:17px;
+    line-height:1.9;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:25px;
 }
 
-.about-box {
-    max-width: 900px;
-}
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px){
 
-.about-box img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
-    margin: 20px 0;
-}
-
-h1 {
-    font-size: 34px;
-    color: #6c5ce7;
-    margin-bottom: 20px;
-}
-
-.about-box p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 25px;
-}
-
-/* ===== Responsive Design ===== */
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+    .about-box{
+        padding:40px 25px;
     }
 
-    .nav-links {
-        justify-content: center;
+    h1{
+        font-size:26px;
     }
 
-    h1 {
-        font-size: 26px;
-    }
-
-    .about-box p {
-        font-size: 16px;
+    .about-box p{
+        font-size:15px;
     }
 }
 
@@ -126,23 +113,23 @@ h1 {
 
 <body>
 
-<!-- ===== About Section ===== -->
 <section class="section">
     <div class="about-box">
         <h1>About Software Innovators Club</h1>
 
-        <img src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg" alt="Developers working together">
+        <img src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg" 
+             alt="Developers working together">
 
         <p>
             Software Innovators Club @ Amrita Kochi Campus aims to create a dynamic community 
-            of developers, creators, and enthusiasts, providing them with opportunities for 
-            learning, collaboration, and real-world problem-solving.
+            of developers, creators, and innovators by providing opportunities for learning, 
+            collaboration, and real-world problem solving.
         </p>
 
         <p>
-            Membership to our club is open to all students of Amrita Kochi Campus with an interest
-            in developing something. The club provides an environment for students to extend their 
-            ideas and interests and improve their overall technical skills.
+            Membership is open to all students interested in building impactful technology. 
+            The club provides a digital-first environment to explore ideas, strengthen technical 
+            foundations, and work on meaningful projects.
         </p>
     </div>
 </section>
