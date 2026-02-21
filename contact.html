@@ -7,33 +7,53 @@
 
 <style>
 
-/* ===== Reset ===== */
+/* ===== GLOBAL RESET ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family: Arial, sans-serif;
+    min-height:100vh;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
+    background-size:400% 400%;
+    animation:gradientMove 15s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* ===== Footer ===== */
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== FOOTER GLASS ===== */
 .footer{
-    background:#f2f4f8;
-    padding:60px 20px 20px;
+    width:95%;
+    max-width:1200px;
+    padding:60px 30px 25px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    color:white;
 }
 
+/* Container */
 .footer-container{
-    max-width:1200px;
-    margin:auto;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:40px;
 }
 
-/* Footer Columns */
+/* Columns */
 .footer-column{
     flex:1 1 220px;
     min-width:220px;
@@ -43,7 +63,9 @@ body{
 .footer h3{
     font-size:20px;
     margin-bottom:18px;
-    color:#111827;
+    background:linear-gradient(90deg,#ffffff,#8a7dff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* Lists */
@@ -52,58 +74,66 @@ body{
 }
 
 .footer ul li{
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .footer ul li a{
     text-decoration:none;
-    color:#444;
+    color:rgba(255,255,255,0.8);
     transition:0.3s;
 }
 
 .footer ul li a:hover{
-    color:#6C4CF1;
+    color:#8a7dff;
+    text-shadow:0 0 10px #8a7dff;
 }
 
-/* Contact Text */
+/* Paragraphs */
 .footer p{
     margin-bottom:10px;
-    color:#444;
     line-height:1.6;
+    color:rgba(255,255,255,0.85);
 }
 
 .footer a{
-    color:#444;
+    color:rgba(255,255,255,0.85);
     text-decoration:none;
+    transition:0.3s;
 }
 
 .footer a:hover{
-    color:#6C4CF1;
+    color:#8a7dff;
+    text-shadow:0 0 10px #8a7dff;
 }
 
 /* Bottom Section */
 .bottom{
     margin-top:40px;
     padding-top:20px;
-    border-top:1px solid #ccc;
+    border-top:1px solid rgba(255,255,255,0.2);
     text-align:center;
     font-size:14px;
-    color:#555;
+    color:rgba(255,255,255,0.6);
 }
 
-/* ===== Responsive ===== */
+/* ===== RESPONSIVE ===== */
 
 /* Tablet */
-@media (max-width: 992px){
+@media (max-width:992px){
     .footer-container{
         gap:30px;
     }
 }
 
 /* Mobile */
-@media (max-width: 600px){
+@media (max-width:600px){
+    body{
+        padding:20px 0;
+        align-items:flex-start;
+    }
+
     .footer{
-        padding:40px 15px 15px;
+        padding:40px 20px 20px;
     }
 
     .footer-container{
@@ -133,9 +163,9 @@ body{
         <div class="footer-column">
             <h3>Clubs</h3>
             <ul>
-                <li><a href="#">IEDC</a></li>
-                <li><a href="#">CSI</a></li>
-                <li><a href="#">IIC</a></li>
+                <li><a href="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">IEDC</a></li>
+                <li><a href="https://csiasas.vercel.app/images/CSI.PNG">CSI</a></li>
+                <li><a href="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">IIC</a></li>
             </ul>
         </div>
 
@@ -143,8 +173,8 @@ body{
         <div class="footer-column">
             <h3>Support</h3>
             <ul>
-                <li><a href="#">Join Community</a></li>
-                <li><a href="#">Become a Member</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform">Join Community</a></li>
+                <li><a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?usp=send_form&pli=1&authuser=0">Become a Member</a></li>
                 <li><a href="#">FAQ’s</a></li>
             </ul>
         </div>
@@ -154,9 +184,11 @@ body{
             <h3>Contact</h3>
             <p>Pavithra R Menon</p>
             <p><a href="tel:+919947244199">+91 9947244199</a></p>
-            <p><a href="mailto:KH.SC.I5MCA23083@kh.students.amrita.edu">
+            <p>
+                <a href="mailto:KH.SC.I5MCA23083@kh.students.amrita.edu">
                 KH.SC.I5MCA23083@kh.students.amrita.edu
-            </a></p>
+                </a>
+            </p>
         </div>
 
         <!-- Address -->
