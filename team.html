@@ -50,6 +50,7 @@ body{
 .team-category h3{
     font-size:26px;
     margin-bottom:50px;
+    color:#ffffff;
     text-shadow:0 0 10px rgba(138,125,255,0.6);
 }
 
@@ -67,6 +68,7 @@ body{
     border-radius:20px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,0.15);
     box-shadow:0 8px 32px rgba(0,0,0,0.4);
     transition:0.4s ease;
@@ -77,21 +79,13 @@ body{
     box-shadow:0 0 25px rgba(138,125,255,0.7);
 }
 
-/* ===== IMAGE FIXED PERFECT FIT ===== */
 .team-card img{
     width:200px;
     height:200px;
     border-radius:50%;
     object-fit:cover;
-    object-position:center;
-    display:block;
-    margin:0 auto 20px auto;
-    border:4px solid rgba(255,255,255,0.3);
-    transition:0.3s ease;
-}
-
-.team-card img:hover{
-    border-color:#8a7dff;
+    margin-bottom:20px;
+    border:3px solid rgba(255,255,255,0.3);
 }
 
 .team-card h4{
@@ -102,6 +96,7 @@ body{
 .team-card p{
     font-size:14px;
     color:rgba(255,255,255,0.75);
+    margin:6px 0;
 }
 
 @media (max-width:768px){
@@ -113,6 +108,7 @@ body{
 </head>
 
 <body>
+
 <section class="team-section">
 <h2 class="team-title">Our Team</h2>
 
@@ -121,8 +117,8 @@ body{
 <h3>Faculty Coordinator</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="images/nontech1.jpg" alt="Dr Anupama">
-<h4>Dr. Anupama KN</h4>
+<img src="">
+<h4>Dr.Anupama KN</h4>
 <p>Faculty Coordinator</p>
 </div>
 </div>
@@ -133,11 +129,11 @@ body{
 <h3>Mentors</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="images/default.jpg" alt="Kiran">
+<img src="">
 <h4>Kiran S</h4>
 </div>
 <div class="team-card">
-<img src="images/default.jpg" alt="Narayanan">
+<img src="">
 <h4>Narayanan G</h4>
 </div>
 </div>
@@ -148,7 +144,7 @@ body{
 <h3>Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="images/default.jpg" alt="Pavithra">
+<img src="">
 <h4>Pavithra R Menon</h4>
 </div>
 </div>
@@ -159,7 +155,7 @@ body{
 <h3>Co Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p9.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg">
 <h4>Abhilash Singh</h4>
 </div>
 </div>
@@ -170,17 +166,17 @@ body{
 <h3>Marketing Team</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p4.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p4.jpeg">
 <h4>Vivek Krishnan H</h4>
 <p>Marketing Lead</p>
 </div>
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p6.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg">
 <h4>Parvana K Pillai</h4>
 <p>Marketing Member</p>
 </div>
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p7.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg">
 <h4>Medha Pradeep</h4>
 <p>Marketing Member</p>
 </div>
@@ -192,34 +188,64 @@ body{
 <h3>Technical Team</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p8.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p8.jpeg">
 <h4>Pruthu Prasad</h4>
 <p>Technical Lead</p>
 </div>
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p3.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p3.jpeg">
 <h4>Jagath Jyothis</h4>
 <p>Technical Lead</p>
 </div>
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p2.jpg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p2.jpg">
 <h4>Krishnanived</h4>
 <p>Technical Assistant</p>
 </div>
 <div class="team-card">
-<img src="images/default.jpg" alt="John">
+<img src="">
 <h4>John J Karian</h4>
 <p>Technical Assistant</p>
 </div>
 </div>
 </div>
-
+    <!-- Creative Lead -->
+    <div class="team-category">
+        <h3>Creative lead</h3>
+        <div class="team-row">
+            <div class="team-card">
+                <img srec="">
+                <h4>Mehanaz P Sinoob</h4>
+            </div>
+	</div>
+   </div>
+	<!-- Media Lead -->
+    <div class="team-category">
+        <h3>Media lead</h3>
+        <div class="team-row">
+            <div class="team-card">
+                <img srec="">
+                <h4>Gowri Parvathy Sailesh</h4>
+            </div>
+	</div>
+   </div>
+<!-- Documentation Lead -->
+    <div class="team-category">
+        <h3>Documentation lead</h3>
+        <div class="team-row">
+            <div class="team-card">
+                <img srec="">
+                <h4>Niranjana A S</h4>
+            </div>
+	</div>
+   </div>
+    
 <!-- Finance Lead -->
 <div class="team-category">
 <h3>Finance Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/main/p5.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p5.jpeg">
 <h4>Suparna Sajeev</h4>
 </div>
 </div>
