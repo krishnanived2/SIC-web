@@ -80,16 +80,21 @@ body{
     box-shadow:0 0 25px rgba(138,125,255,0.7);
 }
 
-/* ===== FIXED IMAGE STYLE ===== */
+/* ===== IMAGE STYLE ===== */
 .team-card img{
     width:180px;
     height:180px;
     border-radius:50%;
     object-fit:cover;
-    object-position:top center;   /* Fix for portrait images */
+    object-position:top center;
     display:block;
     margin:0 auto 20px;
     border:3px solid rgba(255,255,255,0.3);
+}
+
+/* Special Fix for Abhilash */
+.fit-center{
+    object-position:center top !important;
 }
 
 /* TEXT */
@@ -177,7 +182,7 @@ body{
 <h3>Co Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg" class="fit-center">
 <h4>Abhilash Singh</h4>
 </div>
 </div>
@@ -289,7 +294,3 @@ body{
 
 </body>
 </html>
-
-
-
-
