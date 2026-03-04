@@ -31,39 +31,43 @@ body{
 }
 
 .team-section{
-    padding:100px 20px;
+    padding:80px 15px;
     text-align:center;
+    max-width:1400px;
+    margin:auto;
 }
 
 .team-title{
     font-size:42px;
-    margin-bottom:80px;
+    margin-bottom:60px;
     background:linear-gradient(90deg,#ffffff,#8a7dff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .team-category{
-    margin-bottom:90px;
+    margin-bottom:80px;
 }
 
 .team-category h3{
     font-size:26px;
-    margin-bottom:50px;
+    margin-bottom:40px;
     text-shadow:0 0 10px rgba(138,125,255,0.6);
 }
 
 .team-row{
     display:flex;
     justify-content:center;
-    align-items:center;
-    gap:40px;
+    align-items:stretch;
+    gap:30px;
     flex-wrap:wrap;
 }
 
+/* ===== CARD ===== */
 .team-card{
-    width:260px;
-    padding:35px 20px;
+    flex:1 1 250px;
+    max-width:280px;
+    padding:30px 20px;
     border-radius:20px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(20px);
@@ -73,21 +77,28 @@ body{
 }
 
 .team-card:hover{
-    transform:translateY(-12px) scale(1.05);
+    transform:translateY(-10px);
     box-shadow:0 0 25px rgba(138,125,255,0.7);
 }
 
+/* ===== IMAGE FIX ===== */
 .team-card img{
-    width:200px;
-    height:200px;
+    width:100%;
+    max-width:180px;
+    aspect-ratio:1/1;
     border-radius:50%;
     object-fit:cover;
-    object-position:center;
     display:block;
     margin:0 auto 20px;
     border:3px solid rgba(255,255,255,0.3);
 }
 
+/* Empty image fallback */
+.team-card img[src=""]{
+    background:rgba(255,255,255,0.1);
+}
+
+/* TEXT */
 .team-card h4{
     margin:12px 0;
     font-size:18px;
@@ -99,9 +110,36 @@ body{
     margin:6px 0;
 }
 
-@media (max-width:768px){
-    .team-title{ font-size:30px; }
-    .team-category h3{ font-size:20px; }
+/* ===== TABLET ===== */
+@media (max-width:992px){
+    .team-title{ font-size:34px; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:600px){
+
+    .team-section{
+        padding:60px 10px;
+    }
+
+    .team-title{
+        font-size:26px;
+        margin-bottom:40px;
+    }
+
+    .team-category h3{
+        font-size:20px;
+        margin-bottom:30px;
+    }
+
+    .team-card{
+        max-width:100%;
+    }
+
+    .team-card img{
+        max-width:150px;
+    }
+
 }
 
 </style>
@@ -117,7 +155,7 @@ body{
 <h3>Faculty Coordinator</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png" alt="Dr Anupama KN">
 <h4>Dr.Anupama KN</h4>
 <p>Faculty Coordinator</p>
 </div>
@@ -129,11 +167,11 @@ body{
 <h3>Mentors</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="">
+<img src="" alt="Kiran S">
 <h4>Kiran S</h4>
 </div>
 <div class="team-card">
-<img src="">
+<img src="" alt="Narayanan G">
 <h4>Narayanan G</h4>
 </div>
 </div>
@@ -144,7 +182,7 @@ body{
 <h3>Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="">
+<img src="" alt="Pavithra R Menon">
 <h4>Pavithra R Menon</h4>
 </div>
 </div>
@@ -155,7 +193,7 @@ body{
 <h3>Co Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg" alt="Abhilash Singh">
 <h4>Abhilash Singh</h4>
 </div>
 </div>
@@ -166,17 +204,19 @@ body{
 <h3>Marketing Team</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpeg" alt="Vivek Krishnan H">
 <h4>Vivek Krishnan H</h4>
 <p>Marketing Lead</p>
 </div>
+
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg" alt="Parvana K Pillai">
 <h4>Parvana K Pillai</h4>
 <p>Marketing Member</p>
 </div>
+
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg" alt="Medha Pradeep">
 <h4>Medha Pradeep</h4>
 <p>Marketing Member</p>
 </div>
@@ -187,26 +227,31 @@ body{
 <div class="team-category">
 <h3>Technical Team</h3>
 <div class="team-row">
+
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p8.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p8.jpeg" alt="Pruthu Prasad">
 <h4>Pruthu Prasad</h4>
 <p>Technical Lead</p>
 </div>
+
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p3.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p3.jpeg" alt="Jagath Jyothis">
 <h4>Jagath Jyothis</h4>
 <p>Technical Lead</p>
 </div>
+
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p2.jpg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p2.jpg" alt="Krishnanived">
 <h4>Krishnanived</h4>
 <p>Technical Assistant</p>
 </div>
+
 <div class="team-card">
-<img src="">
+<img src="" alt="John J Karian">
 <h4>John J Karian</h4>
 <p>Technical Assistant</p>
 </div>
+
 </div>
 </div>
 
@@ -215,7 +260,7 @@ body{
 <h3>Creative Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11.jpeg" alt="Mehanaz P Sinoob">
 <h4>Mehanaz P Sinoob</h4>
 </div>
 </div>
@@ -226,7 +271,7 @@ body{
 <h3>Media Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="">
+<img src="" alt="Gowri Parvathy Sailesh">
 <h4>Gowri Parvathy Sailesh</h4>
 </div>
 </div>
@@ -237,7 +282,7 @@ body{
 <h3>Documentation Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="">
+<img src="" alt="Niranjana A S">
 <h4>Niranjana A S</h4>
 </div>
 </div>
@@ -248,7 +293,7 @@ body{
 <h3>Finance Lead</h3>
 <div class="team-row">
 <div class="team-card">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p5.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p5.jpeg" alt="Suparna Sajeev">
 <h4>Suparna Sajeev</h4>
 </div>
 </div>
@@ -258,5 +303,3 @@ body{
 
 </body>
 </html>
-
-
