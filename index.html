@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIC - Software Innovators Club</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ================= GLOBAL ================= */
 :root{
   --glass: rgba(255,255,255,0.08);
   --border: rgba(255,255,255,0.18);
@@ -29,7 +28,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= GLASS ================= */
+/* GLASS EFFECT */
 .glass{
   background: var(--glass);
   backdrop-filter: blur(20px);
@@ -38,7 +37,7 @@ body{
   border-radius:20px;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
@@ -85,7 +84,7 @@ nav a:hover{
   box-shadow:0 0 12px var(--primary);
 }
 
-/* ================= DROPDOWN ================= */
+/* DROPDOWN */
 .dropdown{
   position:relative;
 }
@@ -103,12 +102,10 @@ nav a:hover{
   transition:0.3s;
 }
 
-/* Rotate arrow when active */
 .dropdown:hover .arrow{
   transform:rotate(180deg);
 }
 
-/* Dropdown content */
 .dropdown-content{
   position:absolute;
   top:35px;
@@ -136,14 +133,13 @@ nav a:hover{
   background:var(--primary);
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content{
   opacity:1;
   visibility:visible;
   transform:translateY(0);
 }
 
-/* ================= HERO ================= */
+/* HERO SECTION */
 .hero{
   min-height:100vh;
   background: 
@@ -179,7 +175,7 @@ nav a:hover{
   line-height:1.6;
 }
 
-/* ================= BUTTONS ================= */
+/* HERO BUTTONS */
 .hero-buttons{
   display:flex;
   justify-content:center;
@@ -216,18 +212,18 @@ nav a:hover{
   background:rgba(255,255,255,0.1);
 }
 
-.teritiary-btn{
+.tertiary-btn{
   background:transparent;
   border:1px solid var(--primary);
   color:var(--primary);
 }
 
-.teritiary-btn:hover{
+.tertiary-btn:hover{
   background:var(--primary);
   color:white;
 }
 
-/* ================= STATS ================= */
+/* STATS */
 .stats{
   display:flex;
   justify-content:center;
@@ -250,7 +246,7 @@ nav a:hover{
   font-size:24px;
 }
 
-/* ================= SKILLS ================= */
+/* SKILLS SECTION */
 .skills{
   padding:90px 6%;
   text-align:center;
@@ -288,7 +284,7 @@ nav a:hover{
   max-width:100%;
 }
 
-/* ================= BACKED BY ================= */
+/* BACKED BY SECTION */
 .backed{
   padding:60px 20px;
   text-align:center;
@@ -309,7 +305,7 @@ nav a:hover{
   opacity:0.8;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   padding:60px 6%;
   background:rgba(0,0,0,0.4);
@@ -347,7 +343,7 @@ footer{
   opacity:0.6;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE RESPONSIVE */
 @media(max-width:768px){
 
   header{
@@ -391,20 +387,25 @@ footer{
   .footer-grid{
     text-align:center;
   }
+}
 
+/* LAPTOP / LARGE SCREENS */
+@media(min-width:1200px){
+  .hero-content{
+    padding:70px 50px;
+  }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png">
+  <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
   
   <nav>
     <a href="#">Home</a>
     <a href="about.html">About</a>
 
-    <!-- EVENTS DROPDOWN -->
     <div class="dropdown">
       <div class="dropbtn">
         Events <span class="arrow">▼</span>
@@ -433,7 +434,7 @@ footer{
     <div class="hero-buttons">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?usp=send_form" class="primary-btn">Join SIC</a>
       <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="secondary-btn">Join Us on Whatsapp</a>
-      <a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="teritiary-btn">Follow us on Instagram</a>
+      <a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="tertiary-btn">Follow us on Instagram</a>
     </div>
 
     <div class="stats">
@@ -457,13 +458,13 @@ footer{
   <h2>Evaluate Your Skills</h2>
   <div class="tools">
     <div class="tool-card glass">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
       <h3>HackerRank</h3>
       <p>Improve coding logic and compete in hiring challenges.</p>
     </div>
 
     <div class="tool-card glass">
-      <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
+      <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png" alt="LeetCode">
       <h3>LeetCode</h3>
       <p>Master DSA for top tech interviews.</p>
     </div>
@@ -473,10 +474,10 @@ footer{
 <section class="backed">
   <p style="letter-spacing:4px;font-size:12px;">BACKED BY</p>
   <div class="backed-logos">
-    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
-    <img src="https://csi.coep.org.in/csi_logo.png">
-    <img src="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
-    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p30.jpeg">
+    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png" alt="IEDC">
+    <img src="https://csi.coep.org.in/csi_logo.png" alt="CSI">
+    <img src="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg" alt="IIC">
+    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p30.jpeg" alt="Partner Logo">
   </div>
 </section>
 
