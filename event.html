@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Events | Medium Layout</title>
+    <title>Past Events</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* ===== GLOBAL RESET ===== */
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -17,144 +17,128 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c3c);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
-            padding: 60px 20px;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* ===== SECTION ===== */
-        .events-section {
-            max-width: 1050px; /* "Medium" container width */
-            margin: 0 auto;
-            text-align: center;
+            background: #0f2027; /* Solid fallback */
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+            padding: 40px 20px;
             color: white;
         }
 
+        /* ===== SECTION LAYOUT ===== */
+        .events-section {
+            max-width: 1100px; /* Medium width for better readability */
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .events-section h1 {
-            font-size: 32px;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
+            font-size: clamp(24px, 5vw, 32px);
+            margin-bottom: 40px;
         }
 
         .events-section h1 span {
             color: #8a7dff;
             border-bottom: 3px solid #8a7dff;
-            padding-bottom: 5px;
         }
 
-        /* ===== GRID ===== */
+        /* ===== GRID SYSTEM ===== */
         .events-container {
             display: grid;
-            /* Creates 3 columns on desktop, 2 on tablet, 1 on mobile */
+            /* Creates a balanced 3-column or 2-column layout depending on screen size */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
             justify-items: center;
         }
 
-        /* ===== GLASS CARD ===== */
+        /* ===== THE CARD ===== */
         .event-card {
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease-in-out;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: 320px; /* Keeps cards from getting too large */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .event-card:hover {
-            transform: translateY(-10px);
-            border: 1px solid rgba(138, 125, 255, 0.5);
-            box-shadow: 0 15px 35px rgba(138, 125, 255, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(138, 125, 255, 0.3);
+            border-color: rgba(138, 125, 255, 0.5);
         }
 
-        /* ===== IMAGE BOX (The "Correct" Way) ===== */
-        .image-box {
+        /* ===== IMAGE FIX ===== */
+        .img-container {
             width: 100%;
-            height: 200px; /* Fixed height for all images */
+            aspect-ratio: 16 / 10; /* Maintains a standard rectangular shape */
+            background: #000; /* Fills gaps if image is a different shape */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            background: #000;
+            padding: 5px; /* Slight padding so image doesn't touch edges */
         }
 
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Crops image to fill box without distortion */
-            object-position: center;
-            transition: transform 0.5s ease;
+        .img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Keeps whole image visible without cropping */
+            border-radius: 8px;
         }
 
-        .event-card:hover .image-box img {
-            transform: scale(1.1); /* Subtle zoom effect */
-        }
-
-        /* ===== CONTENT ===== */
+        /* ===== CARD CONTENT ===== */
         .event-content {
-            padding: 22px;
+            padding: 20px;
             text-align: left;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
         }
 
         .event-content h2 {
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
             color: #fff;
-            font-weight: 600;
         }
 
         .event-content p {
-            font-size: 14px;
-            color: #ccc;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
         }
 
-        /* ===== BUTTON ===== */
+        /* ===== SHARED BUTTON STYLE ===== */
         .btn {
+            margin-top: auto; /* Forces button to stay at the bottom */
             display: block;
-            margin-top: auto; /* Pushes button to bottom of card */
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             background: linear-gradient(135deg, #7b6cff, #5a8cff);
-            color: #fff;
+            color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
             text-align: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
             transition: 0.3s;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .btn:hover {
             filter: brightness(1.2);
-            box-shadow: 0 5px 15px rgba(90, 140, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(123, 108, 255, 0.4);
         }
 
-        /* ===== RESPONSIVE ADJUSTMENTS ===== */
-        @media (max-width: 768px) {
-            .events-section h1 { font-size: 28px; }
-            .events-container { gap: 20px; }
-            body { padding: 40px 15px; }
+        /* Small mobile tweaks */
+        @media (max-width: 480px) {
+            .events-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
 
 <section class="events-section">
@@ -163,50 +147,50 @@
     <div class="events-container">
 
         <div class="event-card">
-            <div class="image-box">
+            <div class="img-container">
                 <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png" alt="Sprint & Solve">
             </div>
             <div class="event-content">
                 <h2>Sprint & Solve</h2>
-                <p><span>📅</span> 27-08-2025</p>
-                <p><span>⏰</span> 11:15 AM</p>
-                <a href="d.html" class="btn">About the event</a>
+                <p>📅 27-08-2025</p>
+                <p>⏰ 11:15 AM</p>
+                <a href="d.html" class="btn">About Event</a>
             </div>
         </div>
 
         <div class="event-card">
-            <div class="image-box">
+            <div class="img-container">
                 <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg" alt="Mind Spark">
             </div>
             <div class="event-content">
                 <h2>Mind Spark</h2>
-                <p><span>📅</span> 28-02-2025</p>
-                <p><span>⏰</span> 1:15 PM - 3:15 PM</p>
-                <a href="c.html" class="btn">About the event</a>
+                <p>📅 28-02-2025</p>
+                <p>⏰ 1:15 PM - 3:15 PM</p>
+                <a href="c.html" class="btn">About Event</a>
             </div>
         </div>
 
         <div class="event-card">
-            <div class="image-box">
+            <div class="img-container">
                 <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg" alt="Treasure Hunt">
             </div>
             <div class="event-content">
                 <h2>Treasure Hunt</h2>
-                <p><span>📅</span> 08-04-2025</p>
-                <p><span>⏰</span> 11:00 AM</p>
-                <a href="b.html" class="btn">About the event</a>
+                <p>📅 08-04-2025</p>
+                <p>⏰ 11:00 AM</p>
+                <a href="b.html" class="btn">About Event</a>
             </div>
         </div>
 
         <div class="event-card">
-            <div class="image-box">
+            <div class="img-container">
                 <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg" alt="Synergy Sprint">
             </div>
             <div class="event-content">
                 <h2>Synergy Sprint</h2>
-                <p><span>📅</span> 23-01-2026</p>
-                <p><span>⏰</span> 11:15 AM - 12:15 PM</p>
-                <a href="a.html" class="btn">About the event</a>
+                <p>📅 23-01-2026</p>
+                <p>⏰ 11:15 AM - 12:15 PM</p>
+                <a href="a.html" class="btn">About Event</a>
             </div>
         </div>
 
