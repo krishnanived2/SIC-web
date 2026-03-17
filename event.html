@@ -1,291 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Past Events</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
+    <style>
+        /* ===== GLOBAL RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* ===== GLOBAL RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Poppins', sans-serif;
-}
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c3c);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            padding: 40px 20px;
+            display: block; /* Changed from flex for better scrolling */
+        }
 
-body{
-  min-height:100vh;
-  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
-  background-size:400% 400%;
-  animation: gradientMove 15s ease infinite;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+        /* ===== SECTION ===== */
+        .events-section {
+            max-width: 1000px; /* Reduced from 1200px for "Medium" feel */
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
 
-/* ===== SECTION ===== */
-.events-section{
-  padding:60px 10px;
-  max-width:1200px;
-  width:100%;
-  text-align:center;
-  color:white;
-}
+        .events-section h1 {
+            font-size: 32px; /* Slightly smaller header */
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #ffffff, #8a7dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.events-section h1{
-  font-size:38px;
-  margin-bottom:40px;
-  background:linear-gradient(90deg,#ffffff,#8a7dff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+        .events-section h1 span {
+            border-bottom: 3px solid #8a7dff;
+        }
 
-.events-section span{
-  border-bottom:3px solid #8a7dff;
-}
+        /* ===== GRID ===== */
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Balanced card width */
+            gap: 20px;
+            justify-items: center;
+        }
 
-/* ===== GRID ===== */
-.events-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:25px;
-}
+        /* ===== GLASS CARD ===== */
+        .event-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px; /* Limits card growth on large screens */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-/* ===== GLASS CARD ===== */
-.event-card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:20px;
-  overflow:hidden;
-  transition:0.4s ease;
-  display:flex;
-  flex-direction:column;
-  box-shadow:0 8px 32px rgba(0,0,0,0.3);
-}
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(138, 125, 255, 0.4);
+        }
 
-.event-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(138,125,255,0.6);
-}
+        /* ===== IMAGE ===== */
+        .event-card img {
+            width: 100%;
+            height: 180px; /* Fixed height for uniformity */
+            object-fit: cover; /* "cover" usually looks cleaner than "contain" for grids */
+            background: #111;
+        }
 
-/* ===== IMAGE ===== */
-.event-card img{
-  width:100%;
-  height:auto;              /* Shows full image */
-  max-height:260px;         /* Prevents too tall images */
-  object-fit:contain;       /* Keeps full image visible */
-  background:#111;          /* Clean background if ratio differs */
-  padding:10px;
-}
+        /* ===== CONTENT ===== */
+        .event-content {
+            padding: 20px;
+            text-align: left;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* ===== CONTENT ===== */
-.event-content{
-  padding:20px;
-  text-align:left;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  color:white;
-}
+        .event-content h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
 
-.event-content h2{
-  font-size:20px;
-  margin-bottom:10px;
-}
+        .event-content p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
 
-.event-content p{
-  font-size:14px;
-  opacity:0.85;
-  margin-bottom:6px;
-}
+        /* ===== BUTTON ===== */
+        .btn {
+            display: block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #7b6cff, #5a8cff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px; /* Slightly sharper for modern feel */
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
 
-/* ===== BUTTON ===== */
-.event-content button{
-  margin-top:auto;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:linear-gradient(90deg,#8a7dff,#6c63ff);
-  color:white;
-  cursor:pointer;
-  font-size:14px;
-  transition:0.3s ease;
-  box-shadow:0 0 15px rgba(138,125,255,0.5);
-}
+        .btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
 
-.event-content button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 25px rgba(138,125,255,0.9);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px){
-  .events-section h1{
-    font-size:26px;
-  }
-
-  .event-content{
-    padding:18px;
-  }
-
-  .event-content h2{
-    font-size:18px;
-  }
-}
-
-</style>
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .events-section h1 { font-size: 24px; }
+            .events-container { gap: 15px; }
+            body { padding: 20px 10px; }
+        }
+    </style>
 </head>
 
 <body>
 
 <section class="events-section">
-  <h1>Past <span>Events</span></h1>
+    <h1>Past <span>Events</span></h1>
 
-  <div class="events-container">
+    <div class="events-container">
 
-    <div class="event-card">
-      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png" alt="Sprint & Solve">
-      <div class="event-content">
-        <h2>Sprint & Solve</h2>
-        <p>📅 27-08-2025</p>
-        <p>⏰ 11:15 AM</p>
-        <a href="d.html" class="btn">About the event</a>
-         <style>
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #7b6cff, #5a8cff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px; /* pill shape */
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-}
+        <div class="event-card">
+            <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png" alt="Sprint & Solve">
+            <div class="event-content">
+                <h2>Sprint & Solve</h2>
+                <p>📅 27-08-2025</p>
+                <p>⏰ 11:15 AM</p>
+                <a href="d.html" class="btn">About the event</a>
+            </div>
+        </div>
 
-.btn:hover {
-    background: linear-gradient(135deg, #6a5cff, #4a7cff);
-    transform: translateY(-2px);
-}
-</style>
-</div>
-      </div>
+        <div class="event-card">
+            <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg" alt="Mind Spark">
+            <div class="event-content">
+                <h2>Mind Spark</h2>
+                <p>📅 28-02-2025</p>
+                <p>⏰ 1:15 PM - 3:15 PM</p>
+                <a href="c.html" class="btn">About the event</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg" alt="Treasure Hunt">
+            <div class="event-content">
+                <h2>Treasure Hunt</h2>
+                <p>📅 08-04-2025</p>
+                <p>⏰ 11:00 AM</p>
+                <a href="b.html" class="btn">About the event</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg" alt="Synergy Sprint">
+            <div class="event-content">
+                <h2>Synergy Sprint</h2>
+                <p>📅 23-01-2026</p>
+                <p>⏰ 11:15 AM - 12:15 PM</p>
+                <a href="a.html" class="btn">About the event</a>
+            </div>
+        </div>
+
     </div>
-
-    <div class="event-card">
-      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg" alt="Mind Spark">
-      <div class="event-content">
-        <h2>Mind Spark</h2>
-        <p>📅 28-02-2025</p>
-        <p>⏰ 1:15 PM - 3:15 PM</p>
-        <a href="c.html" class="btn">About the event
-       <style>
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #7b6cff, #5a8cff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px; /* pill shape */
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #6a5cff, #4a7cff);
-    transform: translateY(-2px);
-}
-</style>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg" alt="Treasure Hunt">
-      <div class="event-content">
-        <h2>Treasure Hunt</h2>
-        <p>📅 08-04-2025</p>
-        <p>⏰ 11:00 AM</p>
-        <a href="b.html" class="btn">About the event</a>
-        <style>
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #7b6cff, #5a8cff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px; /* pill shape */
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #6a5cff, #4a7cff);
-    transform: translateY(-2px);
-}
-</style>
-</div>
-      </div>
-    </div>
-
-    <div class="event-card">
-      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg" alt="Synergy Sprint">
-      <div class="event-content">
-        <h2>Synergy Sprint</h2>
-        <p>📅 23-01-2026</p>
-        <p>⏰ 11:15 AM - 12:15 PM</p>
-        <a href="a.html" class="btn">About the event</a>
-
-<style>
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #7b6cff, #5a8cff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px; /* pill shape */
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: linear-gradient(135deg, #6a5cff, #4a7cff);
-    transform: translateY(-2px);
-}
-</style>
-</div>
-        <script>
-function showInfo() {
-    alert("Registration for Code Conquest will open on March 20th! Please check back then.");
-}
-</script>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 </body>
 </html>
-
-
-
-
-
