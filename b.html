@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Treasure Hunt</title>
+<title>Sprint & Solve</title>
 
 <style>
 * {
@@ -14,152 +14,209 @@
 }
 
 body {
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #0a2a2f, #021014);
+    background: linear-gradient(135deg, #021014, #0a2a2f);
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
-/* Aquarium Box */
-.aquarium {
-    width: 800px;
-    padding: 30px;
-    border-radius: 25px;
+/* MAIN CARD */
+.container {
+    max-width: 900px;
+    width: 100%;
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 
-        inset 0 0 40px rgba(0,150,255,0.15),
-        0 0 60px rgba(0,150,255,0.25);
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #eaffff;
+    box-shadow: 0 0 40px rgba(0,150,255,0.2);
 }
 
-/* Heading */
+/* BACK BUTTON */
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
 h1 {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 15px;
-    background: linear-gradient(to right, #ffffff, #9ab6ff);
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #8ec5ff);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-/* Paragraph */
-.description {
-    color: #eafaff;
-    text-align: center;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    padding: 0 10px;
+/* HEADINGS */
+h2 {
+    color: #00eaff;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-/* Image Gallery */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+h3 {
+    color: #8ec5ff;
+    margin-top: 15px;
+}
+
+/* TEXT */
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info {
+    background: rgba(0, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
     margin-bottom: 20px;
 }
 
-.gallery img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 🔥 IMAGE BOX (NO CROP FIX) */
+.img-box {
+    width: 100%;
+    height: 200px;
+    background: rgba(0,0,0,0.4); /* background for empty space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 🔥 IMAGE FIT (FULL IMAGE VISIBLE) */
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 🔥 NO CROPPING */
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0,200,255,0.3);
 }
 
-.gallery img:hover {
-    transform: scale(1.1);
+.img-box img:hover {
+    transform: scale(1.05);
 }
 
-/* Bubbles */
-.bubble {
-    position: absolute;
-    bottom: -50px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    animation: rise linear infinite;
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9cdcff;
 }
-
-@keyframes rise {
-    from {
-        transform: translateY(0);
-        opacity: 0.6;
-    }
-    to {
-        transform: translateY(-600px);
-        opacity: 0;
-    }
-}
-
-.bubble:nth-child(1) { left: 10%; width: 10px; height: 10px; animation-duration: 6s; }
-.bubble:nth-child(2) { left: 30%; width: 12px; height: 12px; animation-duration: 7s; }
-.bubble:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 5s; }
-.bubble:nth-child(4) { left: 70%; width: 14px; height: 14px; animation-duration: 8s; }
-.bubble:nth-child(5) { left: 85%; width: 9px; height: 9px; animation-duration: 6s; }
 
 </style>
 </head>
 
 <body>
 
-<div class="aquarium" id="aquarium">
-     <!-- 🔙 BACK BUTTON -->
-    <button class="back-btn" onclick="history.back()">←</button>
-    <h1>About Treasure Hunt</h1>
+<div class="container">
 
-    <!-- PARAGRAPH SECTION -->
-    <p class="description">
-        Treasure Hunt is a collaborative platform where developers come together
-        to innovate, build, and solve real-world problems. Our goal is to create
-        a strong community that encourages creativity, teamwork, and continuous learning.
-    </p>
+<button class="back-btn" onclick="history.back()">← Back</button>
 
-    <!-- IMAGE SECTION -->
-    <div class="gallery">
-        <img src="https://via.placeholder.com/150" alt="Team Image 1">
-        <img src="https://via.placeholder.com/150" alt="Team Image 2">
-        <img src="https://via.placeholder.com/150" alt="Team Image 3">
-        <img src="https://via.placeholder.com/150" alt="Team Image 4">
-    </div>
+<h1>Treasure Hunt</h1>
 
-    <!-- SECOND PARAGRAPH (OPTIONAL) -->
-    <p class="description">
-        From hackathons to real-time projects, we bring ideas to life with passion
-        and technology. Join us and become part of an exciting journey where innovation never stops.
-    </p>
+<div class="info">
+<p><b> Department of Computer Science & IT</p>
+<p><b>8th, 9th, & 10th April 2025 </p>
+<p><b>Various Campus Locations </p>
 
-    <!-- Bubbles -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+<h3>Coordinators</h3>
+<p>Pruthu Prasad (BCA Data Science 2023) </p>
+<p>Pavithra R Menon (Integrated MCA-B 2023) </p>
+<p><b>FACULTY COORDINATOR: Ms. M Soumya Krishnan  </p>
+</div>
+
+<h2>About the Event</h2>
+<p>
+The Treasure Hunt was a thrilling three-day technical event conducted as part of the 
+Savishkaara 2k25. Designed to test participants' problem-solving, teamwork, and 
+technical skills, the event saw enthusiastic participation from students across various 
+departments. The competition was structured in multiple phases, gradually 
+eliminating teams until the final treasure was found. Starting with 59 teams (118 
+students), the competition progressively narrowed down to 3 finalists through 
+multiple challenging phases. The event culminated in an exciting finale where the 
+winning team was awarded certificates and a ₹2000 cash prize in recognition of their 
+outstanding performance.
+</p>
+
+<h2>Event Highlights</h2>
+<p>● Technical challenges (digital puzzles, code-breaking) </p>
+<p>● Physical tasks (sports-based challenges) </p>
+<p>● Mental games (memory tests, decoding tasks) </p>
+<p>● Adventure elements (scavenger hunt, treasure search)</p>
+
+<h2>Event Structure</h2>
+<p>
+The event followed a progressive elimination format spanning three days: 
+● Day 1: Preliminary round with technical challenges 
+● Day 2: Intermediate rounds featuring puzzles and decoding tasks 
+● Day 3: Finals comprising physical and mental challenges
+</p>
+
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b1.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b2.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b3.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b4.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b5.jpeg">
+</div>
 
 </div>
 
-<script>
-// 3D tilt effect
-const aquarium = document.getElementById("aquarium");
+<h3>Organization</h3>
+<p>A dedicated four-member core team consisting of event coordinators and volunteer 
+leads planned and executed all aspects of the competition. During the event days, this 
+core team was ably supported by fifteen volunteers who ensured smooth operations 
+across all venues.</p>
 
-document.addEventListener("mousemove", (e) => {
-    let x = (window.innerWidth / 2 - e.clientX) / 30;
-    let y = (window.innerHeight / 2 - e.clientY) / 30;
+<h3>Feedback</h3>
+<p>The Treasure Hunt was highly competitive yet collaborative, with participants 
+praising its balanced structure. Feedback highlighted enhanced technical and 
+problem-solving skills, with strong engagement throughout. </p>
 
-    aquarium.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+<h2>Conclusion</h2>
+<p>
+The Treasure Hunt successfully fostered teamwork and creative problem-solving 
+skills while delivering an engaging competitive experience. This edition has set a 
+strong foundation for future competitions to build upon.
+</p>
 
-document.addEventListener("mouseleave", () => {
-    aquarium.style.transform = "rotateY(0deg) rotateX(0deg)";
-});
-</script>
+<div class="footer">
+© Software Innovators Club
+</div>
+
+</div>
 
 </body>
 </html>
