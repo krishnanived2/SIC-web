@@ -10,7 +10,7 @@
 <style>
 :root {
   --glass: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.2);
   --primary: #8a7dff;
   --text: #ffffff;
 }
@@ -31,6 +31,15 @@ body {
   color: var(--text);
 }
 
+/* GLOBAL GLASS STYLE */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -41,8 +50,8 @@ header {
   width: 100%;
   top: 0;
   z-index: 2000;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid var(--border);
 }
 
@@ -70,6 +79,7 @@ nav a {
   text-decoration: none;
   color: white;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -95,11 +105,9 @@ nav a:hover {
   position: absolute;
   top: 40px;
   left: 0;
-  background: rgba(15, 32, 39, 0.98);
-  border: 1px solid var(--border);
-  border-radius: 10px;
   min-width: 180px;
   display: none;
+  padding: 10px;
 }
 
 .dropdown-content a {
@@ -126,9 +134,7 @@ nav a:hover {
 }
 
 @media (max-width: 900px) {
-  .menu-icon {
-    display: flex;
-  }
+  .menu-icon { display: flex; }
 
   nav {
     display: none;
@@ -136,17 +142,11 @@ nav a:hover {
     position: absolute;
     top: 60px;
     width: 100%;
-    background: #111;
     padding: 20px;
   }
 
-  nav.active {
-    display: flex;
-  }
-
-  .dropdown-content {
-    position: static;
-  }
+  nav.active { display: flex; }
+  .dropdown-content { position: static; }
 }
 
 /* HERO */
@@ -164,7 +164,7 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 42px;
 }
 
 .hero-buttons {
@@ -205,10 +205,7 @@ nav a:hover {
 }
 
 .stat-box {
-  background: var(--glass);
   padding: 15px 25px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
 }
 
 /* SKILLS */
@@ -226,16 +223,13 @@ nav a:hover {
 }
 
 .tool-card {
-  background: var(--glass);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid var(--border);
   width: 250px;
+  padding: 20px;
   transition: 0.3s;
 }
 
 .tool-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
 }
 
 .tool-card img {
@@ -258,8 +252,7 @@ nav a:hover {
 /* FOOTER */
 footer {
   padding: 40px;
-  background: black;
-  text-align: center;
+  margin: 20px;
 }
 
 .footer-grid {
@@ -284,12 +277,10 @@ footer {
 
 <header>
   <button class="back-btn" onclick="history.back()">←</button>
-  <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
+  <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png">
 
   <div class="menu-icon" id="mobile-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
 
   <nav id="nav-list">
@@ -298,7 +289,7 @@ footer {
 
     <div class="dropdown">
       <div class="dropbtn">Events ▼</div>
-      <div class="dropdown-content">
+      <div class="dropdown-content glass">
         <a href="come.html">Upcoming Events</a>
         <a href="event.html">Past Events</a>
       </div>
@@ -306,25 +297,25 @@ footer {
 
     <a href="team.html">Team</a>
     <a href="contact.html">Contact</a>
-    <a href="https://docs.google.com/forms/..." class="join-btn">Be a Member</a>
+    <a href="#" class="join-btn">Be a Member</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-content glass" style="padding:40px;">
     <h1>Join 150+ Innovators</h1>
     <p>Effective learning starts with assessment. Practice makes it easier.</p>
 
     <div class="hero-buttons">
-      <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="primary-btn">Join SIC</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?pli=1" class="primary-btn">Join SIC</a>
       <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="secondary-btn">WhatsApp</a>
-      <a href="https://www.instagram.com/sic.asas" class="tertiary-btn">Instagram</a>
+      <a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="tertiary-btn">Instagram</a>
     </div>
 
     <div class="stats">
-      <div class="stat-box"><h2>20+</h2><p>Mentors</p></div>
-      <div class="stat-box"><h2>150+</h2><p>Students</p></div>
-      <div class="stat-box"><h2>6</h2><p>Projects</p></div>
+      <div class="stat-box glass"><h2>20+</h2><p>Mentors</p></div>
+      <div class="stat-box glass"><h2>150+</h2><p>Students</p></div>
+      <div class="stat-box glass"><h2>6</h2><p>Projects</p></div>
     </div>
   </div>
 </section>
@@ -333,13 +324,13 @@ footer {
   <h2>Evaluate Your Skills</h2>
 
   <div class="tools">
-    <div class="tool-card">
+    <div class="tool-card glass">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
       <h3>HackerRank</h3>
       <p>Improve coding logic and compete in hiring challenges.</p>
     </div>
 
-    <div class="tool-card">
+    <div class="tool-card glass">
       <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
       <h3>LeetCode</h3>
       <p>Master DSA for top tech interviews.</p>
@@ -348,7 +339,7 @@ footer {
 </section>
 
 <section class="backed">
-  <p style="letter-spacing:4px; font-size:12px; margin-bottom:20px; opacity:0.6;">BACKED BY</p>
+  <p style="letter-spacing:4px; font-size:12px; opacity:0.6;">BACKED BY</p>
 
   <div class="backed-logos">
     <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
@@ -358,7 +349,7 @@ footer {
   </div>
 </section>
 
-<footer>
+<footer class="glass">
   <div class="footer-grid">
     <div class="footer-col">
       <h3>About</h3>
@@ -371,7 +362,6 @@ footer {
         <li>IEDC</li>
         <li>CSI</li>
         <li>IIC</li>
-        <li>ACM</li>
       </ul>
     </div>
 
