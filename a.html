@@ -14,192 +14,185 @@
 }
 
 body {
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #0a2a2f, #021014);
+    background: linear-gradient(135deg, #021014, #0a2a2f);
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
-/* Aquarium Box */
-.aquarium {
-    width: 800px;
-    padding: 30px;
-    border-radius: 25px;
+/* MAIN CARD */
+.container {
+    max-width: 900px;
+    width: 100%;
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 
-        inset 0 0 40px rgba(0,150,255,0.15),
-        0 0 60px rgba(0,150,255,0.25);
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #eaffff;
+    box-shadow: 0 0 40px rgba(0,150,255,0.2);
 }
 
-/* Heading */
+/* BACK BUTTON */
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
 h1 {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 15px;
-    background: linear-gradient(to right, #ffffff, #9ab6ff);
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #8ec5ff);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-/* Paragraph */
-.description {
-    color: #eafaff;
-    text-align: center;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    padding: 0 10px;
+/* HEADINGS */
+h2 {
+    color: #00eaff;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-/* Image Gallery */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+h3 {
+    color: #8ec5ff;
+    margin-top: 15px;
+}
+
+/* TEXT */
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info {
+    background: rgba(0, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
     margin-bottom: 20px;
 }
 
-.gallery img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 20px;
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 🔥 IMAGE BOX (NO CROP FIX) */
+.img-box {
+    width: 100%;
+    height: 200px;
+    background: rgba(0,0,0,0.4); /* background for empty space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 🔥 IMAGE FIT (FULL IMAGE VISIBLE) */
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 🔥 NO CROPPING */
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0,255,255,0.4);
 }
 
-.gallery img:hover {
-    transform: scale(1.1);
+.img-box img:hover {
+    transform: scale(1.05);
 }
 
-/* Bubbles */
-.bubble {
-    position: absolute;
-    bottom: -50px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    animation: rise linear infinite;
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9cdcff;
 }
-
-@keyframes rise {
-    from {
-        transform: translateY(0);
-        opacity: 0.6;
-    }
-    to {
-        transform: translateY(-600px);
-        opacity: 0;
-    }
-}
-
-.bubble:nth-child(1) { left: 10%; width: 10px; height: 10px; animation-duration: 6s; }
-.bubble:nth-child(2) { left: 30%; width: 12px; height: 12px; animation-duration: 7s; }
-.bubble:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 5s; }
-.bubble:nth-child(4) { left: 70%; width: 14px; height: 14px; animation-duration: 8s; }
-.bubble:nth-child(5) { left: 85%; width: 9px; height: 9px; animation-duration: 6s; }
 
 </style>
 </head>
 
 <body>
 
-<div class="aquarium" id="aquarium">
-         <!-- 🔙 BACK BUTTON -->
-    <button class="back-btn" onclick="history.back()">←</button>
+<div class="container">
 
-    <h1>About Synergy Sprint</h1>
+<button class="back-btn" onclick="history.back()">← Back</button>
 
-    <!-- PARAGRAPH SECTION -->
-    <p class="description">
-      <p> ORGANIZED BY: Software Innovators Club (SIC)</p>
-       <p> DATE: 23rd January 2026</p>
-        <p>VENUE: Lab 6</p>
-        <p>STUDENT COORDINATORS:</p>
-        <p>• Parvana K Pillai – BCA 2024-A</p>
-        <p>• Pavithra R Menon – Int MCA 2023-B</p>
-        <p>FACULTY COORDINATOR: Ms. Anupama KN</p>
-        <p>Overview:</p>
-<p>A creative event where teams worked on funny/impractical startup ideas to test creativity, teamwork, and communication.
+<h1>Synergy Sprint</h1>
+
+<div class="info">
+<p><b>Organized by:</b> Software Innovators Club (SIC)</p>
+<p><b>Date:</b> 23 January 2026</p>
+<p><b>Venue:</b> Lab 6</p>
+
+<h3>Coordinators</h3>
+<p>Parvana K Pillai – BCA 2024-A</p>
+<p>Pavithra R Menon – Int MCA 2023-B</p>
+<p><b>Faculty:</b> Ms. Anupama KN</p>
+</div>
+
+<h2>About the Event</h2>
+<p>
+Synergy Sprint was a creative event where students worked in teams 
+to develop innovative startup ideas, improving creativity and teamwork.
 </p>
-<p><h3>EVENT OVERVIEW</h3></p>
-<p>The event “Synergy Sprint“ was a creative and non-technical event</p>
-<p>designed to evaluate participants’ creativity, critical thinking,</p>
-<p>persuasion, and teamwork. Participants were provided with</p>
-<p>deliberately absurd and impractical startup ideas by the coordinators,</p>
-<p>from which teams randomly selected one idea to work on</p>
- <p><h3>EVENT HIGHLIGHTS</h3></p>
-<p>• Absurd startup ideas were provided and randomly assigned to teams.</p>
-<p>• All branding and pitching activities were completed during the event.</p>
-<p>• Strong emphasis on teamwork, creativity, and task distribution.</p>
-   <p><h3>EVENT STRUCTURE</h3></p>
-<p>The event was conducted in two rounds. In the first round, teams</p>
-<p>developed a brand name, logo, and slogan based on the assigned idea. In</p>
-<p>the second round, teams presented a pitch using the same branding</p>
-<p>elements, focusing on clarity, persuasion, and teamwork<p>
 
-    </p>
+<h2>Event Highlights</h2>
+<p>• Random startup ideas</p>
+<p>• Branding + pitching on spot</p>
+<p>• Team collaboration</p>
 
-    <!-- IMAGE SECTION -->
-    <div class="gallery">
-        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a1.jpeg" alt="Team Image 1">
-        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a3.jpeg" alt="Team Image 2">
-        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a2.jpeg" alt="Team Image 3">
-        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a4.jpeg" alt="Team Image 4">
-    </div>
+<h2>Event Structure</h2>
+<p>• Round 1: Branding</p>
+<p>• Round 2: Pitching</p>
 
-    <!-- SECOND PARAGRAPH (OPTIONAL) -->
-    <p class="description">
-<p><h3>ORGANIZATION TEAM</h3></p>
-<p>The event was coordinated by two student coordinators with the</p>
-<p>support of 10 volunteers, who assisted in event management,</p>
-<p>coordination, and smooth execution throughout the event.</p>
-   <p><h3>PARTICIPANT FEEDBACK</h3></p>
-<p>Participants found the event engaging and enjoyable, particularly</p>
-<p>appreciating the opportunity to collaborate as a team and divide tasks</p>
-<p>effectively.</p>
-<p><h3>ACKNOWLEDGEMENTS</h3></p>
-<p>We extend our sincere gratitude to Mr. Sreekumar Sir and the SIC</p>
-<p>mentors from the MCA batch for their valuable evaluation and feedback.</p>
-<p>We also thank our faculty coordinator, event coordinators, volunteers,</p>
-<p>and participants for their cooperation and enthusiasm.</p>
-<p><h3>CONCLUSION</h3></p>
-<p>“Synergy Sprint” successfully achieved its objective of promoting</p>
-<p>creativity, teamwork, and effective communication among students. The</p>
-<p>team from the MCA batch emerged as winners, receiving a prize for</p>
-<p>their exceptional overall performance.</p>
-    </p>
+<h2>Gallery</h2>
 
-    <!-- Bubbles -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+<div class="gallery">
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a1.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a3.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a2.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a4.jpeg">
+</div>
 
 </div>
 
-<script>
-// 3D tilt effect
-const aquarium = document.getElementById("aquarium");
+<h3>Organization</h3>
+<p>We extend our sincere gratitude to Mr. Sreekumar Sir and the SIC mentors from the MCA batch for their valuable evaluation and feedback.</p>
 
-document.addEventListener("mousemove", (e) => {
-    let x = (window.innerWidth / 2 - e.clientX) / 30;
-    let y = (window.innerHeight / 2 - e.clientY) / 30;
+<h3>Feedback</h3>
+<p>Participants found it engaging and fun.</p>
 
-    aquarium.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+<h2>Conclusion</h2>
+<p>
+The event successfully promoted teamwork and innovation. MCA team won.
+</p>
 
-document.addEventListener("mouseleave", () => {
-    aquarium.style.transform = "rotateY(0deg) rotateX(0deg)";
-});
-</script>
+<div class="footer">
+© Software Innovators Club
+</div>
+
+</div>
 
 </body>
 </html>
