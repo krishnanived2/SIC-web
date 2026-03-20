@@ -9,11 +9,11 @@
 
     <style>
         :root {
-            /* Adjusted glass for better contrast */
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-heavy: rgba(255, 255, 255, 0.1);
+            /* Adjusted glass to ensure content is clear over the image */
+            --glass: rgba(20, 20, 30, 0.7);
+            --glass-card: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.15);
-            --primary: #8a7dff;
+            --primary: #9d92ff; /* Slightly brighter primary for dark background */
             --text: #ffffff;
         }
 
@@ -29,9 +29,9 @@
         }
 
         body {
-            /* High-quality tech background with a dark overlay */
-            background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8)), 
-                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+            /* HIGH QUALITY DARK COMPUTER/TECH BACKGROUND */
+            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.8), rgba(20, 20, 30, 0.9)), 
+                              url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -41,12 +41,11 @@
 
         /* GLOBAL GLASS STYLE */
         .glass {
-            background: var(--glass);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         /* HEADER */
@@ -60,12 +59,14 @@
             top: 0;
             z-index: 2000;
             backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(10, 10, 15, 0.8);
             border-bottom: 1px solid var(--border);
         }
 
-        header img {
+        header img.sic-logo {
             height: 45px;
+            /* Placeholder style in case main SIC logo fails */
+            border-radius: 5px;
         }
 
         .back-btn {
@@ -106,7 +107,8 @@
             border-radius: 30px;
             background: var(--primary) !important;
             color: white !important;
-            box-shadow: 0 4px 15px rgba(138, 125, 255, 0.4);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(138, 125, 255, 0.3);
         }
 
         /* DROPDOWN */
@@ -127,7 +129,7 @@
             min-width: 200px;
             display: none;
             padding: 10px;
-            background: rgba(20, 20, 20, 0.8) !important;
+            background: rgba(15, 15, 20, 0.95) !important;
         }
 
         .dropdown-content a {
@@ -137,7 +139,7 @@
         }
 
         .dropdown-content a:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
         }
 
         .dropdown.active .dropdown-content {
@@ -168,7 +170,7 @@
                 right: 6%;
                 width: 250px;
                 padding: 20px;
-                background: rgba(0,0,0,0.9);
+                background: rgba(10,10,15,0.98);
                 border-radius: 15px;
                 border: 1px solid var(--border);
             }
@@ -189,12 +191,13 @@
         .hero-content {
             max-width: 850px;
             padding: 60px 40px;
+            background: var(--glass);
         }
 
         .hero h1 {
             font-size: clamp(32px, 5vw, 56px);
             margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--primary));
+            background: linear-gradient(to right, #fff, #c3befa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -203,6 +206,9 @@
             font-size: 18px;
             opacity: 0.9;
             margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -242,9 +248,11 @@
             padding: 20px;
             min-width: 140px;
             flex: 1;
+            background: var(--glass-card);
         }
 
-        .stat-box h2 { color: var(--primary); font-size: 28px; }
+        .stat-box h2 { color: var(--primary); font-size: 32px; font-weight: 800; }
+        .stat-box p { font-size: 14px; opacity: 0.7; margin: 0; }
 
         /* SKILLS / TOOLS */
         .skills {
@@ -252,35 +260,67 @@
             text-align: center;
         }
 
+        .skills h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
         .tools {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
             flex-wrap: wrap;
         }
 
         .tool-card {
-            width: 300px;
+            width: 320px;
             padding: 40px 30px;
             transition: 0.4s;
+            background: var(--glass-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .tool-card:hover {
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .tool-card .logo-container {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
         }
 
         .tool-card img {
-            width: 70px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(138, 125, 255, 0.5));
+            max-height: 100%;
+            max-width: 200px;
+            object-fit: contain;
         }
 
-        /* BACKED */
+        .tool-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .tool-card p {
+            font-size: 15px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* BACKED - CLEAR IMAGES */
         .backed {
             text-align: center;
-            padding: 80px 20px;
+            padding: 80px 6%;
+            background: rgba(0,0,0,0.2);
+            margin-top: 40px;
         }
 
         .backed-logos {
@@ -288,50 +328,62 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 50px;
+            margin-top: 40px;
         }
 
         .backed-logos img {
-            height: 45px;
-            filter: grayscale(1) brightness(2);
-            opacity: 0.6;
+            height: 50px;
+            max-width: 180px;
+            object-fit: contain;
+            /* Makes colors pop and keeps logos white/clear on dark */
+            filter: brightness(0) invert(1); 
+            opacity: 0.7;
             transition: 0.3s;
         }
 
         .backed-logos img:hover {
             opacity: 1;
-            filter: grayscale(0) brightness(1);
+            filter: brightness(1) invert(0); /* Shows original color on hover */
         }
 
         /* FOOTER */
         footer {
             padding: 60px 6%;
             margin: 40px 6%;
-            border-radius: 30px;
+            background: var(--glass);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
         }
 
         .footer-col h3 {
             margin-bottom: 20px;
             color: var(--primary);
+            font-size: 18px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; opacity: 0.8; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 14px; opacity: 0.8; }
 
         .footer-bottom {
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
             text-align: center;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 2px;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -340,7 +392,7 @@
 
 <header>
     <button class="back-btn" onclick="history.back()">← Back</button>
-    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
+    <img src="https://via.placeholder.com/150x50/8a7dff/ffffff?text=SIC+KOCHI" alt="SIC Logo" class="sic-logo">
 
     <div class="menu-icon" id="mobile-toggle">
         <span></span><span></span><span></span>
@@ -348,98 +400,106 @@
 
     <nav id="nav-list">
         <a href="#">Home</a>
-        <a href="about.html">About</a>
+        <a href="#about">About</a>
 
         <div class="dropdown">
             <div class="dropbtn">Events ▼</div>
             <div class="dropdown-content glass">
-                <a href="come.html">Upcoming Events</a>
-                <a href="event.html">Past Events</a>
+                <a href="#">Upcoming Events</a>
+                <a href="#">Past Events</a>
             </div>
         </div>
 
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="join-btn">Be a Member</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="join-btn">Be a Member</a>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-content glass">
         <h1>Join 150+ Innovators</h1>
-        <p>Effective learning starts with assessment. Fuel your passion for software development through community-led practice and mentorship.</p>
+        <p>Fuel your passion for software development through community-led practice, live projects, and expert mentorship.</p>
 
         <div class="hero-buttons">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="primary-btn">Join SIC</a>
-            <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="secondary-btn">WhatsApp</a>
-            <a href="https://www.instagram.com/sic.asas" class="tertiary-btn">Instagram</a>
+            <a href="https://forms.gle/yourformlink" class="primary-btn" target="_blank">Join SIC</a>
+            <a href="https://chat.whatsapp.com/yourlink" class="secondary-btn" target="_blank">WhatsApp</a>
+            <a href="https://instagram.com/yourlink" class="tertiary-btn" target="_blank">Instagram</a>
         </div>
 
         <div class="stats">
             <div class="stat-box glass"><h2>20+</h2><p>Mentors</p></div>
-            <div class="stat-box glass"><h2>150+</h2><p>Students</p></div>
+            <div class="stat-box glass"><h2>150+</h2><p>Active Members</p></div>
             <div class="stat-box glass"><h2>6+</h2><p>Live Projects</p></div>
         </div>
     </div>
 </section>
 
-<section class="skills">
+<section class="skills" id="about">
     <h2>Evaluate Your Skills</h2>
+    <p style="opacity:0.7; max-width:500px; margin: 0 auto 20px auto;">Practice on industry-standard platforms supported by SIC.</p>
+    
     <div class="tools">
         <div class="tool-card glass">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank Logo">
+            </div>
             <h3>HackerRank</h3>
-            <p>Improve coding logic and compete in global hiring challenges.</p>
+            <p>Improve problem-solving, coding logic, and compete in global hiring challenges.</p>
         </div>
 
         <div class="tool-card glass">
-            <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode Logo" style="filter: brightness(0) invert(1);">
+            </div>
             <h3>LeetCode</h3>
-            <p>Master Data Structures and Algorithms for top-tier tech interviews.</p>
+            <p>Master Data Structures and Algorithms essential for top-tier tech interviews.</p>
         </div>
     </div>
 </section>
 
 <section class="backed">
-    <p style="letter-spacing:4px; font-size:12px; opacity:0.6; font-weight:700;">BACKED BY</p>
+    <p style="letter-spacing:4px; font-size:12px; opacity:0.6; font-weight:700;">BACKED & RECOGNIZED BY</p>
     <div class="backed-logos">
-        <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
-        <img src="https://csi.coep.org.in/csi_logo.png">
-        <img src="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
-        <img src="https://i0.wp.com/singularunity.com/wp-content/uploads/2024/01/Amrita-vishwa-vidyapeetham-color-logo.png?ssl=1" alt="AMRITA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSI_Logo.png/640px-CSI_Logo.png" alt="CSI">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Amrita_Vishwa_Vidyapeetham_logo.svg/1200px-Amrita_Vishwa_Vidyapeetham_logo.svg.png" alt="AMRITA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/IEDC_Logo.png" alt="IEDC">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/IIC_Logo.png" alt="IIC">
     </div>
 </section>
 
-<footer class="glass">
+<footer class="glass" id="contact">
     <div class="footer-grid">
         <div class="footer-col">
-            <h3>About SIC</h3>
-            <p>Empowering the next generation of software innovators at Amrita School of Computing, Kochi.</p>
+            <h3>Software Innovators Club</h3>
+            <p>Empowering students to collaborate, innovate, and excel in software engineering at Amrita School of Computing, Kochi.</p>
         </div>
 
         <div class="footer-col">
-            <h3>Partner Clubs</h3>
+            <h3>Quick Links</h3>
             <ul>
-                <li>IEDC (Entrepreneurship)</li>
-                <li>CSI (Computer Society)</li>
-                <li>IIC (Innovation Cell)</li>
+                <li>About SIC</li>
+                <li>Upcoming Events</li>
+                <li>Our Team</li>
+                <li>Project Gallery</li>
             </ul>
         </div>
 
         <div class="footer-col">
             <h3>Contact Us</h3>
-            <p>Kochi, Kerala</p>
-            <p>sicasaskochi@gmail.com</p>
-            <p>+91 6238314481</p>
+            <p>Amrita Vishwa Vidyapeetham, Kochi Campus</p>
+            <p><strong>Email:</strong> sicasaskochi@gmail.com</p>
+            <p><strong>Phone:</strong> +91 6238314481</p>
         </div>
     </div>
 
     <div class="footer-bottom">
-        © 2026 SOFTWARE INNOVATORS CLUB | DESIGNED FOR INNOVATION
+        © 2026 SOFTWARE INNOVATORS CLUB | DEVELOPED BY SIC MEMBERS
     </div>
 </footer>
 
 <script>
+    // Mobile Menu Toggle
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('nav-list');
 
@@ -447,18 +507,35 @@
         nav.classList.toggle('active');
     });
 
-    // Dropdown toggle for mobile/desktop
+    // Dropdown toggle for mobile
     document.querySelectorAll('.dropbtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const parent = btn.parentElement;
-            parent.classList.toggle('active');
+            // Only toggle on click if on mobile view
+            if(window.innerWidth <= 900) {
+                e.stopPropagation();
+                const parent = btn.parentElement;
+                parent.classList.toggle('active');
+            }
         });
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', () => {
         document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+            // Close mobile menu after click
+            if(nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
     });
 </script>
 
