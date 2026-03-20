@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escape Room</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #021014, #0a2a2f);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* MAIN CARD */
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #eaffff;
+    box-shadow: 0 0 40px rgba(0,150,255,0.2);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #8ec5ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* HEADINGS */
+h2 {
+    color: #00eaff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #8ec5ff;
+    margin-top: 15px;
+}
+
+/* TEXT */
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info {
+    background: rgba(0, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 🔥 IMAGE BOX (NO CROP FIX) */
+.img-box {
+    width: 100%;
+    height: 200px;
+    background: rgba(0,0,0,0.4); /* background for empty space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 🔥 IMAGE FIT (FULL IMAGE VISIBLE) */
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 🔥 NO CROPPING */
+    transition: 0.3s;
+}
+
+.img-box img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9cdcff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<h1>Escape Room</h1>
+
+<div class="info">
+<p><b>The Software Innovators Club(SIC), Department of Computer Science & IT </p>
+<p><b>15th November 2024 </p>
+<p><b>Lab 6  </p>
+
+<h3>Coordinators</h3>
+<p>Pavithra R Menon, Int MCA 2023(B)</p>
+<p>Abhilash Singh (BCA 2023 A), </p>
+<p><b>FACULTY COORDINATOR: Ms. Anupama KN</p>
+</div>
+
+<h2>About the Event</h2>
+<p>
+With 63 enthusiastic participants, teams of 4-5 members were formed randomly to foster collaboration, teamwork, and team-building skills. The event featured three meticulously crafted levels comprising puzzles, riddles, and crosswords, designed to enhance critical and logical thinking abilities.
+</p>
+
+<h2>Event Highlights</h2>
+<p>
+Participants exhibited remarkable engagement as they navigated the progressively challenging tasks. 
+</p>
+
+<h2>Event Structure</h2>
+<p>
+The immersive storyline, combined with intellectually stimulating activities, provided an enriching and enjoyable experience, promoting both problem-solving and interpersonal skills.
+</p>
+
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e1.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e2.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e3.jpeg">
+</div>
+
+</div>
+
+<h3>Organization</h3>
+<p>The event concluded with Team 9 emerging as the winners, demonstrating exceptional teamwork and analytical acumen.</p>
+
+<h3>Feedback</h3>
+<p>The winning team comprised students from BCA Data Science 2023 and BCom Taxation 2022. </p>
+
+<h2>Conclusion</h2>
+<p>
+The Escape Room was widely appreciated for its seamless integration of learning, collaboration, and entertainment, leaving a lasting impression on all involved.
+</p>
+
+<div class="footer">
+© Software Innovators Club
+</div>
+
+</div>
+
+</body>
+</html>
