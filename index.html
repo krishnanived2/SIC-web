@@ -9,239 +9,273 @@
 
 <style>
 :root {
-    --glass: rgba(255, 255, 255, 0.08);
-    --border: rgba(255, 255, 255, 0.2);
-    --primary: #8a7dff;
-    --text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.18);
+  --primary: #8a7dff;
+  --text: #ffffff;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color: var(--text);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: var(--text);
 }
 
 /* HEADER */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 6%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 6%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
 }
 
-header img { height: 40px; }
+header img {
+  height: 40px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 /* NAV */
 nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
 }
 
-nav a:hover { color: var(--primary); }
+nav a:hover {
+  color: var(--primary);
+}
 
 .join-btn {
-    padding: 8px 18px;
-    border-radius: 25px;
-    background: var(--primary);
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: var(--primary);
 }
 
 /* DROPDOWN */
-.dropdown { position: relative; }
+.dropdown {
+  position: relative;
+}
 
-.dropbtn { cursor: pointer; }
+.dropbtn {
+  cursor: pointer;
+}
 
 .dropdown-content {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    min-width: 180px;
-    display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: rgba(15, 32, 39, 0.98);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 180px;
+  display: none;
 }
 
 .dropdown-content a {
-    display: block;
-    padding: 10px;
+  display: block;
+  padding: 10px;
 }
 
 .dropdown.active .dropdown-content {
-    display: block;
+  display: block;
 }
 
 /* MOBILE */
 .menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .menu-icon span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 4px 0;
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
 }
 
-@media(max-width:900px){
-    .menu-icon { display:flex; }
+@media (max-width: 900px) {
+  .menu-icon {
+    display: flex;
+  }
 
-    nav {
-        display:none;
-        flex-direction: column;
-        position:absolute;
-        top:60px;
-        left:0;
-        width:100%;
-        background: rgba(0,0,0,0.9);
-        padding:20px;
-    }
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background: #111;
+    padding: 20px;
+  }
 
-    nav.active { display:flex; }
+  nav.active {
+    display: flex;
+  }
 
-    .dropdown-content {
-        position: static;
-    }
+  .dropdown-content {
+    position: static;
+  }
 }
 
 /* HERO */
 .hero {
-    min-height: 100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:120px 20px 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  text-align: center;
 }
 
 .hero-content {
-    max-width:800px;
-    padding:40px;
-    background: var(--glass);
-    border-radius:20px;
-    border:1px solid var(--border);
-    backdrop-filter: blur(20px);
+  max-width: 700px;
 }
 
 .hero h1 {
-    font-size: clamp(28px,5vw,50px);
-    margin-bottom:15px;
+  font-size: 40px;
 }
 
 .hero-buttons {
-    margin:25px 0;
+  margin: 20px 0;
 }
 
 .hero-buttons a {
-    display:inline-block;
-    margin:5px;
-    padding:12px 22px;
-    border-radius:10px;
-    text-decoration:none;
+  margin: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.primary-btn { background: var(--primary); }
-.secondary-btn { border:1px solid white; }
-.tertiary-btn { border:1px solid var(--primary); color: var(--primary); }
+.hero-buttons a:hover {
+  opacity: 0.85;
+}
+
+.primary-btn {
+  background: var(--primary);
+}
+
+.secondary-btn {
+  border: 1px solid white;
+}
+
+.tertiary-btn {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
 
 /* STATS */
 .stats {
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .stat-box {
-    padding:15px;
-    min-width:100px;
-    background: var(--glass);
-    border-radius:10px;
-    border:1px solid var(--border);
+  background: var(--glass);
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
 }
 
 /* SKILLS */
 .skills {
-    padding:80px 6%;
-    text-align:center;
+  padding: 60px 6%;
+  text-align: center;
 }
 
 .tools {
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-    margin-top:30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .tool-card {
-    width:280px;
-    padding:25px;
-    background: var(--glass);
-    border-radius:15px;
-    border:1px solid var(--border);
+  background: var(--glass);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  width: 250px;
+  transition: 0.3s;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
 }
 
 .tool-card img {
-    width:50px;
-    margin-bottom:10px;
+  width: 60px;
+  margin-bottom: 10px;
 }
 
 /* BACKED */
 .backed {
-    text-align:center;
-    padding:60px 20px;
-}
-
-.backed-logos {
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+  text-align: center;
+  padding: 50px;
 }
 
 .backed-logos img {
-    height:40px;
+  height: 40px;
+  margin: 10px;
+  opacity: 0.7;
 }
 
 /* FOOTER */
 footer {
-    padding:50px 6%;
-    background: rgba(0,0,0,0.7);
+  padding: 40px;
+  background: black;
+  text-align: center;
 }
 
 .footer-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  max-width: 250px;
+  margin: 10px;
 }
 
 .footer-bottom {
-    text-align:center;
-    margin-top:20px;
-    opacity:0.6;
+  margin-top: 20px;
+  opacity: 0.6;
 }
 </style>
 </head>
@@ -249,118 +283,129 @@ footer {
 <body>
 
 <header>
-<button onclick="history.back()">←</button>
+  <button class="back-btn" onclick="history.back()">←</button>
+  <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png" alt="SIC Logo">
 
-<img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/SIC_Logo.png">
+  <div class="menu-icon" id="mobile-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<div class="menu-icon" id="mobile-toggle">
-<span></span><span></span><span></span>
-</div>
+  <nav id="nav-list">
+    <a href="#">Home</a>
+    <a href="about.html">About</a>
 
-<nav id="nav-list">
-<a href="#">Home</a>
-<a href="about.html">About</a>
+    <div class="dropdown">
+      <div class="dropbtn">Events ▼</div>
+      <div class="dropdown-content">
+        <a href="come.html">Upcoming Events</a>
+        <a href="event.html">Past Events</a>
+      </div>
+    </div>
 
-<div class="dropdown">
-<div class="dropbtn">Events ▼</div>
-<div class="dropdown-content">
-<a href="come.html">Upcoming Events</a>
-<a href="event.html">Past Events</a>
-</div>
-</div>
-
-<a href="team.html">Team</a>
-<a href="contact.html">Contact</a>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?pli=1" class="join-btn">Join</a>
-</nav>
+    <a href="team.html">Team</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://docs.google.com/forms/..." class="join-btn">Be a Member</a>
+  </nav>
 </header>
 
 <section class="hero">
-<div class="hero-content">
-<h1>Join 150+ Innovators</h1>
-<p>Practice makes perfect 🚀</p>
+  <div class="hero-content">
+    <h1>Join 150+ Innovators</h1>
+    <p>Effective learning starts with assessment. Practice makes it easier.</p>
 
-<div class="hero-buttons">
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?pli=1" class="primary-btn">Join SIC</a>
-<a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="secondary-btn">WhatsApp</a>
-<a href="https://www.instagram.com/sic.asas?utm_source=qr&igsh=bnZjeTQ1aWVtOXZi" class="tertiary-btn">Instagram</a>
-</div>
+    <div class="hero-buttons">
+      <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="primary-btn">Join SIC</a>
+      <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="secondary-btn">WhatsApp</a>
+      <a href="https://www.instagram.com/sic.asas" class="tertiary-btn">Instagram</a>
+    </div>
 
-<div class="stats">
-<div class="stat-box">20+ Mentors</div>
-<div class="stat-box">150+ Students</div>
-<div class="stat-box">6 Projects</div>
-</div>
-
-</div>
+    <div class="stats">
+      <div class="stat-box"><h2>20+</h2><p>Mentors</p></div>
+      <div class="stat-box"><h2>150+</h2><p>Students</p></div>
+      <div class="stat-box"><h2>6</h2><p>Projects</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="skills">
-<h2>Evaluate Your Skills</h2>
+  <h2>Evaluate Your Skills</h2>
 
-<div class="tools">
-<div class="tool-card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
-<h3>HackerRank</h3>
-<p>Improve coding logic</p>
-</div>
+  <div class="tools">
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png">
+      <h3>HackerRank</h3>
+      <p>Improve coding logic and compete in hiring challenges.</p>
+    </div>
 
-<div class="tool-card">
-<img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
-<h3>LeetCode</h3>
-<p>Master DSA</p>
-</div>
-</div>
+    <div class="tool-card">
+      <img src="https://assets.leetcode.com/static_assets/public/images/LeetCode_logo_rvs.png">
+      <h3>LeetCode</h3>
+      <p>Master DSA for top tech interviews.</p>
+    </div>
+  </div>
 </section>
 
 <section class="backed">
-<p>BACKED BY</p>
+  <p style="letter-spacing:4px; font-size:12px; margin-bottom:20px; opacity:0.6;">BACKED BY</p>
 
-<div class="backed-logos">
-<img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
-<img src="https://csi.coep.org.in/csi_logo.png">
-<img src="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
-</div>
+  <div class="backed-logos">
+    <img src="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
+    <img src="https://csi.coep.org.in/csi_logo.png">
+    <img src="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
+    <img src="https://i0.wp.com/singularunity.com/wp-content/uploads/2024/01/Amrita-vishwa-vidyapeetham-color-logo.png?ssl=1" alt="AMRITA">
+  </div>
 </section>
 
 <footer>
-<div class="footer-grid">
-<div>
-<h3>About</h3>
-<p>Empowering innovators</p>
-</div>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>About</h3>
+      <p>Empowering software innovators at Amrita School of Computing, Kochi.</p>
+    </div>
 
-<div>
-<h3>Clubs</h3>
-<p>IEDC | CSI </p>
-</div>
+    <div class="footer-col">
+      <h3>Clubs</h3>
+      <ul>
+        <li>IEDC</li>
+        <li>CSI</li>
+        <li>IIC</li>
+        <li>ACM</li>
+      </ul>
+    </div>
 
-<div>
-<h3>Contact</h3>
-<p>Kochi, Kerala</p>
-</div>
-</div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>Kochi, Kerala</p>
+      <p>sicasaskochi@gmail.com</p>
+      <p>+91 6238314481</p>
+    </div>
+  </div>
 
-<div class="footer-bottom">
-© 2026 SIC
-</div>
+  <div class="footer-bottom">
+    © 2026 SOFTWARE INNOVATORS CLUB
+  </div>
 </footer>
 
 <script>
 const toggle = document.getElementById('mobile-toggle');
 const nav = document.getElementById('nav-list');
 
-toggle.onclick = () => nav.classList.toggle('active');
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
 
-const dropdown = document.querySelector('.dropdown');
-const dropbtn = document.querySelector('.dropbtn');
-
-dropbtn.onclick = (e) => {
+document.querySelectorAll('.dropbtn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
     e.stopPropagation();
-    dropdown.classList.toggle('active');
-};
+    btn.parentElement.classList.toggle('active');
+  });
+});
 
-document.onclick = () => dropdown.classList.remove('active');
+document.addEventListener('click', () => {
+  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+});
 </script>
 
 </body>
