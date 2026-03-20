@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind Spark</title>
+<title>Sprint & Solve</title>
 
 <style>
 * {
@@ -14,153 +14,183 @@
 }
 
 body {
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #0a2a2f, #021014);
+    background: linear-gradient(135deg, #021014, #0a2a2f);
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
-/* Aquarium Box */
-.aquarium {
-    width: 800px;
-    padding: 30px;
-    border-radius: 25px;
+/* MAIN CARD */
+.container {
+    max-width: 900px;
+    width: 100%;
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 
-        inset 0 0 40px rgba(0,150,255,0.15),
-        0 0 60px rgba(0,150,255,0.25);
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #eaffff;
+    box-shadow: 0 0 40px rgba(0,150,255,0.2);
 }
 
-/* Heading */
+/* BACK BUTTON */
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
 h1 {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 15px;
-    background: linear-gradient(to right, #ffffff, #9ab6ff);
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #8ec5ff);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-/* Paragraph */
-.description {
-    color: #eafaff;
-    text-align: center;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    padding: 0 10px;
+/* HEADINGS */
+h2 {
+    color: #00eaff;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-/* Image Gallery */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+h3 {
+    color: #8ec5ff;
+    margin-top: 15px;
+}
+
+/* TEXT */
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info {
+    background: rgba(0, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
     margin-bottom: 20px;
 }
 
-.gallery img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 🔥 IMAGE BOX (NO CROP FIX) */
+.img-box {
+    width: 100%;
+    height: 200px;
+    background: rgba(0,0,0,0.4); /* background for empty space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* 🔥 IMAGE FIT (FULL IMAGE VISIBLE) */
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 🔥 NO CROPPING */
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0,200,255,0.3);
 }
 
-.gallery img:hover {
-    transform: scale(1.1);
+.img-box img:hover {
+    transform: scale(1.05);
 }
 
-/* Bubbles */
-.bubble {
-    position: absolute;
-    bottom: -50px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    animation: rise linear infinite;
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9cdcff;
 }
-
-@keyframes rise {
-    from {
-        transform: translateY(0);
-        opacity: 0.6;
-    }
-    to {
-        transform: translateY(-600px);
-        opacity: 0;
-    }
-}
-
-.bubble:nth-child(1) { left: 10%; width: 10px; height: 10px; animation-duration: 6s; }
-.bubble:nth-child(2) { left: 30%; width: 12px; height: 12px; animation-duration: 7s; }
-.bubble:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 5s; }
-.bubble:nth-child(4) { left: 70%; width: 14px; height: 14px; animation-duration: 8s; }
-.bubble:nth-child(5) { left: 85%; width: 9px; height: 9px; animation-duration: 6s; }
 
 </style>
 </head>
 
 <body>
 
-<div class="aquarium" id="aquarium">
-         <!-- 🔙 BACK BUTTON -->
-    <button class="back-btn" onclick="history.back()">←</button>
+<div class="container">
 
-    <h1>About Mind Spark</h1>
+<button class="back-btn" onclick="history.back()">← Back</button>
 
-    <!-- PARAGRAPH SECTION -->
-    <p class="description">
-        Mind Spark is a collaborative platform where developers come together
-        to innovate, build, and solve real-world problems. Our goal is to create
-        a strong community that encourages creativity, teamwork, and continuous learning.
-    </p>
+<h1>Mind Spark</h1>
 
-    <!-- IMAGE SECTION -->
-    <div class="gallery">
-        <img src="https://via.placeholder.com/150" alt="Team Image 1">
-        <img src="https://via.placeholder.com/150" alt="Team Image 2">
-        <img src="https://via.placeholder.com/150" alt="Team Image 3">
-        <img src="https://via.placeholder.com/150" alt="Team Image 4">
-    </div>
+<div class="info">
+<p><b>The Software Innovators Club(SIC), Department of Computer Science & IT </p>
+<p><b>Friday, February 28, 2025 </p>
+<p><b>Lab 6  </p>
 
-    <!-- SECOND PARAGRAPH (OPTIONAL) -->
-    <p class="description">
-        From hackathons to real-time projects, we bring ideas to life with passion
-        and technology. Join us and become part of an exciting journey where innovation never stops.
-    </p>
+<h3>Coordinators</h3>
+<p>Pavithra R Menon, Int MCA 2023(B)</p>
+<p>Vivek Krishnan H, BCA Data Science 2023</p>
+<p><b>FACULTY COORDINATOR: Ms. Anupama KN</p>
+</div>
 
-    <!-- Bubbles -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+<h2>About the Event</h2>
+<p>
+On February 28, 2025, the Software Innovators Club(SIC) hosted Mind Spark, a multi-phase puzzle challenge that tested participants' observation, memory, and problem-solving skills. Open to UG and PG students across departments, the event saw enthusiastic participation, with teams of five randomly assigned to encourage collaboration. 
+</p>
+
+<h2>Event Highlights</h2>
+<p>
+Participants engaged in a series of well-structured phases, solving puzzles, decoding clues, and completing tasks to unlock the final master key. The movie clip session was particularly well-received, setting the tone for the event. Random team assignments fostered collaboration among students from different departments and academic levels.
+</p>
+
+<h2>Event Structure</h2>
+<p>
+The winning team consisted of students from Int MCA 2021, BCom 2022, and BCA 2024, showcasing the event's ability to bring together diverse talents.
+</p>
+
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c1.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c2.jpeg">
+</div>
+
+<div class="img-box">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c3.jpeg">
+</div>
 
 </div>
 
-<script>
-// 3D tilt effect
-const aquarium = document.getElementById("aquarium");
+<h3>Organization</h3>
+<p>The event received positive feedback for its engaging and challenging nature. Participants appreciated the mix of observation, memory, and problem-solving tasks, as well as the opportunity to work in diverse teams</p>
 
-document.addEventListener("mousemove", (e) => {
-    let x = (window.innerWidth / 2 - e.clientX) / 30;
-    let y = (window.innerHeight / 2 - e.clientY) / 30;
+<h3>Feedback</h3>
+<p>The Mind Spark was highly competitive yet collaborative, with participants 
+praising its balanced structure.</p>
 
-    aquarium.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+<h2>Conclusion</h2>
+<p>
+MindSpark successfully provided a platform for students to showcase their skills while having fun, fostering teamwork and collaboration. The Software Innovators Club looks forward to organizing more such events in the future.
+</p>
 
-document.addEventListener("mouseleave", () => {
-    aquarium.style.transform = "rotateY(0deg) rotateX(0deg)";
-});
-</script>
+<div class="footer">
+© Software Innovators Club
+</div>
+
+</div>
 
 </body>
 </html>
