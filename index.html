@@ -1,222 +1,177 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIC - Software Innovators Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIC - Software Innovators Club</title>
 
-```
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-    :root {
-        --glass: rgba(255, 255, 255, 0.08);
-        --border: rgba(255, 255, 255, 0.18);
-        --primary: #8a7dff;
-        --text: #ffffff;
-        --bg-dark: #0f2027;
-    }
+:root {
+    --glass: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.18);
+    --primary: #8a7dff;
+    --text: #ffffff;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: var(--text);
-        overflow-x: hidden;
-    }
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: var(--text);
+}
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 6%;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 2000;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid var(--border);
-    }
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 6%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
 
-    header img {
-        height: 40px;
-        object-fit: contain;
-    }
+header img {
+    height: 40px;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+nav a:hover { color: var(--primary); }
+
+.join-btn {
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: var(--primary);
+}
+
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: rgba(15, 32, 39, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    min-width: 180px;
+    display: none;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+}
+
+/* Active dropdown */
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* MOBILE */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+}
+
+@media (max-width: 900px) {
+    .menu-icon { display: flex; }
 
     nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        background: #111;
+        padding: 20px;
+    }
+
+    nav.active {
         display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-
-    nav a:hover { color: var(--primary); }
-
-    .join-btn {
-        padding: 8px 18px;
-        border-radius: 30px;
-        background: var(--primary);
-        box-shadow: 0 0 12px var(--primary);
-        color: white !important;
-    }
-
-    /* DROPDOWN */
-    .dropdown { position: relative; }
-
-    .dropbtn {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: white;
-        font-size: 14px;
-    }
-
-    .arrow {
-        font-size: 12px;
-        transition: transform 0.3s ease;
-    }
-
-    .dropdown.active .arrow {
-        transform: rotate(180deg);
     }
 
     .dropdown-content {
-        position: absolute;
-        top: 40px;
-        left: 0;
-        background: rgba(15, 32, 39, 0.98);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        min-width: 180px;
-        display: none;
-        z-index: 2001;
+        position: static;
     }
+}
 
-    .dropdown.active .dropdown-content {
-        display: block;
-    }
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    text-align: center;
+}
 
-    .dropdown-content a {
-        display: block;
-        padding: 12px 15px;
-        border-bottom: 1px solid var(--border);
-    }
+.hero-content {
+    max-width: 700px;
+}
 
-    /* Mobile */
-    .menu-icon {
-        display: none;
-        cursor: pointer;
-        flex-direction: column;
-        gap: 5px;
-    }
+.hero h1 {
+    font-size: 40px;
+}
 
-    .menu-icon span {
-        width: 25px;
-        height: 3px;
-        background: white;
-        border-radius: 2px;
-    }
+.hero-buttons {
+    margin: 20px 0;
+}
 
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 120px 20px 60px;
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") center/cover;
-    }
+.hero-buttons a {
+    margin: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
 
-    .hero-content {
-        max-width: 850px;
-        padding: 40px;
-        background: var(--glass);
-        border-radius: 25px;
-        border: 1px solid var(--border);
-        backdrop-filter: blur(20px);
-    }
+.primary-btn { background: var(--primary); }
+.secondary-btn { border: 1px solid white; }
+.tertiary-btn { border: 1px solid var(--primary); color: var(--primary); }
 
-    .hero h1 {
-        font-size: clamp(24px, 5vw, 54px);
-        margin-bottom: 15px;
-        background: linear-gradient(90deg, #fff, var(--primary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 800;
-    }
-
-    .hero-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin: 30px 0;
-    }
-
-    .hero-buttons a {
-        padding: 12px 24px;
-        text-decoration: none;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 600;
-        min-width: 160px;
-    }
-
-    .primary-btn { background: var(--primary); color: white; }
-    .secondary-btn { border: 1px solid var(--border); color: white; background: rgba(255,255,255,0.05); }
-    .tertiary-btn { border: 1px solid var(--primary); color: var(--primary); }
-
-    .stats { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-    .stat-box { padding: 20px; min-width: 120px; background: var(--glass); border-radius: 15px; border: 1px solid var(--border); }
-    .stat-box h2 { color: var(--primary); }
-
-    .skills { padding: 80px 6%; text-align: center; }
-    .tools { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-    .tool-card { width: 300px; padding: 30px; background: var(--glass); border-radius: 20px; border: 1px solid var(--border); }
-
-    .backed { padding: 60px 20px; text-align: center; }
-    .backed-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 25px; }
-
-    footer { padding: 60px 6% 30px; background: rgba(0,0,0,0.8); }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-
-    @media (max-width: 900px) {
-        .menu-icon { display: flex; }
-
-        nav {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            width: 100%;
-            background: rgba(10,20,25,0.98);
-            padding: 40px 20px;
-        }
-
-        nav.active { display: flex; }
-
-        .dropdown-content {
-            position: static;
-            display: block;
-            background: none;
-            border: none;
-        }
-    }
+/* FOOTER */
+footer {
+    padding: 40px;
+    background: black;
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -321,26 +276,27 @@
     <div class="footer-bottom">
         © 2026 SOFTWARE INNOVATORS CLUB | Designed for Innovation
     </div>
-</footer>
 
 <script>
-    const toggle = document.getElementById('mobile-toggle');
-    const nav = document.getElementById('nav-list');
+const toggle = document.getElementById('mobile-toggle');
+const nav = document.getElementById('nav-list');
 
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        // Simple animation for the hamburger lines
-        const spans = toggle.getElementsByTagName('span');
-        if(nav.classList.contains('active')) {
-            spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
-            spans[1].style.opacity = "0";
-            spans[2].style.transform = "rotate(-45deg) translate(7px, -7px)";
-        } else {
-            spans[0].style.transform = "none";
-            spans[1].style.opacity = "1";
-            spans[2].style.transform = "none";
-        }
-    });
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
+
+// ✅ Dropdown fix
+const dropdown = document.querySelector('.dropdown');
+const dropbtn = document.querySelector('.dropbtn');
+
+dropbtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+});
+
+document.addEventListener('click', () => {
+    dropdown.classList.remove('active');
+});
 </script>
 
 </body>
