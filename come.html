@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Upcoming Events</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ===== GLOBAL RESET ===== */
@@ -20,10 +23,10 @@ body{
   background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
   background-size:400% 400%;
   animation: gradientMove 15s ease infinite;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 @keyframes gradientMove{
@@ -32,9 +35,41 @@ body{
   100%{background-position:0% 50%;}
 }
 
+/* ===== BACK BUTTON CONTAINER ===== */
+.back-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+  border-color: #8a7dff;
+}
+
 /* ===== SECTION ===== */
 .events-section{
-  padding:60px 10px;
+  padding:20px 10px 60px 10px;
   max-width:1200px;
   width:100%;
   text-align:center;
@@ -47,10 +82,12 @@ body{
   background:linear-gradient(90deg,#ffffff,#8a7dff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  display: inline-block;
 }
 
-.events-section span{
+.events-section h1 span{
   border-bottom:3px solid #8a7dff;
+  -webkit-text-fill-color: white; /* Ensures span text is visible if needed */
 }
 
 /* ===== GRID ===== */
@@ -134,11 +171,9 @@ body{
   .events-section h1{
     font-size:26px;
   }
-
   .event-content{
     padding:18px;
   }
-
   .event-content h2{
     font-size:18px;
   }
@@ -148,17 +183,19 @@ body{
 </head>
 
 <body>
+
 <div class="back-container">
     <button class="back-btn" onclick="history.back()">
         <i class="fas fa-arrow-left"></i> Back
     </button>
 </div>
+
 <section class="events-section">
-  <h1>Upcoming Events</span></h1>
+  <h1><span>Upcoming</span> Events</h1>
 
   <div class="events-container">
     <div class="event-card">
-      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.png">
+      <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.png" alt="Code Conquest">
       <div class="event-content">
         <h2>Code Conquest</h2>
         <p>📅 Coming Soon</p>
@@ -166,12 +203,8 @@ body{
         <button>About the event</button>
       </div>
     </div>
-
-  </section>
+  </div>
+</section>
 
 </body>
 </html>
-
-
-
-
