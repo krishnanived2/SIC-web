@@ -6,7 +6,6 @@
     <title>SIC - Software Innovators Club</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
@@ -16,7 +15,6 @@
             --border: rgba(255, 255, 255, 0.15);
             --primary: #9d92ff; 
             --text: #ffffff;
-            /* Brand Colors */
             --whatsapp: #25D366;
             --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
@@ -108,18 +106,35 @@
 
         /* DROPDOWN */
         .dropdown { position: relative; }
-        .dropbtn { cursor: pointer; color: rgba(255,255,255,0.8); font-size: 14px; }
+        .dropbtn { 
+            cursor: pointer; 
+            color: rgba(255,255,255,0.8); 
+            font-size: 14px; 
+            padding: 10px 0;
+        }
+        
         .dropdown-content {
             position: absolute;
-            top: 45px;
+            top: 100%;
             left: 0;
             min-width: 200px;
             display: none;
             padding: 10px;
-            background: rgba(15, 15, 20, 0.98) !important;
+            background: rgba(15, 15, 20, 0.95) !important;
+            z-index: 3000;
         }
+
         .dropdown-content a { display: block; padding: 12px; border-radius: 10px; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.05); }
+        .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--primary); }
+        
+        /* Show on Hover (Desktop) */
+        @media (min-width: 901px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Show on Click (Mobile/Active) */
         .dropdown.active .dropdown-content { display: block; }
 
         /* MOBILE MENU */
@@ -141,7 +156,7 @@
                 border: 1px solid var(--border);
             }
             nav.active { display: flex; }
-            .dropdown-content { position: static; background: transparent !important; }
+            .dropdown-content { position: static; background: transparent !important; box-shadow: none; border: none; }
         }
 
         /* HERO */
@@ -176,7 +191,7 @@
             margin: 0 auto 30px auto;
         }
 
-        /* BUTTONS WITH ICONS */
+        /* BUTTONS */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -230,7 +245,7 @@
         .tool-card img { max-height: 100%; max-width: 200px; object-fit: contain; }
         .tool-card h3 { color: var(--primary); margin-bottom: 10px; }
 
-        /* BACKED SECTION - CLEAR LOGOS */
+        /* BACKED SECTION */
         .backed {
             text-align: center;
             padding: 80px 6%;
@@ -251,7 +266,6 @@
             height: 60px;
             max-width: 180px;
             object-fit: contain;
-            /* Filter removed so original colors are clear */
             transition: 0.3s;
         }
 
@@ -283,7 +297,7 @@
     <nav id="nav-list">
         <a href="#">Home</a>
         <a href="about.html">About</a>
-        <div class="dropdown">
+        <div class="dropdown" id="events-dropdown">
             <div class="dropbtn">Events ▼</div>
             <div class="dropdown-content glass">
                 <a href="come.html">Upcoming Events</a>
@@ -374,18 +388,31 @@
 <script>
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('nav-list');
-    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    
+    // Toggle Mobile Menu
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+    });
 
+    // Handle Dropdown Click
     document.querySelectorAll('.dropbtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            if(window.innerWidth <= 900) {
-                e.stopPropagation();
-                btn.parentElement.classList.toggle('active');
-            }
+            // Stop click from bubbling up to document
+            e.stopPropagation();
+            const dropdown = btn.parentElement;
+            dropdown.classList.toggle('active');
+            
+            // Close other dropdowns if any
+            document.querySelectorAll('.dropdown').forEach(d => {
+                if(d !== dropdown) d.classList.remove('active');
+            });
         });
     });
 
+    // Close everything when clicking outside
     document.addEventListener('click', () => {
+        nav.classList.remove('active');
         document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
     });
 </script>
