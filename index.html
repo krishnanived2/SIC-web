@@ -10,9 +10,10 @@
 
     <style>
         :root {
-            --glass: rgba(20, 20, 30, 0.8);
-            --glass-card: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.15);
+            /* ADJUSTED: Lighter, more transparent backgrounds */
+            --glass: rgba(255, 255, 255, 0.08); 
+            --glass-card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.3); /* Brighter border for "clear" feel */
             --primary: #9d92ff; 
             --text: #ffffff;
             --whatsapp: #25D366;
@@ -31,8 +32,9 @@
         }
 
         body {
-            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.85), rgba(20, 20, 30, 0.95)), 
-                              url('https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=906&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            /* Background remains dark to make the "clear glass" pop */
+            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(20, 20, 30, 0.9)), 
+                              url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -41,11 +43,13 @@
         }
 
         .glass {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            /* ADJUSTED: Reduced blur to 8px for clarity */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border);
             border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            background: var(--glass);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* HEADER */
@@ -58,8 +62,8 @@
             width: 100%;
             top: 0;
             z-index: 2000;
-            backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 15, 0.7);
             border-bottom: 1px solid var(--border);
         }
 
@@ -120,21 +124,17 @@
             min-width: 200px;
             display: none;
             padding: 10px;
-            background: rgba(15, 15, 20, 0.95) !important;
+            background: rgba(20, 20, 30, 0.9) !important;
             z-index: 3000;
         }
 
         .dropdown-content a { display: block; padding: 12px; border-radius: 10px; }
         .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--primary); }
         
-        /* Show on Hover (Desktop) */
         @media (min-width: 901px) {
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
+            .dropdown:hover .dropdown-content { display: block; }
         }
 
-        /* Show on Click (Mobile/Active) */
         .dropdown.active .dropdown-content { display: block; }
 
         /* MOBILE MENU */
@@ -172,7 +172,6 @@
         .hero-content {
             max-width: 850px;
             padding: 60px 40px;
-            background: var(--glass);
         }
 
         .hero h1 {
@@ -240,7 +239,7 @@
             flex-direction: column;
             align-items: center;
         }
-        .tool-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.08); }
+        .tool-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.12); border-color: white; }
         .tool-card .logo-container { height: 80px; margin-bottom: 25px; }
         .tool-card img { max-height: 100%; max-width: 200px; object-fit: contain; }
         .tool-card h3 { color: var(--primary); margin-bottom: 10px; }
@@ -249,7 +248,7 @@
         .backed {
             text-align: center;
             padding: 80px 6%;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.2);
             margin-top: 40px;
         }
 
@@ -267,12 +266,13 @@
             max-width: 180px;
             object-fit: contain;
             transition: 0.3s;
+            filter: brightness(0.9);
         }
 
-        .backed-logos img:hover { transform: scale(1.1); }
+        .backed-logos img:hover { transform: scale(1.1); filter: brightness(1.2); }
 
         /* FOOTER */
-        footer { padding: 60px 6%; margin: 40px 6%; background: var(--glass); }
+        footer { padding: 60px 6%; margin: 40px 6%; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
         .footer-col h3 { margin-bottom: 20px; color: var(--primary); }
         .footer-col p, .footer-col li { font-size: 14px; opacity: 0.8; line-height: 1.6; }
@@ -389,28 +389,23 @@
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('nav-list');
     
-    // Toggle Mobile Menu
     toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         nav.classList.toggle('active');
     });
 
-    // Handle Dropdown Click
     document.querySelectorAll('.dropbtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            // Stop click from bubbling up to document
             e.stopPropagation();
             const dropdown = btn.parentElement;
             dropdown.classList.toggle('active');
             
-            // Close other dropdowns if any
             document.querySelectorAll('.dropdown').forEach(d => {
                 if(d !== dropdown) d.classList.remove('active');
             });
         });
     });
 
-    // Close everything when clicking outside
     document.addEventListener('click', () => {
         nav.classList.remove('active');
         document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
