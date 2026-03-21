@@ -36,10 +36,10 @@ body{
 
 /* ===== FOOTER GLASS ===== */
 .footer{
-    position: relative; /* For positioning the back button */
+    position: relative; 
     width:95%;
     max-width:1200px;
-    padding:80px 30px 25px; /* Added top padding to clear the back button */
+    padding:80px 30px 25px; 
     border-radius:25px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(25px);
@@ -118,7 +118,7 @@ body{
     text-shadow:0 0 10px #8a7dff;
 }
 
-/* Paragraphs */
+/* Paragraphs & Links */
 .footer p{
     margin-bottom:10px;
     line-height:1.6;
@@ -134,6 +134,13 @@ body{
 .footer a:hover{
     color:#8a7dff;
     text-shadow:0 0 10px #8a7dff;
+}
+
+/* Fix for long student email addresses */
+.email-link {
+    word-break: break-all;
+    font-size: 14px; /* Slightly smaller to fit better */
+    display: inline-block;
 }
 
 /* Bottom Section */
@@ -217,7 +224,7 @@ body{
             <p>Pavithra R Menon</p>
             <p><a href="tel:+919947244199">+91 9947244199</a></p>
             <p>
-                <a href="mailto:KH.SC.I5MCA23083@kh.students.amrita.edu">
+                <a href="mailto:KH.SC.I5MCA23083@kh.students.amrita.edu" class="email-link">
                 KH.SC.I5MCA23083@kh.students.amrita.edu
                 </a>
             </p>
