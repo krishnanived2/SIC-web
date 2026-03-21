@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Events</title>
+    <title>Past Events - SIC</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         /* ===== RESET & BASE ===== */
@@ -17,33 +18,59 @@
 
         body {
             min-height: 100vh;
-            background: #0f2027; /* Solid fallback */
+            background: #0f2027; 
             background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
             padding: 40px 20px;
             color: white;
         }
 
+        /* ===== BACK BUTTON ===== */
+        .back-container {
+            max-width: 1100px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
         /* ===== SECTION LAYOUT ===== */
         .events-section {
-            max-width: 1100px; /* Medium width for better readability */
+            max-width: 1100px; 
             margin: 0 auto;
             text-align: center;
         }
 
         .events-section h1 {
-            font-size: clamp(24px, 5vw, 32px);
+            font-size: clamp(28px, 5vw, 42px);
             margin-bottom: 40px;
-        }
-
-        .events-section h1 span {
-            color: #8a7dff;
-            border-bottom: 3px solid #8a7dff;
+            background: linear-gradient(to right, #fff, #9d92ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* ===== GRID SYSTEM ===== */
         .events-container {
             display: grid;
-            /* Creates a balanced 3-column or 2-column layout depending on screen size */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             justify-items: center;
@@ -72,19 +99,19 @@
         /* ===== IMAGE FIX ===== */
         .img-container {
             width: 100%;
-            aspect-ratio: 16 / 10; /* Maintains a standard rectangular shape */
-            background: #000; /* Fills gaps if image is a different shape */
+            aspect-ratio: 16 / 10;
+            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 5px; /* Slight padding so image doesn't touch edges */
+            padding: 5px;
         }
 
         .img-container img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Keeps whole image visible without cropping */
+            object-fit: contain;
             border-radius: 8px;
         }
 
@@ -98,32 +125,35 @@
         }
 
         .event-content h2 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: #fff;
         }
 
         .event-content p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.8;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* ===== SHARED BUTTON STYLE ===== */
+        /* ===== BUTTON STYLE ===== */
         .btn {
-            margin-top: auto; /* Forces button to stay at the bottom */
+            margin-top: auto; 
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: linear-gradient(135deg, #7b6cff, #5a8cff);
             color: white;
             text-decoration: none;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: 0.3s;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -131,7 +161,6 @@
             box-shadow: 0 4px 15px rgba(123, 108, 255, 0.4);
         }
 
-        /* Small mobile tweaks */
         @media (max-width: 480px) {
             .events-container {
                 grid-template-columns: 1fr;
@@ -141,10 +170,14 @@
 </head>
 <body>
 
+<div class="back-container">
+    <button class="back-btn" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i> Back
+    </button>
+</div>
+
 <section class="events-section">
-    <button class="back-btn" onclick="history.back()">← Back</button>
-    <h1>Past Events</span></h1> 
-    <button class="back-btn" onclick="history.back()">←</button>
+    <h1>Past Events</h1> 
 
     <div class="events-container">
 
@@ -154,8 +187,8 @@
             </div>
             <div class="event-content">
                 <h2>Sprint & Solve</h2>
-                <p>📅 27-08-2025</p>
-                <p>⏰ 11:15 AM</p>
+                <p><i class="far fa-calendar-alt"></i> 27-08-2025</p>
+                <p><i class="far fa-clock"></i> 11:15 AM</p>
                 <a href="d.html" class="btn">About Event</a>
             </div>
         </div>
@@ -166,8 +199,8 @@
             </div>
             <div class="event-content">
                 <h2>Mind Spark</h2>
-                <p>📅 28-02-2025</p>
-                <p>⏰ 1:15 PM - 3:15 PM</p>
+                <p><i class="far fa-calendar-alt"></i> 28-02-2025</p>
+                <p><i class="far fa-clock"></i> 1:15 PM - 3:15 PM</p>
                 <a href="c.html" class="btn">About Event</a>
             </div>
         </div>
@@ -178,8 +211,8 @@
             </div>
             <div class="event-content">
                 <h2>Treasure Hunt</h2>
-                <p>📅 08-04-2025</p>
-                <p>⏰ 11:00 AM</p>
+                <p><i class="far fa-calendar-alt"></i> 08-04-2025</p>
+                <p><i class="far fa-clock"></i> 11:00 AM</p>
                 <a href="b.html" class="btn">About Event</a>
             </div>
         </div>
@@ -190,19 +223,20 @@
             </div>
             <div class="event-content">
                 <h2>Synergy Sprint</h2>
-                <p>📅 23-01-2026</p>
-                <p>⏰ 11:15 AM - 12:15 PM</p>
+                <p><i class="far fa-calendar-alt"></i> 23-01-2026</p>
+                <p><i class="far fa-clock"></i> 11:15 AM - 12:15 PM</p>
                 <a href="a.html" class="btn">About Event</a>
             </div>
         </div>
-            <div class="event-card">
+
+        <div class="event-card">
             <div class="img-container">
                 <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p34.jpeg" alt="Escape Room">
             </div>
             <div class="event-content">
                 <h2>Escape Room</h2>
-                <p>📅 15-11-2024</p>
-                <p>⏰ 09:30 AM - 11:30 AM</p>
+                <p><i class="far fa-calendar-alt"></i> 15-11-2024</p>
+                <p><i class="far fa-clock"></i> 09:30 AM - 11:30 AM</p>
                 <a href="e.html" class="btn">About Event</a>
             </div>
         </div>
