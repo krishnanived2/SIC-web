@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIC Footer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,6 +25,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    padding: 40px 20px;
 }
 
 @keyframes gradientMove{
@@ -33,9 +36,10 @@ body{
 
 /* ===== FOOTER GLASS ===== */
 .footer{
+    position: relative; /* For positioning the back button */
     width:95%;
     max-width:1200px;
-    padding:60px 30px 25px;
+    padding:80px 30px 25px; /* Added top padding to clear the back button */
     border-radius:25px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(25px);
@@ -43,6 +47,32 @@ body{
     border:1px solid rgba(255,255,255,0.15);
     box-shadow:0 8px 32px rgba(0,0,0,0.4);
     color:white;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+    border-color: #8a7dff;
 }
 
 /* Container */
@@ -118,14 +148,12 @@ body{
 
 /* ===== RESPONSIVE ===== */
 
-/* Tablet */
 @media (max-width:992px){
     .footer-container{
         gap:30px;
     }
 }
 
-/* Mobile */
 @media (max-width:600px){
     body{
         padding:20px 0;
@@ -133,7 +161,7 @@ body{
     }
 
     .footer{
-        padding:40px 20px 20px;
+        padding:80px 20px 20px;
     }
 
     .footer-container{
@@ -145,8 +173,11 @@ body{
         width:100%;
     }
 
-    .bottom{
-        font-size:13px;
+    .back-btn {
+        top: 20px;
+        left: 20px;
+        padding: 6px 14px;
+        font-size: 13px;
     }
 }
 
@@ -157,12 +188,13 @@ body{
 
 <footer class="footer">
 
+    <button class="back-btn" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i> Back
+    </button>
+
     <div class="footer-container">
 
-        <!-- Clubs -->
         <div class="footer-column">
-                 <!-- 🔙 BACK BUTTON -->
-    <button class="back-btn" onclick="history.back()">←</button>
             <h3>Clubs</h3>
             <ul>
                 <li><a href="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">IEDC</a></li>
@@ -171,7 +203,6 @@ body{
             </ul>
         </div>
 
-        <!-- Support -->
         <div class="footer-column">
             <h3>Support</h3>
             <ul>
@@ -181,7 +212,6 @@ body{
             </ul>
         </div>
 
-        <!-- Contact -->
         <div class="footer-column">
             <h3>Contact</h3>
             <p>Pavithra R Menon</p>
@@ -193,7 +223,6 @@ body{
             </p>
         </div>
 
-        <!-- Address -->
         <div class="footer-column">
             <h3>Get in Touch</h3>
             <p>
