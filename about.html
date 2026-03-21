@@ -1,121 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - Software Innovators Club</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Software Innovators Club</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 
-/* ===== GLOBAL RESET ===== */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+    /* ===== GLOBAL RESET ===== */
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
 
-body{
-    min-height:100vh;
-    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
-    background-size:400% 400%;
-    animation:gradientMove 15s ease infinite;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
-    color:white;
-}
+    body{
+        min-height:100vh;
+        background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
+        background-size:400% 400%;
+        animation:gradientMove 15s ease infinite;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:40px 20px;
+        color:white;
+    }
 
-@keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
+    @keyframes gradientMove{
+        0%{background-position:0% 50%;}
+        50%{background-position:100% 50%;}
+        100%{background-position:0% 50%;}
+    }
 
-/* ===== SECTION ===== */
-.section{
-    width:100%;
-    max-width:1000px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
+    /* ===== SECTION ===== */
+    .section{
+        width:100%;
+        max-width:1000px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
 
-/* ===== GLASS BOX ===== */
-.about-box{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:25px;
-    padding:60px 40px;
-    text-align:center;
-    box-shadow:0 8px 32px rgba(0,0,0,0.4);
-    transition:0.4s ease;
-}
-
-.about-box:hover{
-    box-shadow:0 0 30px rgba(138,125,255,0.6);
-}
-
-/* ===== HEADING ===== */
-h1{
-    font-size:36px;
-    margin-bottom:25px;
-    background:linear-gradient(90deg,#ffffff,#8a7dff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-/* ===== IMAGE ===== */
-.about-box img{
-    width:100%;
-    max-width:420px;
-    border-radius:20px;
-    margin:25px 0;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    transition:0.4s ease;
-}
-
-.about-box img:hover{
-    transform:scale(1.05);
-}
-
-/* ===== PARAGRAPH ===== */
-.about-box p{
-    font-size:17px;
-    line-height:1.9;
-    color:rgba(255,255,255,0.85);
-    margin-bottom:25px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px){
-
+    /* ===== GLASS BOX ===== */
     .about-box{
-        padding:40px 25px;
+        position: relative;
+        background:rgba(255,255,255,0.08);
+        backdrop-filter:blur(25px);
+        -webkit-backdrop-filter:blur(25px);
+        border:1px solid rgba(255,255,255,0.15);
+        border-radius:25px;
+        padding:70px 40px 50px 40px;
+        text-align:center;
+        box-shadow:0 8px 32px rgba(0,0,0,0.4);
+        transition:0.4s ease;
     }
 
+    .about-box:hover{
+        box-shadow:0 0 30px rgba(138,125,255,0.4);
+    }
+
+    /* ===== BACK BUTTON (Updated with Text) ===== */
+    .back-btn {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.3s ease;
+        z-index: 10;
+        text-decoration: none;
+    }
+
+    .back-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(-5px);
+        border-color: #8a7dff;
+    }
+
+    /* ===== HEADING ===== */
     h1{
-        font-size:26px;
+        font-size:36px;
+        margin-top: 20px;
+        margin-bottom:25px;
+        background: linear-gradient(90deg,#ffffff,#8a7dff);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
     }
 
+    /* ===== IMAGE ===== */
+    .about-box img{
+        width:100%;
+        max-width:420px;
+        border-radius:20px;
+        margin:25px 0;
+        box-shadow:0 10px 30px rgba(0,0,0,0.4);
+        transition:0.4s ease;
+    }
+
+    .about-box img:hover{
+        transform:scale(1.03);
+    }
+
+    /* ===== PARAGRAPH ===== */
     .about-box p{
-        font-size:15px;
+        font-size:17px;
+        line-height:1.9;
+        color:rgba(255,255,255,0.85);
+        margin-bottom:25px;
     }
-}
 
-</style>
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:768px){
+        .about-box{
+            padding:80px 25px 40px 25px;
+        }
+
+        .back-btn {
+            top: 20px;
+            left: 20px;
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+
+        h1{
+            font-size:26px;
+            margin-top: 10px;
+        }
+
+        .about-box p{
+            font-size:15px;
+        }
+    }
+
+    </style>
 </head>
 
 <body>
 <section class="section">
     <div class="about-box">
-             <!-- 🔙 BACK BUTTON -->
-    <button class="back-btn" onclick="history.back()">←</button>
+        <button class="back-btn" onclick="history.back()">
+            <span>←</span> Back
+        </button>
+
         <h1>About Software Innovators Club</h1>
 
         <img src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg" 
@@ -137,4 +175,3 @@ h1{
 
 </body>
 </html>
-
