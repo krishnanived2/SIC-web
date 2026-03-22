@@ -81,31 +81,33 @@ p {
 /* GALLERY */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
     margin-top: 20px;
 }
 
-/* 🔥 IMAGE BOX (NO CROP FIX) */
+/* ✅ IMAGE BOX FIX */
 .img-box {
     width: 100%;
-    height: 200px;
-    background: rgba(0,0,0,0.4); /* background for empty space */
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    overflow: hidden;
+    padding: 10px;
 }
 
-/* 🔥 IMAGE FIT (FULL IMAGE VISIBLE) */
+/* ✅ IMAGE FIX */
 .img-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* 🔥 NO CROPPING */
-    transition: 0.3s;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: 0.3s ease;
 }
 
+/* HOVER EFFECT */
 .img-box img:hover {
     transform: scale(1.05);
 }
@@ -118,6 +120,16 @@ p {
     color: #9cdcff;
 }
 
+/* MOBILE */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
 </style>
 </head>
 
@@ -130,14 +142,14 @@ p {
 <h1>Treasure Hunt</h1>
 
 <div class="info">
-<p><b> Department of Computer Science & IT</p>
-<p><b>8th, 9th, & 10th April 2025 </p>
-<p><b>Various Campus Locations </p>
+<p><b>Department of Computer Science & IT</b></p>
+<p><b>8th, 9th, & 10th April 2025</b></p>
+<p><b>Various Campus Locations</b></p>
 
 <h3>Coordinators</h3>
-<p>Pruthu Prasad (BCA Data Science 2023) </p>
-<p>Pavithra R Menon (Integrated MCA-B 2023) </p>
-<p><b>FACULTY COORDINATOR: Ms. M Soumya Krishnan  </p>
+<p>Pruthu Prasad (BCA Data Science 2023)</p>
+<p>Pavithra R Menon (Integrated MCA-B 2023)</p>
+<p><b>FACULTY COORDINATOR: Ms. M Soumya Krishnan</b></p>
 </div>
 
 <h2>About the Event</h2>
@@ -146,70 +158,62 @@ The Treasure Hunt was a thrilling three-day technical event conducted as part of
 Savishkaara 2k25. Designed to test participants' problem-solving, teamwork, and 
 technical skills, the event saw enthusiastic participation from students across various 
 departments. The competition was structured in multiple phases, gradually 
-eliminating teams until the final treasure was found. Starting with 59 teams (118 
-students), the competition progressively narrowed down to 3 finalists through 
-multiple challenging phases. The event culminated in an exciting finale where the 
-winning team was awarded certificates and a ₹2000 cash prize in recognition of their 
-outstanding performance.
+eliminating teams until the final treasure was found.
 </p>
 
 <h2>Event Highlights</h2>
-<p>● Technical challenges (digital puzzles, code-breaking) </p>
-<p>● Physical tasks (sports-based challenges) </p>
-<p>● Mental games (memory tests, decoding tasks) </p>
+<p>● Technical challenges (digital puzzles, code-breaking)</p>
+<p>● Physical tasks (sports-based challenges)</p>
+<p>● Mental games (memory tests, decoding tasks)</p>
 <p>● Adventure elements (scavenger hunt, treasure search)</p>
 
 <h2>Event Structure</h2>
 <p>
-The event followed a progressive elimination format spanning three days: 
-● Day 1: Preliminary round with technical challenges 
-● Day 2: Intermediate rounds featuring puzzles and decoding tasks 
+● Day 1: Preliminary round with technical challenges<br>
+● Day 2: Intermediate rounds featuring puzzles and decoding tasks<br>
 ● Day 3: Finals comprising physical and mental challenges
 </p>
-
 
 <h2>Gallery</h2>
 
 <div class="gallery">
 
 <div class="img-box">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b1.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b1.jpeg" alt="Image 1">
 </div>
 
 <div class="img-box">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b2.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b2.jpeg" alt="Image 2">
 </div>
 
 <div class="img-box">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b3.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b3.jpeg" alt="Image 3">
 </div>
 
 <div class="img-box">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b4.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b4.jpeg" alt="Image 4">
 </div>
 
 <div class="img-box">
-<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b5.jpeg">
+<img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b5.jpeg" alt="Image 5">
 </div>
 
 </div>
 
 <h3>Organization</h3>
-<p>A dedicated four-member core team consisting of event coordinators and volunteer 
-leads planned and executed all aspects of the competition. During the event days, this 
-core team was ably supported by fifteen volunteers who ensured smooth operations 
-across all venues.</p>
+<p>
+A dedicated four-member core team and fifteen volunteers ensured smooth execution 
+across all venues.
+</p>
 
 <h3>Feedback</h3>
-<p>The Treasure Hunt was highly competitive yet collaborative, with participants 
-praising its balanced structure. Feedback highlighted enhanced technical and 
-problem-solving skills, with strong engagement throughout. </p>
+<p>
+The event was highly engaging and helped improve technical and problem-solving skills.
+</p>
 
 <h2>Conclusion</h2>
 <p>
-The Treasure Hunt successfully fostered teamwork and creative problem-solving 
-skills while delivering an engaging competitive experience. This edition has set a 
-strong foundation for future competitions to build upon.
+The Treasure Hunt successfully fostered teamwork and creative problem-solving skills.
 </p>
 
 <div class="footer">
