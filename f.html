@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Surge</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #021014, #0a2a2f);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* MAIN CARD */
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    color: #eaffff;
+    box-shadow: 0 0 40px rgba(0,150,255,0.2);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #8ec5ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* HEADINGS */
+h2 {
+    color: #00eaff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #8ec5ff;
+    margin-top: 15px;
+}
+
+/* TEXT */
+p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* INFO BOX */
+.info {
+    background: rgba(0, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* IMAGE BOX - RESPONSIVE */
+.img-box {
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* IMAGE FIX */
+.img-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.img-box img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9cdcff;
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button class="back-btn" onclick="history.back()">← Back</button>
+
+<h1>Code Surge</h1>
+
+<div class="info">
+<p><b>Organized by:</b> Software Innovators Club (SIC)</p>
+<p><b>Date:</b> 24 September 2026</p>
+<p><b>Venue:</b> Lab 3</p>
+
+<h3>Coordinators</h3>
+<p>• Pruthu Prasad - BCA DS 2023</p>
+<p>• Jagath Jyothis - BCA DS 2023</p>
+<p><b>Faculty:</b> Ms. Anupama KN</p>
+</div>
+
+<h2>About the Event</h2>
+<p>
+The event "Code Surge" was an exciting and intellectually stimulating coding competition organized by the Software Innovators Club (SIC) of the Department of Computer Science and IT. It provided an excellent platform for students to test their programming abilities, logical reasoning, and time management skills in a competitive setting. Hosted on the HackerRank platform, the contest encouraged participants to solve coding problems quickly and accurately, fostering an environment of focus, precision, and healthy competition.
+</p>
+
+<h2>Event Highlights</h2>
+<p>• Conducted on HackerRank with individual participation</p>
+<p>• Separate challenge levels for juniors and seniors to ensure fairness</p>
+<p>• Live leaderboard for real-time ranking and engagement</p>
+<p>• Timed coding problems designed to test logic, problem-solving, and coding speed</p>
+<p>• Strict anti-plagiarism measures to ensure fair play</p>
+<p>• Encouraged quick thinking, precision, and adaptability under pressure</p>
+
+<h2>Event Structure</h2>
+<p>The competition consisted of a single one-hour round hosted online via HackerRank.
+ Participants were required to:
+</p>
+<p>• Solve coding challenges individually using their own HackerRank accounts.</p>
+<p>• Complete problems designed according to their experience level (junior or senior).</p>
+<p>• Compete for top leaderboard positions based on accuracy and submission speed.</p>
+<p>The dynamic structure emphasized individual performance, time management, and strategic problem-solving.</p>
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<div class="img-box">
+<img src="" alt="Event Image 1">
+</div>
+
+<div class="img-box">
+<img src="" alt="Event Image 2">
+</div>
+
+<div class="img-box">
+<img src="" alt="Event Image 3">
+</div>
+
+<div class="img-box">
+<img src="" alt="Event Image 4">
+</div>
+
+</div>
+
+<h3>Organization</h3>
+<p>A committed team of student coordinators and volunteer leads managed the event end-to-end, supported by volunteers who ensured smooth conduct and fairness throughout..</p>
+
+<h3>Feedback</h3>
+<p>Participants responded enthusiastically to Code Surge, appreciating its competitive yet fair format. They enjoyed solving real-time challenges, tracking progress on the live leaderboard, and valued the separate categories for juniors and seniors.</p>
+
+<h3>Acknowledgment</h3>
+<p>We sincerely thank our faculty coordinator, event coordinators, participants, and volunteers for their dedication and enthusiasm, which made this event a grand success.</p>
+
+<h2>Event Brief</h2>
+<p>
+Code Surge successfully fostered a spirit of competitive programming, enhancing participants’ problem-solving skills and coding confidence. The event offered a valuable live contest experience and received positive feedback, marking it as a memorable and impactful competition.
+</p>
+
+<div class="footer">
+© Software Innovators Club
+</div>
+
+</div>
+
+</body>
+</html>
