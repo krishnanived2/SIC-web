@@ -10,9 +10,11 @@
 <title>SIC - Software Innovators Club</title>
 
 <!-- GOOGLE FONT -->
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- FONT AWESOME -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <style>
@@ -90,7 +92,8 @@ body {
 
 /* =====================================================
    MOVING BACKGROUND IMAGE
-   15 SECOND LEFT ↔ RIGHT ANIMATION
+   EXACTLY 15 SECONDS
+   VISIBLE LEFT ↔ RIGHT MOVEMENT
 ===================================================== */
 
 body::before {
@@ -101,9 +104,9 @@ body::before {
 
     top:-10%;
 
-    left:-10%;
+    left:-15%;
 
-    width:120%;
+    width:130%;
 
     height:120%;
 
@@ -113,8 +116,8 @@ body::before {
 
         linear-gradient(
             to bottom,
-            rgba(10,10,15,0.70),
-            rgba(20,20,30,0.90)
+            rgba(10,10,15,0.65),
+            rgba(20,20,30,0.85)
         ),
 
         url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -125,9 +128,17 @@ body::before {
 
     background-position:center;
 
-    transform:translateX(-4%);
+    transform:translateX(-8%);
 
-    animation:backgroundMove 15s ease-in-out infinite alternate;
+    /*
+       15 seconds
+       Linear = constant visible speed
+    */
+
+    animation:
+        backgroundMove 15s linear infinite alternate;
+
+    will-change:transform;
 
 }
 
@@ -151,8 +162,8 @@ body::after {
     background:
         linear-gradient(
             180deg,
-            rgba(5,8,15,0.15),
-            rgba(5,8,15,0.35)
+            rgba(5,8,15,0.10),
+            rgba(5,8,15,0.30)
         );
 
 }
@@ -160,13 +171,18 @@ body::after {
 
 /* =====================================================
    BACKGROUND ANIMATION
+
+   LEFT → RIGHT
+   RIGHT → LEFT
+
+   TOTAL CYCLE = 15 SECONDS
 ===================================================== */
 
 @keyframes backgroundMove {
 
     0% {
 
-        transform:translateX(-4%);
+        transform:translateX(-8%);
 
     }
 
@@ -178,7 +194,7 @@ body::after {
 
     100% {
 
-        transform:translateX(4%);
+        transform:translateX(8%);
 
     }
 
@@ -1041,17 +1057,23 @@ footer {
 
 @media (max-width:600px) {
 
+    /*
+       MORE BACKGROUND WIDTH ON MOBILE
+       SO THE MOVEMENT IS VISIBLE
+    */
+
     body::before {
 
-        width:140%;
+        width:150%;
 
         height:120%;
 
-        left:-20%;
+        left:-25%;
 
         background-size:cover;
 
-        animation-duration:15s;
+        animation:
+            backgroundMove 15s linear infinite alternate;
 
     }
 
@@ -1294,90 +1316,91 @@ footer {
 
 <header>
 
-
 <button
-    class="back-btn"
-    onclick="history.back()">
+ class="back-btn"
+ onclick="history.back()">
 
-    ← Back
+```
+← Back
+```
 
 </button>
 
-
 <img
-    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo%201.png"
-    alt="SIC Logo"
-    class="sic-logo">
-
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo%201.png"
+ alt="SIC Logo"
+ class="sic-logo">
 
 <div
     class="menu-icon"
     id="mobile-toggle">
 
-    <span></span>
-    <span></span>
-    <span></span>
+```
+<span></span>
+<span></span>
+<span></span>
+```
+
+</div>
+
+<nav id="nav-list">
+
+```
+<a href="#">
+    Home
+</a>
+
+
+<a href="about.html">
+    About
+</a>
+
+
+<div
+    class="dropdown"
+    id="events-dropdown">
+
+    <div class="dropbtn">
+        Events ▼
+    </div>
+
+
+    <div class="dropdown-content glass">
+
+        <a href="come.html">
+            Upcoming Events
+        </a>
+
+
+        <a href="event.html">
+            Past Events
+        </a>
+
+    </div>
 
 </div>
 
 
-<nav id="nav-list">
-
-    <a href="#">
-        Home
-    </a>
+<a href="team.html">
+    Team
+</a>
 
 
-    <a href="about.html">
-        About
-    </a>
+<a href="contact.html">
+    Contact
+</a>
 
 
-    <div
-        class="dropdown"
-        id="events-dropdown">
+<a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+    class="join-btn">
 
-        <div class="dropbtn">
-            Events ▼
-        </div>
+    Be a Member
 
-
-        <div class="dropdown-content glass">
-
-            <a href="come.html">
-                Upcoming Events
-            </a>
-
-
-            <a href="event.html">
-                Past Events
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <a href="team.html">
-        Team
-    </a>
-
-
-    <a href="contact.html">
-        Contact
-    </a>
-
-
-    <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
-        class="join-btn">
-
-        Be a Member
-
-    </a>
+</a>
+```
 
 </nav>
-
 
 </header>
 
@@ -1387,107 +1410,107 @@ footer {
 
 <section class="hero">
 
-
 <div class="hero-content glass">
 
-    <h1>
-        Join 150+ Innovators
-    </h1>
+```
+<h1>
+    Join 150+ Innovators
+</h1>
 
 
-    <p>
-        Fuel your passion for software development through
-        community-led practice, live projects, and expert mentorship.
-    </p>
+<p>
+    Fuel your passion for software development through
+    community-led practice, live projects, and expert mentorship.
+</p>
 
 
-    <div class="hero-buttons">
+<div class="hero-buttons">
 
 
-        <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
-            class="primary-btn"
-            target="_blank">
+    <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+        class="primary-btn"
+        target="_blank">
 
-            <i class="fas fa-user-plus"></i>
+        <i class="fas fa-user-plus"></i>
 
-            Join SIC
+        Join SIC
 
-        </a>
-
-
-        <a
-            href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
-            class="whatsapp-btn"
-            target="_blank">
-
-            <i class="fab fa-whatsapp"></i>
-
-            WhatsApp
-
-        </a>
+    </a>
 
 
-        <a
-            href="https://www.instagram.com/sic.asas"
-            class="instagram-btn"
-            target="_blank">
+    <a
+        href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
+        class="whatsapp-btn"
+        target="_blank">
 
-            <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
 
-            Instagram
+        WhatsApp
 
-        </a>
-
-    </div>
+    </a>
 
 
-    <div class="stats">
+    <a
+        href="https://www.instagram.com/sic.asas"
+        class="instagram-btn"
+        target="_blank">
 
+        <i class="fab fa-instagram"></i>
 
-        <div class="stat-box glass">
+        Instagram
 
-            <h2>
-                20+
-            </h2>
-
-            <p>
-                Mentors
-            </p>
-
-        </div>
-
-
-        <div class="stat-box glass">
-
-            <h2>
-                150+
-            </h2>
-
-            <p>
-                Active Members
-            </p>
-
-        </div>
-
-
-        <div class="stat-box glass">
-
-            <h2>
-                6+
-            </h2>
-
-            <p>
-                Live Projects
-            </p>
-
-        </div>
-
-
-    </div>
+    </a>
 
 </div>
 
+
+<div class="stats">
+
+
+    <div class="stat-box glass">
+
+        <h2>
+            20+
+        </h2>
+
+        <p>
+            Mentors
+        </p>
+
+    </div>
+
+
+    <div class="stat-box glass">
+
+        <h2>
+            150+
+        </h2>
+
+        <p>
+            Active Members
+        </p>
+
+    </div>
+
+
+    <div class="stat-box glass">
+
+        <h2>
+            6+
+        </h2>
+
+        <p>
+            Live Projects
+        </p>
+
+    </div>
+
+
+</div>
+```
+
+</div>
 
 </section>
 
@@ -1499,71 +1522,69 @@ footer {
     class="skills"
     id="about">
 
-
 <h2>
     Evaluate Your Skills
 </h2>
 
-
 <p style="opacity:0.7;">
 
-    Practice on industry-standard platforms supported by SIC.
+```
+Practice on industry-standard platforms supported by SIC.
+```
 
 </p>
 
-
 <div class="tools">
 
+```
+<div class="tool-card glass">
 
-    <div class="tool-card glass">
+    <div class="logo-container">
 
-        <div class="logo-container">
-
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
-                alt="HackerRank">
-
-        </div>
-
-
-        <h3>
-            HackerRank
-        </h3>
-
-
-        <p>
-            Improve problem-solving and coding logic.
-        </p>
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
+            alt="HackerRank">
 
     </div>
 
 
-    <div class="tool-card glass">
-
-        <div class="logo-container">
-
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
-                alt="LeetCode"
-                style="filter:invert(1);">
-
-        </div>
+    <h3>
+        HackerRank
+    </h3>
 
 
-        <h3>
-            LeetCode
-        </h3>
-
-
-        <p>
-            Master Data Structures and Algorithms.
-        </p>
-
-    </div>
-
+    <p>
+        Improve problem-solving and coding logic.
+    </p>
 
 </div>
 
+
+<div class="tool-card glass">
+
+    <div class="logo-container">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+            alt="LeetCode"
+            style="filter:invert(1);">
+
+    </div>
+
+
+    <h3>
+        LeetCode
+    </h3>
+
+
+    <p>
+        Master Data Structures and Algorithms.
+    </p>
+
+</div>
+```
+
+</div>
 
 </section>
 
@@ -1573,7 +1594,6 @@ footer {
 
 <section class="backed">
 
-
 <p
     style="
     letter-spacing:4px;
@@ -1582,35 +1602,36 @@ footer {
     font-weight:700;
     ">
 
-    BACKED & RECOGNIZED BY
+```
+BACKED & RECOGNIZED BY
+```
 
 </p>
 
-
 <div class="backed-logos">
 
-
-    <img
-        src="https://csi.coep.org.in/csi_logo.png"
-        alt="CSI">
-
-
-    <img
-        src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
-        alt="AMRITA">
+```
+<img
+    src="https://csi.coep.org.in/csi_logo.png"
+    alt="CSI">
 
 
-    <img
-        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
-        alt="IEDC">
+<img
+    src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
+    alt="AMRITA">
 
 
-    <img
-        src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
-        alt="IIC">
+<img
+    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
+    alt="IEDC">
+
+
+<img
+    src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
+    alt="IIC">
+```
 
 </div>
-
 
 </section>
 
@@ -1622,106 +1643,115 @@ footer {
     class="glass"
     id="contact">
 
-
 <div class="footer-grid">
 
+```
+<!-- ABOUT -->
 
-    <!-- ABOUT -->
+<div class="footer-col">
 
-    <div class="footer-col">
-
-        <h3>
-            Software Innovators Club
-        </h3>
-
-
-        <p>
-            Empowering students to collaborate,
-            innovate, and excel at Amrita Kochi.
-        </p>
-
-    </div>
+    <h3>
+        Software Innovators Club
+    </h3>
 
 
-    <!-- CONTACT -->
-
-    <div class="footer-col">
-
-        <h3>
-            Contact Us
-        </h3>
-
-
-        <p>
-            Amrita Vishwa Vidyapeetham,
-            Kochi Campus
-        </p>
-
-
-        <p>
-            <strong>Email:</strong>
-            sicasaskochi@gmail.com
-        </p>
-
-
-        <p>
-            <strong>Phone:</strong>
-            +91 6238314481
-        </p>
-
-    </div>
-
-
-    <!-- LOCATION -->
-
-    <div class="footer-col">
-
-        <div class="location-section">
-
-
-            <h3>
-
-                <i class="fas fa-location-dot"></i>
-
-                Our Location
-
-            </h3>
-
-
-            <p>
-                Amrita Vishwa Vidyapeetham Kochi Campus
-            </p>
-
-
-            <div class="map-container">
-
-                <iframe
-                    src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
+    <p>
+        Empowering students to collaborate,
+        innovate, and excel at Amrita Kochi.
+    </p>
 
 </div>
 
+
+<!-- CONTACT -->
+
+<div class="footer-col">
+
+    <h3>
+        Contact Us
+    </h3>
+
+
+    <p>
+        Amrita Vishwa Vidyapeetham,
+        Kochi Campus
+    </p>
+
+
+    <p>
+
+        <strong>
+            Email:
+        </strong>
+
+        sicasaskochi@gmail.com
+
+    </p>
+
+
+    <p>
+
+        <strong>
+            Phone:
+        </strong>
+
+        +91 6238314481
+
+    </p>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="footer-col">
+
+    <div class="location-section">
+
+
+        <h3>
+
+            <i class="fas fa-location-dot"></i>
+
+            Our Location
+
+        </h3>
+
+
+        <p>
+            Amrita Vishwa Vidyapeetham Kochi Campus
+        </p>
+
+
+        <div class="map-container">
+
+            <iframe
+                src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+
+    </div>
+
+</div>
+```
+
+</div>
 
 <!-- COPYRIGHT -->
 
 <div class="footer-bottom">
 
-    © 2026 SOFTWARE INNOVATORS CLUB |
-    DEVELOPED BY SIC MEMBERS
+```
+© 2026 SOFTWARE INNOVATORS CLUB |
+DEVELOPED BY SIC MEMBERS
+```
 
 </div>
-
 
 </footer>
 
@@ -1738,6 +1768,7 @@ footer {
 
 const toggle =
     document.getElementById('mobile-toggle');
+
 
 const nav =
     document.getElementById('nav-list');
@@ -1794,6 +1825,7 @@ document
 document.addEventListener('click', function() {
 
     nav.classList.remove('active');
+
 
     document
         .querySelectorAll('.dropdown')
