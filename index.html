@@ -1,446 +1,1826 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIC - Software Innovators Club</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            /* ADJUSTED: Lighter, more transparent backgrounds */
-            --glass: rgba(255, 255, 255, 0.08); 
-            --glass-card: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.3); /* Brighter border for "clear" feel */
-            --primary: #9d92ff; 
-            --text: #ffffff;
-            --whatsapp: #25D366;
-            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
+<title>SIC - Software Innovators Club</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+```
 
-        body {
-            /* Background remains dark to make the "clear glass" pop */
-            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(20, 20, 30, 0.9)), 
-                              url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text);
-            min-height: 100vh;
-            
+<style>
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+
+    --glass: rgba(255,255,255,0.08);
+
+    --glass-card: rgba(255,255,255,0.06);
+
+    --border: rgba(255,255,255,0.3);
+
+    --primary: #9d92ff;
+
+    --text: #ffffff;
+
+    --whatsapp: #25D366;
+
+    --insta-gradient:
+        linear-gradient(
+            45deg,
+            #f09433 0%,
+            #e6683c 25%,
+            #dc2743 50%,
+            #cc2366 75%,
+            #bc1888 100%
+        );
+}
+
+
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
+* {
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+}
+
+
+html {
+
+    scroll-behavior:smooth;
 
 }
 
-        .glass {
-            /* ADJUSTED: Reduced blur to 8px for clarity */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: var(--glass);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
 
-        /* HEADER */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 6%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 2000;
-            backdrop-filter: blur(10px);
-            background: rgba(10, 10, 15, 0.7);
-            border-bottom: 1px solid var(--border);
-        }
+/* =====================================================
+   BODY
+===================================================== */
 
-        header img.sic-logo {
-            height: 45px;
-        }
+body {
 
-        .back-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        .back-btn:hover { background: rgba(255,255,255,0.1); }
+    position:relative;
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
+    min-height:100vh;
 
-        nav a {
-            text-decoration: none;
-            color: rgba(255,255,255,0.8);
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+    background:#0a0a0f;
 
-        nav a:hover { color: var(--primary); }
+    color:var(--text);
 
-        .join-btn {
-            padding: 10px 22px;
-            border-radius: 30px;
-            background: var(--primary) !important;
-            color: white !important;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(138, 125, 255, 0.3);
-        }
+    overflow-x:hidden;
 
-        /* DROPDOWN */
-        .dropdown { position: relative; }
-        .dropbtn { 
-            cursor: pointer; 
-            color: rgba(255,255,255,0.8); 
-            font-size: 14px; 
-            padding: 10px 0;
-        }
-        
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 200px;
-            display: none;
-            padding: 10px;
-            background: rgba(20, 20, 30, 0.9) !important;
-            z-index: 3000;
-        }
+}
 
-        .dropdown-content a { display: block; padding: 12px; border-radius: 10px; }
-        .dropdown-content a:hover { background: rgba(255,255,255,0.05); color: var(--primary); }
-        
-        @media (min-width: 901px) {
-            .dropdown:hover .dropdown-content { display: block; }
-        }
 
-        .dropdown.active .dropdown-content { display: block; }
+/* =====================================================
+   MOVING BACKGROUND IMAGE
+   15 SECOND LEFT ↔ RIGHT ANIMATION
+===================================================== */
 
-        /* MOBILE MENU */
-        .menu-icon { display: none; flex-direction: column; cursor: pointer; }
-        .menu-icon span { width: 25px; height: 2px; background: white; margin: 4px 0; }
+body::before {
 
-        @media (max-width: 900px) {
-            .menu-icon { display: flex; }
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 75px;
-                right: 6%;
-                width: 250px;
-                padding: 20px;
-                background: rgba(10,10,15,0.98);
-                border-radius: 15px;
-                border: 1px solid var(--border);
-            }
-            nav.active { display: flex; }
-            .dropdown-content { position: static; background: transparent !important; box-shadow: none; border: none; }
-        }
+    content:"";
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 20px 60px 20px;
-            text-align: center;
-        }
+    position:fixed;
 
-        .hero-content {
-            max-width: 850px;
-            padding: 60px 40px;
-        }
+    top:-10%;
 
-        .hero h1 {
-            font-size: clamp(32px, 5vw, 56px);
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #c3befa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    left:-10%;
 
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
+    width:120%;
 
-        /* BUTTONS */
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
+    height:120%;
 
-        .hero-buttons a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
+    z-index:-3;
 
-        .primary-btn { background: var(--primary); color: white; }
-        .whatsapp-btn { background: var(--whatsapp) !important; color: white !important; }
-        .instagram-btn { background: var(--insta-gradient) !important; color: white !important; }
+    background-image:
 
-        .hero-buttons a:hover {
-            transform: translateY(-5px);
-            filter: brightness(1.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
+        linear-gradient(
+            to bottom,
+            rgba(10,10,15,0.70),
+            rgba(20,20,30,0.90)
+        ),
 
-        /* STATS */
-        .stats { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .stat-box { padding: 20px; min-width: 140px; flex: 1; background: var(--glass-card); }
-        .stat-box h2 { color: var(--primary); font-size: 32px; font-weight: 800; }
-        .stat-box p { font-size: 14px; opacity: 0.7; margin: 0; }
+        url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 
-        /* SKILLS */
-        .skills { padding: 80px 6%; text-align: center; }
-        .skills h2 { font-size: 36px; margin-bottom: 10px; }
-        .tools { display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap; }
-        .tool-card {
-            width: 320px;
-            padding: 40px 30px;
-            transition: 0.4s;
-            background: var(--glass-card);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .tool-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.12); border-color: white; }
-        .tool-card .logo-container { height: 80px; margin-bottom: 25px; }
-        .tool-card img { max-height: 100%; max-width: 200px; object-fit: contain; }
-        .tool-card h3 { color: var(--primary); margin-bottom: 10px; }
+    background-size:cover;
 
-        /* BACKED SECTION */
-        .backed {
-            text-align: center;
-            padding: 80px 6%;
-            background: rgba(0,0,0,0.2);
-            margin-top: 40px;
-        }
+    background-repeat:no-repeat;
 
-        .backed-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 60px;
-            margin-top: 40px;
-        }
+    background-position:center;
 
-        .backed-logos img {
-            height: 60px;
-            max-width: 180px;
-            object-fit: contain;
-            transition: 0.3s;
-            filter: brightness(0.9);
-        }
+    transform:translateX(-4%);
 
-        .backed-logos img:hover { transform: scale(1.1); filter: brightness(1.2); }
+    animation:backgroundMove 15s ease-in-out infinite alternate;
 
-        /* FOOTER */
-        footer { padding: 60px 6%; margin: 40px 6%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-col h3 { margin-bottom: 20px; color: var(--primary); }
-        .footer-col p, .footer-col li { font-size: 14px; opacity: 0.8; line-height: 1.6; }
-        .footer-col ul { list-style: none; }
-        .footer-bottom {
-            margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border);
-            text-align: center; font-size: 12px; letter-spacing: 2px; opacity: 0.6;
-        }
-    </style>
+}
+
+
+/* =====================================================
+   EXTRA DARK OVERLAY
+===================================================== */
+
+body::after {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,8,15,0.15),
+            rgba(5,8,15,0.35)
+        );
+
+}
+
+
+/* =====================================================
+   BACKGROUND ANIMATION
+===================================================== */
+
+@keyframes backgroundMove {
+
+    0% {
+
+        transform:translateX(-4%);
+
+    }
+
+    50% {
+
+        transform:translateX(0%);
+
+    }
+
+    100% {
+
+        transform:translateX(4%);
+
+    }
+
+}
+
+
+/* =====================================================
+   GLASS EFFECT
+===================================================== */
+
+.glass {
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    background:var(--glass);
+
+    box-shadow:
+        0 4px 30px rgba(0,0,0,0.15);
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 6%;
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    z-index:2000;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    background:rgba(10,10,15,0.70);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+
+/* =====================================================
+   SIC LOGO
+===================================================== */
+
+header img.sic-logo {
+
+    height:45px;
+
+    width:auto;
+
+    object-fit:contain;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn {
+
+    background:transparent;
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    font-size:14px;
+
+}
+
+
+.back-btn:hover {
+
+    background:rgba(255,255,255,0.1);
+
+    transform:translateX(-3px);
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+
+nav a {
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,0.8);
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:0.3s;
+
+}
+
+
+nav a:hover {
+
+    color:var(--primary);
+
+}
+
+
+/* =====================================================
+   JOIN BUTTON
+===================================================== */
+
+.join-btn {
+
+    padding:10px 22px;
+
+    border-radius:30px;
+
+    background:var(--primary) !important;
+
+    color:white !important;
+
+    font-weight:600;
+
+    box-shadow:
+        0 4px 15px rgba(138,125,255,0.3);
+
+}
+
+
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+.dropdown {
+
+    position:relative;
+
+}
+
+
+.dropbtn {
+
+    cursor:pointer;
+
+    color:rgba(255,255,255,0.8);
+
+    font-size:14px;
+
+    padding:10px 0;
+
+}
+
+
+.dropdown-content {
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    min-width:200px;
+
+    display:none;
+
+    padding:10px;
+
+    background:rgba(20,20,30,0.95) !important;
+
+    z-index:3000;
+
+}
+
+
+.dropdown-content a {
+
+    display:block;
+
+    padding:12px;
+
+    border-radius:10px;
+
+}
+
+
+.dropdown-content a:hover {
+
+    background:rgba(255,255,255,0.05);
+
+    color:var(--primary);
+
+}
+
+
+@media (min-width:901px) {
+
+    .dropdown:hover .dropdown-content {
+
+        display:block;
+
+    }
+
+}
+
+
+.dropdown.active .dropdown-content {
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   MOBILE MENU ICON
+===================================================== */
+
+.menu-icon {
+
+    display:none;
+
+    flex-direction:column;
+
+    cursor:pointer;
+
+}
+
+
+.menu-icon span {
+
+    width:25px;
+
+    height:2px;
+
+    background:white;
+
+    margin:4px 0;
+
+}
+
+
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
+
+@media (max-width:900px) {
+
+    .menu-icon {
+
+        display:flex;
+
+    }
+
+
+    nav {
+
+        display:none;
+
+        flex-direction:column;
+
+        position:absolute;
+
+        top:75px;
+
+        right:6%;
+
+        width:250px;
+
+        padding:20px;
+
+        background:rgba(10,10,15,0.97);
+
+        border-radius:15px;
+
+        border:1px solid var(--border);
+
+    }
+
+
+    nav.active {
+
+        display:flex;
+
+    }
+
+
+    .dropdown-content {
+
+        position:static;
+
+        background:transparent !important;
+
+        box-shadow:none;
+
+        border:none;
+
+        min-width:auto;
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:120px 20px 60px;
+
+    text-align:center;
+
+}
+
+
+.hero-content {
+
+    width:100%;
+
+    max-width:850px;
+
+    padding:60px 40px;
+
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero h1 {
+
+    font-size:clamp(32px,5vw,56px);
+
+    margin-bottom:20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #fff,
+            #c3befa
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/* =====================================================
+   HERO DESCRIPTION
+===================================================== */
+
+.hero p {
+
+    font-size:18px;
+
+    opacity:0.9;
+
+    margin-bottom:30px;
+
+    max-width:600px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+.hero-buttons {
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+
+.hero-buttons a {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:12px 28px;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:all 0.3s ease;
+
+}
+
+
+.primary-btn {
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+.whatsapp-btn {
+
+    background:var(--whatsapp) !important;
+
+    color:white !important;
+
+}
+
+
+.instagram-btn {
+
+    background:var(--insta-gradient) !important;
+
+    color:white !important;
+
+}
+
+
+.hero-buttons a:hover {
+
+    transform:translateY(-5px);
+
+    filter:brightness(1.1);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4);
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.stat-box {
+
+    padding:20px;
+
+    min-width:140px;
+
+    flex:1;
+
+    background:var(--glass-card);
+
+}
+
+
+.stat-box h2 {
+
+    color:var(--primary);
+
+    font-size:32px;
+
+    font-weight:800;
+
+}
+
+
+.stat-box p {
+
+    font-size:14px;
+
+    opacity:0.7;
+
+    margin:0;
+
+}
+
+
+/* =====================================================
+   SKILLS SECTION
+===================================================== */
+
+.skills {
+
+    padding:80px 6%;
+
+    text-align:center;
+
+}
+
+
+.skills h2 {
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+
+.tools {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:50px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.tool-card {
+
+    width:320px;
+
+    padding:40px 30px;
+
+    transition:0.4s;
+
+    background:var(--glass-card);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+.tool-card:hover {
+
+    transform:translateY(-10px);
+
+    background:rgba(255,255,255,0.12);
+
+    border-color:white;
+
+}
+
+
+.tool-card .logo-container {
+
+    height:80px;
+
+    margin-bottom:25px;
+
+}
+
+
+.tool-card img {
+
+    max-height:100%;
+
+    max-width:200px;
+
+    object-fit:contain;
+
+}
+
+
+.tool-card h3 {
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+
+/* =====================================================
+   BACKED SECTION
+===================================================== */
+
+.backed {
+
+    text-align:center;
+
+    padding:80px 6%;
+
+    background:rgba(0,0,0,0.2);
+
+    margin-top:40px;
+
+}
+
+
+.backed-logos {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:60px;
+
+    margin-top:40px;
+
+}
+
+
+.backed-logos img {
+
+    height:60px;
+
+    max-width:180px;
+
+    object-fit:contain;
+
+    transition:0.3s;
+
+    filter:brightness(0.9);
+
+}
+
+
+.backed-logos img:hover {
+
+    transform:scale(1.1);
+
+    filter:brightness(1.2);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:60px 6%;
+
+    margin:40px 6%;
+
+}
+
+
+.footer-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:40px;
+
+}
+
+
+.footer-col h3 {
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+}
+
+
+.footer-col p,
+.footer-col li {
+
+    font-size:14px;
+
+    opacity:0.8;
+
+    line-height:1.6;
+
+}
+
+
+.footer-col ul {
+
+    list-style:none;
+
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.location-section h3 {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.map-container {
+
+    width:100%;
+
+    margin-top:15px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,0.2);
+
+}
+
+
+.map-container iframe {
+
+    width:100%;
+
+    height:220px;
+
+    border:0;
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom {
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    opacity:0.6;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:900px) {
+
+    header {
+
+        padding:15px 5%;
+
+    }
+
+
+    .hero-content {
+
+        padding:50px 30px;
+
+    }
+
+
+    .skills {
+
+        padding:70px 5%;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:600px) {
+
+    body::before {
+
+        width:140%;
+
+        height:120%;
+
+        left:-20%;
+
+        background-size:cover;
+
+        animation-duration:15s;
+
+    }
+
+
+    header {
+
+        padding:12px 5%;
+
+    }
+
+
+    header img.sic-logo {
+
+        height:38px;
+
+    }
+
+
+    .back-btn {
+
+        padding:5px 10px;
+
+        font-size:12px;
+
+    }
+
+
+    .hero {
+
+        padding:110px 15px 50px;
+
+    }
+
+
+    .hero-content {
+
+        padding:40px 20px;
+
+        border-radius:18px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:32px;
+
+    }
+
+
+    .hero p {
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+
+    .hero-buttons a {
+
+        width:100%;
+
+    }
+
+
+    .stats {
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+
+    .stat-box {
+
+        width:100%;
+
+    }
+
+
+    .skills {
+
+        padding:60px 20px;
+
+    }
+
+
+    .skills h2 {
+
+        font-size:28px;
+
+    }
+
+
+    .tools {
+
+        gap:20px;
+
+        margin-top:35px;
+
+    }
+
+
+    .tool-card {
+
+        width:100%;
+
+        max-width:350px;
+
+        padding:35px 25px;
+
+    }
+
+
+    .backed {
+
+        padding:60px 20px;
+
+    }
+
+
+    .backed-logos {
+
+        gap:30px;
+
+    }
+
+
+    .backed-logos img {
+
+        height:50px;
+
+        max-width:140px;
+
+    }
+
+
+    footer {
+
+        margin:25px 4%;
+
+        padding:40px 20px;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        text-align:center;
+
+    }
+
+
+    .location-section h3 {
+
+        justify-content:center;
+
+    }
+
+
+    .map-container iframe {
+
+        height:200px;
+
+    }
+
+
+    .footer-bottom {
+
+        font-size:10px;
+
+        line-height:1.8;
+
+        letter-spacing:1px;
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width:380px) {
+
+    .hero h1 {
+
+        font-size:28px;
+
+    }
+
+
+    .hero-content {
+
+        padding:35px 15px;
+
+    }
+
+
+    .stat-box h2 {
+
+        font-size:27px;
+
+    }
+
+
+    .back-btn {
+
+        font-size:11px;
+
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-    <button class="back-btn" onclick="history.back()">← Back</button>
-    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo%201.png" alt="SIC Logo" class="sic-logo">
 
-    <div class="menu-icon" id="mobile-toggle">
-        <span></span><span></span><span></span>
-    </div>
+```
+<button
+    class="back-btn"
+    onclick="history.back()">
 
-    <nav id="nav-list">
-        <a href="#">Home</a>
-        <a href="about.html">About</a>
-        <div class="dropdown" id="events-dropdown">
-            <div class="dropbtn">Events ▼</div>
-            <div class="dropdown-content glass">
-                <a href="come.html">Upcoming Events</a>
-                <a href="event.html">Past Events</a>
-            </div>
-        </div>
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="join-btn">Be a Member</a>
-    </nav>
-</header>
+    ← Back
 
-<section class="hero">
-    <div class="hero-content glass">
-        <h1>Join 150+ Innovators</h1>
-        <p>Fuel your passion for software development through community-led practice, live projects, and expert mentorship.</p>
-
-        <div class="hero-buttons">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="primary-btn" target="_blank">
-                <i class="fas fa-user-plus"></i> Join SIC
-            </a>
-            <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://www.instagram.com/sic.asas" class="instagram-btn" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-        </div>
-
-        <div class="stats">
-            <div class="stat-box glass"><h2>20+</h2><p>Mentors</p></div>
-            <div class="stat-box glass"><h2>150+</h2><p>Active Members</p></div>
-            <div class="stat-box glass"><h2>6+</h2><p>Live Projects</p></div>
-        </div>
-    </div>
-</section>
-
-<section class="skills" id="about">
-    <h2>Evaluate Your Skills</h2>
-    <p style="opacity:0.7;">Practice on industry-standard platforms supported by SIC.</p>
-    
-    <div class="tools">
-        <div class="tool-card glass">
-            <div class="logo-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
-            </div>
-            <h3>HackerRank</h3>
-            <p>Improve problem-solving and coding logic.</p>
-        </div>
-        <div class="tool-card glass">
-            <div class="logo-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="filter: invert(1);">
-            </div>
-            <h3>LeetCode</h3>
-            <p>Master Data Structures and Algorithms.</p>
-        </div>
-    </div>
-</section>
-
-<section class="backed">
-    <p style="letter-spacing:4px; font-size:12px; opacity:0.8; font-weight:700;">BACKED & RECOGNIZED BY</p>
-    <div class="backed-logos">
-        <img src="https://csi.coep.org.in/csi_logo.png" alt="CSI">
-        <img src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png" alt="AMRITA">
-        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg" alt="IEDC">
-        <img src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png" alt="IIC">
-    </div>
-</section>
-
-<footer class="glass" id="contact">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h3>Software Innovators Club</h3>
-            <p>Empowering students to collaborate, innovate, and excel at Amrita Kochi.</p>
-        </div>
-        <div class="footer-col">
-            <h3>Contact Us</h3>
-            <p>Amrita Vishwa Vidyapeetham, Kochi Campus</p>
-            <p><strong>Email:</strong> sicasaskochi@gmail.com</p>
-            <p><strong>Phone:</strong> +91 6238314481</p>
-        </div>
-         <div class="footer-col">
-        <div class="location-section">
-
-    <h3>
-        <i class="fas fa-location-dot"></i>
-        Our Location
-    </h3>
+</button>
 
 
-    <p>
-        Amrita Vishwa Vidyapeetham Kochi Campus
-    </p>
+<img
+    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo%201.png"
+    alt="SIC Logo"
+    class="sic-logo">
 
 
-    <div class="map-container">
+<div
+    class="menu-icon"
+    id="mobile-toggle">
 
-        <iframe
-            src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
-    </div>
+    <span></span>
+    <span></span>
+    <span></span>
 
 </div>
 
 
+<nav id="nav-list">
+
+    <a href="#">
+        Home
+    </a>
+
+
+    <a href="about.html">
+        About
+    </a>
+
+
+    <div
+        class="dropdown"
+        id="events-dropdown">
+
+        <div class="dropbtn">
+            Events ▼
+        </div>
+
+
+        <div class="dropdown-content glass">
+
+            <a href="come.html">
+                Upcoming Events
+            </a>
+
+
+            <a href="event.html">
+                Past Events
+            </a>
+
+        </div>
+
     </div>
-    <div class="footer-bottom">
-        © 2026 SOFTWARE INNOVATORS CLUB | DEVELOPED BY SIC MEMBERS
+
+
+    <a href="team.html">
+        Team
+    </a>
+
+
+    <a href="contact.html">
+        Contact
+    </a>
+
+
+    <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+        class="join-btn">
+
+        Be a Member
+
+    </a>
+
+</nav>
+```
+
+</header>
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+```
+<div class="hero-content glass">
+
+    <h1>
+        Join 150+ Innovators
+    </h1>
+
+
+    <p>
+        Fuel your passion for software development through
+        community-led practice, live projects, and expert mentorship.
+    </p>
+
+
+    <div class="hero-buttons">
+
+
+        <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+            class="primary-btn"
+            target="_blank">
+
+            <i class="fas fa-user-plus"></i>
+
+            Join SIC
+
+        </a>
+
+
+        <a
+            href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
+            class="whatsapp-btn"
+            target="_blank">
+
+            <i class="fab fa-whatsapp"></i>
+
+            WhatsApp
+
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/sic.asas"
+            class="instagram-btn"
+            target="_blank">
+
+            <i class="fab fa-instagram"></i>
+
+            Instagram
+
+        </a>
+
     </div>
+
+
+    <div class="stats">
+
+
+        <div class="stat-box glass">
+
+            <h2>
+                20+
+            </h2>
+
+            <p>
+                Mentors
+            </p>
+
+        </div>
+
+
+        <div class="stat-box glass">
+
+            <h2>
+                150+
+            </h2>
+
+            <p>
+                Active Members
+            </p>
+
+        </div>
+
+
+        <div class="stat-box glass">
+
+            <h2>
+                6+
+            </h2>
+
+            <p>
+                Live Projects
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     SKILLS SECTION
+===================================================== -->
+
+<section
+    class="skills"
+    id="about">
+
+```
+<h2>
+    Evaluate Your Skills
+</h2>
+
+
+<p style="opacity:0.7;">
+
+    Practice on industry-standard platforms supported by SIC.
+
+</p>
+
+
+<div class="tools">
+
+
+    <div class="tool-card glass">
+
+        <div class="logo-container">
+
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
+                alt="HackerRank">
+
+        </div>
+
+
+        <h3>
+            HackerRank
+        </h3>
+
+
+        <p>
+            Improve problem-solving and coding logic.
+        </p>
+
+    </div>
+
+
+    <div class="tool-card glass">
+
+        <div class="logo-container">
+
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                alt="LeetCode"
+                style="filter:invert(1);">
+
+        </div>
+
+
+        <h3>
+            LeetCode
+        </h3>
+
+
+        <p>
+            Master Data Structures and Algorithms.
+        </p>
+
+    </div>
+
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     BACKED SECTION
+===================================================== -->
+
+<section class="backed">
+
+```
+<p
+    style="
+    letter-spacing:4px;
+    font-size:12px;
+    opacity:0.8;
+    font-weight:700;
+    ">
+
+    BACKED & RECOGNIZED BY
+
+</p>
+
+
+<div class="backed-logos">
+
+
+    <img
+        src="https://csi.coep.org.in/csi_logo.png"
+        alt="CSI">
+
+
+    <img
+        src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
+        alt="AMRITA">
+
+
+    <img
+        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
+        alt="IEDC">
+
+
+    <img
+        src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
+        alt="IIC">
+
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer
+    class="glass"
+    id="contact">
+
+```
+<div class="footer-grid">
+
+
+    <!-- ABOUT -->
+
+    <div class="footer-col">
+
+        <h3>
+            Software Innovators Club
+        </h3>
+
+
+        <p>
+            Empowering students to collaborate,
+            innovate, and excel at Amrita Kochi.
+        </p>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="footer-col">
+
+        <h3>
+            Contact Us
+        </h3>
+
+
+        <p>
+            Amrita Vishwa Vidyapeetham,
+            Kochi Campus
+        </p>
+
+
+        <p>
+            <strong>Email:</strong>
+            sicasaskochi@gmail.com
+        </p>
+
+
+        <p>
+            <strong>Phone:</strong>
+            +91 6238314481
+        </p>
+
+    </div>
+
+
+    <!-- LOCATION -->
+
+    <div class="footer-col">
+
+        <div class="location-section">
+
+
+            <h3>
+
+                <i class="fas fa-location-dot"></i>
+
+                Our Location
+
+            </h3>
+
+
+            <p>
+                Amrita Vishwa Vidyapeetham Kochi Campus
+            </p>
+
+
+            <div class="map-container">
+
+                <iframe
+                    src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- COPYRIGHT -->
+
+<div class="footer-bottom">
+
+    © 2026 SOFTWARE INNOVATORS CLUB |
+    DEVELOPED BY SIC MEMBERS
+
+</div>
+```
+
 </footer>
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-    const toggle = document.getElementById('mobile-toggle');
-    const nav = document.getElementById('nav-list');
-    
-    toggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nav.classList.toggle('active');
-    });
 
-    document.querySelectorAll('.dropbtn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const toggle =
+    document.getElementById('mobile-toggle');
+
+const nav =
+    document.getElementById('nav-list');
+
+
+toggle.addEventListener('click', function(e) {
+
+    e.stopPropagation();
+
+    nav.classList.toggle('active');
+
+});
+
+
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+document
+    .querySelectorAll('.dropbtn')
+    .forEach(function(btn) {
+
+        btn.addEventListener('click', function(e) {
+
             e.stopPropagation();
-            const dropdown = btn.parentElement;
+
+            const dropdown =
+                btn.parentElement;
+
             dropdown.classList.toggle('active');
-            
-            document.querySelectorAll('.dropdown').forEach(d => {
-                if(d !== dropdown) d.classList.remove('active');
-            });
+
+
+            document
+                .querySelectorAll('.dropdown')
+                .forEach(function(d) {
+
+                    if(d !== dropdown) {
+
+                        d.classList.remove('active');
+
+                    }
+
+                });
+
         });
+
     });
 
-    document.addEventListener('click', () => {
-        nav.classList.remove('active');
-        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-    });
+
+/* =====================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+===================================================== */
+
+document.addEventListener('click', function() {
+
+    nav.classList.remove('active');
+
+    document
+        .querySelectorAll('.dropdown')
+        .forEach(function(d) {
+
+            d.classList.remove('active');
+
+        });
+
+});
+
+
+/* =====================================================
+   PREVENT NAV CLICK FROM CLOSING MENU
+===================================================== */
+
+nav.addEventListener('click', function(e) {
+
+    e.stopPropagation();
+
+});
+
+
 </script>
 
 </body>
+
 </html>
