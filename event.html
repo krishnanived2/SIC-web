@@ -1,269 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Events - SIC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <style>
-        /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            min-height: 100vh;
-            background: #0f2027; 
-            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
-            padding: 40px 20px;
-            color: white;
-        }
-       body {
-            /* Background remains dark to make the "clear glass" pop */
-            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(20, 20, 30, 0.9)), 
-                              url('https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?q=80&w=363&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text);
-            min-height: 100vh;
-        }
+<title>Past Events - SIC</title>
 
-        /* ===== BACK BUTTON ===== */
-        .back-container {
-            max-width: 1100px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            justify-content: flex-start;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .back-btn {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-5px);
-        }
+<style>
 
-        /* ===== SECTION LAYOUT ===== */
-        .events-section {
-            max-width: 1100px; 
-            margin: 0 auto;
-            text-align: center;
-        }
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
 
-        .events-section h1 {
-            font-size: clamp(28px, 5vw, 42px);
-            margin-bottom: 40px;
-            background: linear-gradient(to right, #fff, #9d92ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        /* ===== GRID SYSTEM ===== */
-        .events-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            justify-items: center;
-        }
 
-        /* ===== THE CARD ===== */
-        .event-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+/* =====================================================
+   HTML
+===================================================== */
 
-        .event-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(138, 125, 255, 0.3);
-            border-color: rgba(138, 125, 255, 0.5);
-        }
+html{
+    overflow-x:hidden;
+}
 
-        /* ===== IMAGE FIX ===== */
-        .img-container {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 5px;
-        }
 
-        .img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
+/* =====================================================
+   BODY
+===================================================== */
 
-        /* ===== CARD CONTENT ===== */
-        .event-content {
-            padding: 20px;
-            text-align: left;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+body{
 
-        .event-content h2 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: #fff;
-        }
+    min-height:100vh;
 
-        .event-content p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    color:white;
 
-        /* ===== BUTTON STYLE ===== */
-        .btn {
-            margin-top: auto; 
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #7b6cff, #5a8cff);
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
+    background:#0a0a0f;
 
-        .btn:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 4px 15px rgba(123, 108, 255, 0.4);
-        }
+    position:relative;
 
-        @media (max-width: 480px) {
-            .events-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    overflow-x:hidden;
+
+    padding:40px 20px;
+
+}
+
+
+/* =====================================================
+   MOVING BACKGROUND
+===================================================== */
+
+.moving-background{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    z-index:-10;
+
+}
+
+
+/* =====================================================
+   BACKGROUND TRACK
+===================================================== */
+
+.background-track{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:200%;
+    height:100%;
+
+    display:flex;
+
+    animation:
+        moveBackground
+        15s
+        linear
+        infinite;
+
+}
+
+
+/* =====================================================
+   BACKGROUND IMAGE
+===================================================== */
+
+.background-image{
+
+    width:50%;
+    height:100%;
+
+    flex-shrink:0;
+
+    background-image:
+
+        linear-gradient(
+            to bottom,
+            rgba(10,10,15,0.60),
+            rgba(20,20,30,0.90)
+        ),
+
+        url("https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?q=80&w=363&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* =====================================================
+   LEFT → RIGHT BACKGROUND ANIMATION
+===================================================== */
+
+@keyframes moveBackground{
+
+    0%{
+        transform:translateX(-50%);
+    }
+
+    100%{
+        transform:translateX(0%);
+    }
+
+}
+
+
+/* =====================================================
+   DARK OVERLAY
+===================================================== */
+
+.moving-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.10);
+
+    pointer-events:none;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON CONTAINER
+===================================================== */
+
+.back-container{
+
+    max-width:1100px;
+
+    margin:0 auto 20px auto;
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn{
+
+    background:rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.20);
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    font-size:0.9rem;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:0.3s ease;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON HOVER
+===================================================== */
+
+.back-btn:hover{
+
+    background:rgba(255,255,255,0.20);
+
+    transform:translateX(-5px);
+
+    border-color:#8a7dff;
+
+    box-shadow:
+        0 0 15px rgba(138,125,255,0.5);
+
+}
+
+
+/* =====================================================
+   EVENTS SECTION
+===================================================== */
+
+.events-section{
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.events-section h1{
+
+    font-size:clamp(28px,5vw,42px);
+
+    margin-bottom:40px;
+
+    background:
+        linear-gradient(
+            to right,
+            #fff,
+            #9d92ff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/* =====================================================
+   EVENTS GRID
+===================================================== */
+
+.events-container{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px,1fr)
+        );
+
+    gap:25px;
+
+    justify-items:center;
+
+}
+
+
+/* =====================================================
+   EVENT CARD
+===================================================== */
+
+.event-card{
+
+    background:
+        rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.event-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(138,125,255,0.35);
+
+    border-color:
+        rgba(138,125,255,0.6);
+
+}
+
+
+/* =====================================================
+   IMAGE CONTAINER
+===================================================== */
+
+.img-container{
+
+    width:100%;
+
+    aspect-ratio:16 / 10;
+
+    background:rgba(0,0,0,0.35);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    padding:5px;
+
+}
+
+
+/* =====================================================
+   EVENT IMAGE
+===================================================== */
+
+.img-container img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:8px;
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   EVENT CONTENT
+===================================================== */
+
+.event-content{
+
+    padding:20px;
+
+    text-align:left;
+
+    flex-grow:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* =====================================================
+   EVENT TITLE
+===================================================== */
+
+.event-content h2{
+
+    font-size:1.2rem;
+
+    margin-bottom:12px;
+
+    color:#fff;
+
+}
+
+
+/* =====================================================
+   EVENT DETAILS
+===================================================== */
+
+.event-content p{
+
+    font-size:0.9rem;
+
+    opacity:0.85;
+
+    margin-bottom:6px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn{
+
+    margin-top:auto;
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7b6cff,
+            #5a8cff
+        );
+
+    color:white;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    font-size:0.9rem;
+
+    font-weight:600;
+
+    transition:0.3s ease;
+
+}
+
+
+/* =====================================================
+   BUTTON HOVER
+===================================================== */
+
+.btn:hover{
+
+    filter:brightness(1.2);
+
+    box-shadow:
+        0 4px 15px
+        rgba(123,108,255,0.4);
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:992px){
+
+    body{
+
+        padding:
+            30px
+            15px;
+
+    }
+
+    .events-container{
+
+        gap:20px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:600px){
+
+    body{
+
+        padding:
+            20px
+            12px;
+
+    }
+
+
+    /* Keep background moving on mobile */
+
+    .moving-background{
+
+        width:100%;
+
+        height:100vh;
+
+    }
+
+
+    .background-track{
+
+        width:200%;
+
+        height:100%;
+
+        animation:
+            moveBackground
+            15s
+            linear
+            infinite;
+
+    }
+
+
+    .background-image{
+
+        width:50%;
+
+        height:100%;
+
+        background-size:cover;
+
+        background-position:center center;
+
+    }
+
+
+    .back-container{
+
+        margin-bottom:25px;
+
+    }
+
+
+    .back-btn{
+
+        padding:8px 16px;
+
+        font-size:13px;
+
+    }
+
+
+    .events-section h1{
+
+        font-size:30px;
+
+        margin-bottom:30px;
+
+    }
+
+
+    .events-container{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+    .event-card{
+
+        width:100%;
+
+        max-width:380px;
+
+    }
+
+
+    .event-content{
+
+        padding:18px;
+
+    }
+
+
+    .event-content h2{
+
+        font-size:1.1rem;
+
+    }
+
+
+    .event-content p{
+
+        font-size:0.85rem;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width:380px){
+
+    body{
+
+        padding:
+            15px
+            8px;
+
+    }
+
+
+    .events-section h1{
+
+        font-size:26px;
+
+    }
+
+
+    .event-card{
+
+        max-width:340px;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION SUPPORT
+===================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    .background-track{
+
+        animation:none;
+
+    }
+
+}
+
+</style>
+
 </head>
+
+
 <body>
 
-<div class="back-container">
-    <button class="back-btn" onclick="history.back()">
-        <i class="fas fa-arrow-left"></i> Back
-    </button>
+
+<!-- =====================================================
+     MOVING BACKGROUND
+===================================================== -->
+
+<div class="moving-background">
+
+    <div class="background-track">
+
+        <!-- IMAGE 1 -->
+
+        <div class="background-image"></div>
+
+        <!-- IMAGE 2 - DUPLICATE FOR SEAMLESS LOOP -->
+
+        <div class="background-image"></div>
+
+    </div>
+
 </div>
 
+
+<!-- =====================================================
+     BACK BUTTON
+===================================================== -->
+
+<div class="back-container">
+
+    <button
+        class="back-btn"
+        onclick="history.back()">
+
+        <i class="fas fa-arrow-left"></i>
+
+        Back
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     PAST EVENTS
+===================================================== -->
+
 <section class="events-section">
-    <h1>Past Events</h1> 
+
+    <h1>Past Events</h1>
+
 
     <div class="events-container">
 
+
+        <!-- =================================================
+             EVENT 1
+        ================================================== -->
+
         <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png" alt="Sprint & Solve">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png"
+                alt="Sprint & Solve">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Sprint & Solve</h2>
-                <p><i class="far fa-calendar-alt"></i> 27-08-2025</p>
-                <p><i class="far fa-clock"></i> 11:15 AM</p>
-                <a href="d.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    27-08-2025
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    11:15 AM
+                </p>
+
+                <a
+                href="d.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
 
+
+        <!-- =================================================
+             EVENT 2
+        ================================================== -->
+
         <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg" alt="Mind Spark">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg"
+                alt="Mind Spark">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Mind Spark</h2>
-                <p><i class="far fa-calendar-alt"></i> 28-02-2025</p>
-                <p><i class="far fa-clock"></i> 1:15 PM - 3:15 PM</p>
-                <a href="c.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    28-02-2025
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    1:15 PM - 3:15 PM
+                </p>
+
+                <a
+                href="c.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
 
+
+        <!-- =================================================
+             EVENT 3
+        ================================================== -->
+
         <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg" alt="Treasure Hunt">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg"
+                alt="Treasure Hunt">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Treasure Hunt</h2>
-                <p><i class="far fa-calendar-alt"></i> 08-04-2025</p>
-                <p><i class="far fa-clock"></i> 11:00 AM</p>
-                <a href="b.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    08-04-2025
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    11:00 AM
+                </p>
+
+                <a
+                href="b.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
 
+
+        <!-- =================================================
+             EVENT 4
+        ================================================== -->
+
         <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg" alt="Synergy Sprint">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg"
+                alt="Synergy Sprint">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Synergy Sprint</h2>
-                <p><i class="far fa-calendar-alt"></i> 23-01-2026</p>
-                <p><i class="far fa-clock"></i> 11:15 AM - 12:15 PM</p>
-                <a href="a.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    23-01-2026
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    11:15 AM - 12:15 PM
+                </p>
+
+                <a
+                href="a.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
 
+
+        <!-- =================================================
+             EVENT 5
+        ================================================== -->
+
         <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p34.jpeg" alt="Escape Room">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p34.jpeg"
+                alt="Escape Room">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Escape Room</h2>
-                <p><i class="far fa-calendar-alt"></i> 15-11-2024</p>
-                <p><i class="far fa-clock"></i> 09:30 AM - 11:30 AM</p>
-                <a href="e.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    15-11-2024
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    09:30 AM - 11:30 AM
+                </p>
+
+                <a
+                href="e.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
-             <div class="event-card">
+
+
+        <!-- =================================================
+             EVENT 6
+        ================================================== -->
+
+        <div class="event-card">
+
             <div class="img-container">
-                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p45.jpeg" alt="Code Surge">
+
+                <img
+                src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p45.jpeg"
+                alt="Code Surge">
+
             </div>
+
+
             <div class="event-content">
+
                 <h2>Code Surge</h2>
-                <p><i class="far fa-calendar-alt"></i> 24-08-2025</p>
-                <p><i class="far fa-clock"></i> 1:15 PM - 2:15 PM</p>
-                <a href="f.html" class="btn">About Event</a>
+
+                <p>
+                    <i class="far fa-calendar-alt"></i>
+                    24-08-2025
+                </p>
+
+                <p>
+                    <i class="far fa-clock"></i>
+                    1:15 PM - 2:15 PM
+                </p>
+
+                <a
+                href="f.html"
+                class="btn">
+
+                    About Event
+
+                </a>
+
             </div>
+
         </div>
+
 
     </div>
+
 </section>
 
+
 </body>
+
 </html>
