@@ -1,187 +1,680 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Software Innovators Club</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>About - Software Innovators Club</title>
 
-    /* ===== GLOBAL RESET ===== */
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Poppins',sans-serif;
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    min-height:100vh;
+
+    color:white;
+
+    background:#0a0a0f;
+
+    position:relative;
+
+    overflow-x:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+
+/* =====================================================
+   MOVING BACKGROUND
+===================================================== */
+
+.moving-background{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    z-index:-10;
+
+}
+
+
+/* =====================================================
+   BACKGROUND TRACK
+===================================================== */
+
+.background-track{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:200%;
+
+    height:100%;
+
+    display:flex;
+
+    animation:
+        backgroundSlide
+        15s
+        linear
+        infinite;
+
+}
+
+
+/* =====================================================
+   BACKGROUND IMAGE
+===================================================== */
+
+.background-image{
+
+    width:50%;
+
+    height:100%;
+
+    flex-shrink:0;
+
+    background-image:
+
+        linear-gradient(
+            to bottom,
+            rgba(10,10,15,0.60),
+            rgba(20,20,30,0.90)
+        ),
+
+        url("https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?q=80&w=1200&auto=format&fit=crop");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* =====================================================
+   LEFT → RIGHT ANIMATION
+===================================================== */
+
+@keyframes backgroundSlide{
+
+    0%{
+
+        transform:translateX(-50%);
+
     }
+
+    100%{
+
+        transform:translateX(0%);
+
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA DARK OVERLAY
+===================================================== */
+
+.moving-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,0.08);
+
+    pointer-events:none;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section{
+
+    width:100%;
+
+    max-width:1000px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =====================================================
+   GLASS BOX
+===================================================== */
+
+.about-box{
+
+    position:relative;
+
+    width:100%;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(25px);
+
+    -webkit-backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:25px;
+
+    padding:70px 40px 50px 40px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.4);
+
+    transition:0.4s ease;
+
+}
+
+
+.about-box:hover{
+
+    box-shadow:
+        0 0 30px rgba(138,125,255,0.4);
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    background:rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.20);
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:0.3s ease;
+
+    z-index:10;
+
+}
+
+
+.back-btn:hover{
+
+    background:rgba(255,255,255,0.20);
+
+    transform:translateX(-5px);
+
+    border-color:#8a7dff;
+
+    box-shadow:
+        0 0 15px rgba(138,125,255,0.5);
+
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+h1{
+
+    font-size:36px;
+
+    margin-top:20px;
+
+    margin-bottom:25px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8a7dff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.about-box img{
+
+    width:100%;
+
+    max-width:420px;
+
+    border-radius:20px;
+
+    margin:25px 0;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    transition:0.4s ease;
+
+}
+
+
+.about-box img:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+/* =====================================================
+   PARAGRAPH
+===================================================== */
+
+.about-box p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,0.85);
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:992px){
+
+    .section{
+
+        max-width:900px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
 
     body{
+
         min-height:100vh;
-        background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
-        background-size:400% 400%;
-        animation:gradientMove 15s ease infinite;
-        display:flex;
-        justify-content:center;
+
+        padding:20px 15px;
+
         align-items:center;
-        padding:40px 20px;
-        color:white;
-    }
-    body {
-            /* Background remains dark to make the "clear glass" pop */
-            background-image: linear-gradient(to bottom, rgba(10, 10, 15, 0.7), rgba(20, 20, 30, 0.9)), 
-                              url('https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text);
-            min-height: 100vh;
-        }
 
-    @keyframes gradientMove{
-        0%{background-position:0% 50%;}
-        50%{background-position:100% 50%;}
-        100%{background-position:0% 50%;}
     }
 
-    /* ===== SECTION ===== */
-    .section{
+
+    /* ---------------------------------------------
+       MOBILE BACKGROUND
+    --------------------------------------------- */
+
+    .moving-background{
+
         width:100%;
-        max-width:1000px;
-        display:flex;
-        justify-content:center;
-        align-items:center;
+
+        height:100vh;
+
     }
 
-    /* ===== GLASS BOX ===== */
+
+    .background-track{
+
+        width:200%;
+
+        height:100%;
+
+        animation:
+
+            backgroundSlide
+
+            15s
+
+            linear
+
+            infinite;
+
+    }
+
+
+    .background-image{
+
+        width:50%;
+
+        height:100%;
+
+        background-size:cover;
+
+        background-position:center center;
+
+    }
+
+
+    /* ---------------------------------------------
+       ABOUT BOX
+    --------------------------------------------- */
+
     .about-box{
-        position: relative;
-        background:rgba(255,255,255,0.08);
-        backdrop-filter:blur(25px);
-        -webkit-backdrop-filter:blur(25px);
-        border:1px solid rgba(255,255,255,0.15);
-        border-radius:25px;
-        padding:70px 40px 50px 40px;
-        text-align:center;
-        box-shadow:0 8px 32px rgba(0,0,0,0.4);
-        transition:0.4s ease;
-    }
 
-    .about-box:hover{
-        box-shadow:0 0 30px rgba(138,125,255,0.4);
-    }
+        padding:
 
-    /* ===== BACK BUTTON (Updated with Text) ===== */
-    .back-btn {
-        position: absolute;
-        top: 25px;
-        left: 25px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-        padding: 8px 18px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: 0.3s ease;
-        z-index: 10;
-        text-decoration: none;
-    }
+            80px
 
-    .back-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(-5px);
-        border-color: #8a7dff;
-    }
+            25px
 
-    /* ===== HEADING ===== */
-    h1{
-        font-size:36px;
-        margin-top: 20px;
-        margin-bottom:25px;
-        background: linear-gradient(90deg,#ffffff,#8a7dff);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-    }
+            40px;
 
-    /* ===== IMAGE ===== */
-    .about-box img{
-        width:100%;
-        max-width:420px;
         border-radius:20px;
-        margin:25px 0;
-        box-shadow:0 10px 30px rgba(0,0,0,0.4);
-        transition:0.4s ease;
+
     }
 
-    .about-box img:hover{
-        transform:scale(1.03);
+
+    /* ---------------------------------------------
+       BACK BUTTON
+    --------------------------------------------- */
+
+    .back-btn{
+
+        top:20px;
+
+        left:20px;
+
+        padding:6px 14px;
+
+        font-size:13px;
+
     }
 
-    /* ===== PARAGRAPH ===== */
+
+    /* ---------------------------------------------
+       HEADING
+    --------------------------------------------- */
+
+    h1{
+
+        font-size:26px;
+
+        margin-top:10px;
+
+        margin-bottom:20px;
+
+    }
+
+
+    /* ---------------------------------------------
+       ABOUT IMAGE
+    --------------------------------------------- */
+
+    .about-box img{
+
+        width:100%;
+
+        max-width:100%;
+
+        margin:20px 0;
+
+        border-radius:15px;
+
+    }
+
+
+    /* ---------------------------------------------
+       PARAGRAPH
+    --------------------------------------------- */
+
     .about-box p{
-        font-size:17px;
-        line-height:1.9;
-        color:rgba(255,255,255,0.85);
-        margin-bottom:25px;
+
+        font-size:15px;
+
+        line-height:1.8;
+
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:768px){
-        .about-box{
-            padding:80px 25px 40px 25px;
-        }
+}
 
-        .back-btn {
-            top: 20px;
-            left: 20px;
-            padding: 6px 14px;
-            font-size: 13px;
-        }
 
-        h1{
-            font-size:26px;
-            margin-top: 10px;
-        }
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
 
-        .about-box p{
-            font-size:15px;
-        }
+@media (max-width:380px){
+
+    body{
+
+        padding:15px 10px;
+
     }
 
-    </style>
+
+    .about-box{
+
+        padding:
+
+            75px
+
+            18px
+
+            30px;
+
+    }
+
+
+    h1{
+
+        font-size:23px;
+
+    }
+
+
+    .about-box p{
+
+        font-size:14px;
+
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
+
+<!-- =====================================================
+     MOVING BACKGROUND
+===================================================== -->
+
+<div class="moving-background">
+
+```
+<div class="background-track">
+
+    <!-- FIRST BACKGROUND IMAGE -->
+
+    <div class="background-image"></div>
+
+
+    <!-- SECOND IDENTICAL IMAGE
+         This makes the movement continuous -->
+
+    <div class="background-image"></div>
+
+</div>
+```
+
+</div>
+
+<!-- =====================================================
+     ABOUT SECTION
+===================================================== -->
+
 <section class="section">
-    <div class="about-box">
-        <button class="back-btn" onclick="history.back()">
-            <span>←</span> Back
-        </button>
 
-        <h1>About Software Innovators Club</h1>
+```
+<div class="about-box">
 
-        <img src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg" 
-             alt="Developers working together">
 
-        <p>
-            Software Innovators Club @ Amrita Kochi Campus aims to create a dynamic community 
-            of developers, creators, and innovators by providing opportunities for learning, 
-            collaboration, and real-world problem solving.
-        </p>
+    <!-- BACK BUTTON -->
 
-        <p>
-            Membership is open to all students interested in building impactful technology. 
-            The club provides a digital-first environment to explore ideas, strengthen technical 
-            foundations, and work on meaningful projects.
-        </p>
-    </div>
+    <button
+        class="back-btn"
+        onclick="history.back()">
+
+        <span>←</span>
+
+        Back
+
+    </button>
+
+
+
+    <!-- TITLE -->
+
+    <h1>
+        About Software Innovators Club
+    </h1>
+
+
+
+    <!-- ABOUT IMAGE -->
+
+    <img
+        src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg"
+        alt="Developers working together">
+
+
+
+    <!-- DESCRIPTION -->
+
+    <p>
+
+        Software Innovators Club @ Amrita Kochi Campus aims to
+        create a dynamic community of developers, creators,
+        and innovators by providing opportunities for learning,
+        collaboration, and real-world problem solving.
+
+    </p>
+
+
+
+    <p>
+
+        Membership is open to all students interested in building
+        impactful technology. The club provides a digital-first
+        environment to explore ideas, strengthen technical
+        foundations, and work on meaningful projects.
+
+    </p>
+
+
+</div>
+```
+
 </section>
 
 </body>
+
 </html>
