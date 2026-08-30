@@ -26,9 +26,7 @@
 :root {
 
     --glass: rgba(255,255,255,0.08);
-
     --glass-card: rgba(255,255,255,0.06);
-
     --border: rgba(255,255,255,0.3);
 
     --primary: #9d92ff;
@@ -91,9 +89,13 @@ body {
 
 
 /* =====================================================
-   MOVING BACKGROUND IMAGE
-   EXACTLY 15 SECONDS
-   VISIBLE LEFT ↔ RIGHT MOVEMENT
+   FAST MOVING BACKGROUND IMAGE
+
+   FAST:
+   5 SECONDS
+
+   STRONG:
+   LEFT ↔ RIGHT MOVEMENT
 ===================================================== */
 
 body::before {
@@ -104,9 +106,9 @@ body::before {
 
     top:-10%;
 
-    left:-15%;
+    left:-35%;
 
-    width:130%;
+    width:170%;
 
     height:120%;
 
@@ -116,8 +118,8 @@ body::before {
 
         linear-gradient(
             to bottom,
-            rgba(10,10,15,0.65),
-            rgba(20,20,30,0.85)
+            rgba(10,10,15,0.55),
+            rgba(20,20,30,0.80)
         ),
 
         url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -128,15 +130,11 @@ body::before {
 
     background-position:center;
 
-    transform:translateX(-8%);
+    transform:translateX(-15%);
 
-    /*
-       15 seconds
-       Linear = constant visible speed
-    */
-
+    /* FAST BACKGROUND */
     animation:
-        backgroundMove 15s linear infinite alternate;
+        backgroundMove 5s linear infinite alternate;
 
     will-change:transform;
 
@@ -170,19 +168,20 @@ body::after {
 
 
 /* =====================================================
-   BACKGROUND ANIMATION
+   FAST BACKGROUND ANIMATION
 
    LEFT → RIGHT
    RIGHT → LEFT
 
-   TOTAL CYCLE = 15 SECONDS
+   TOTAL CYCLE = 10 SECONDS
+   EACH DIRECTION = 5 SECONDS
 ===================================================== */
 
 @keyframes backgroundMove {
 
     0% {
 
-        transform:translateX(-8%);
+        transform:translateX(-15%);
 
     }
 
@@ -194,7 +193,7 @@ body::after {
 
     100% {
 
-        transform:translateX(8%);
+        transform:translateX(15%);
 
     }
 
@@ -1057,23 +1056,20 @@ footer {
 
 @media (max-width:600px) {
 
-    /*
-       MORE BACKGROUND WIDTH ON MOBILE
-       SO THE MOVEMENT IS VISIBLE
-    */
+    /* FAST MOBILE BACKGROUND */
 
     body::before {
 
-        width:150%;
+        width:190%;
 
         height:120%;
 
-        left:-25%;
+        left:-45%;
 
         background-size:cover;
 
         animation:
-            backgroundMove 15s linear infinite alternate;
+            backgroundMoveMobile 4s linear infinite alternate;
 
     }
 
@@ -1270,6 +1266,33 @@ footer {
 
 
 /* =====================================================
+   MOBILE BACKGROUND ANIMATION
+===================================================== */
+
+@keyframes backgroundMoveMobile {
+
+    0% {
+
+        transform:translateX(-20%);
+
+    }
+
+    50% {
+
+        transform:translateX(0%);
+
+    }
+
+    100% {
+
+        transform:translateX(20%);
+
+    }
+
+}
+
+
+/* =====================================================
    VERY SMALL MOBILE
 ===================================================== */
 
@@ -1345,60 +1368,57 @@ footer {
 
 <nav id="nav-list">
 
-
 <a href="#">
     Home
 </a>
-
 
 <a href="about.html">
     About
 </a>
 
-
 <div
     class="dropdown"
     id="events-dropdown">
 
-    <div class="dropbtn">
-        Events ▼
-    </div>
+
+<div class="dropbtn">
+    Events ▼
+</div>
 
 
-    <div class="dropdown-content glass">
+<div class="dropdown-content glass">
 
-        <a href="come.html">
-            Upcoming Events
-        </a>
+    <a href="come.html">
+        Upcoming Events
+    </a>
 
 
-        <a href="event.html">
-            Past Events
-        </a>
-
-    </div>
+    <a href="event.html">
+        Past Events
+    </a>
 
 </div>
 
+
+</div>
 
 <a href="team.html">
     Team
 </a>
 
-
 <a href="contact.html">
     Contact
 </a>
 
-
 <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
-    class="join-btn">
+ href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+ class="join-btn">
 
-    Be a Member
+
+Be a Member
+
 
 </a>
-
 
 </nav>
 
@@ -1412,103 +1432,103 @@ footer {
 
 <div class="hero-content glass">
 
-
 <h1>
     Join 150+ Innovators
 </h1>
-
 
 <p>
     Fuel your passion for software development through
     community-led practice, live projects, and expert mentorship.
 </p>
 
-
 <div class="hero-buttons">
 
-
-    <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
-        class="primary-btn"
-        target="_blank">
-
-        <i class="fas fa-user-plus"></i>
-
-        Join SIC
-
-    </a>
+<a
+ href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
+ class="primary-btn"
+ target="_blank">
 
 
-    <a
-        href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
-        class="whatsapp-btn"
-        target="_blank">
+<i class="fas fa-user-plus"></i>
 
-        <i class="fab fa-whatsapp"></i>
-
-        WhatsApp
-
-    </a>
+Join SIC
 
 
-    <a
-        href="https://www.instagram.com/sic.asas"
-        class="instagram-btn"
-        target="_blank">
+</a>
 
-        <i class="fab fa-instagram"></i>
+<a
+ href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
+ class="whatsapp-btn"
+ target="_blank">
 
-        Instagram
 
-    </a>
+<i class="fab fa-whatsapp"></i>
+
+WhatsApp
+
+
+</a>
+
+<a
+ href="https://www.instagram.com/sic.asas"
+ class="instagram-btn"
+ target="_blank">
+
+
+<i class="fab fa-instagram"></i>
+
+Instagram
+
+
+</a>
 
 </div>
-
 
 <div class="stats">
 
-
-    <div class="stat-box glass">
-
-        <h2>
-            20+
-        </h2>
-
-        <p>
-            Mentors
-        </p>
-
-    </div>
+<div class="stat-box glass">
 
 
-    <div class="stat-box glass">
+<h2>
+    20+
+</h2>
 
-        <h2>
-            150+
-        </h2>
-
-        <p>
-            Active Members
-        </p>
-
-    </div>
-
-
-    <div class="stat-box glass">
-
-        <h2>
-            6+
-        </h2>
-
-        <p>
-            Live Projects
-        </p>
-
-    </div>
+<p>
+    Mentors
+</p>
 
 
 </div>
 
+<div class="stat-box glass">
+
+
+<h2>
+    150+
+</h2>
+
+<p>
+    Active Members
+</p>
+
+
+</div>
+
+<div class="stat-box glass">
+
+
+<h2>
+    6+
+</h2>
+
+<p>
+    Live Projects
+</p>
+
+
+</div>
+
+</div>
 
 </div>
 
@@ -1536,53 +1556,53 @@ Practice on industry-standard platforms supported by SIC.
 
 <div class="tools">
 
-
 <div class="tool-card glass">
 
-    <div class="logo-container">
 
-        <img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
-            alt="HackerRank">
+<div class="logo-container">
 
-    </div>
-
-
-    <h3>
-        HackerRank
-    </h3>
-
-
-    <p>
-        Improve problem-solving and coding logic.
-    </p>
+    <img
+        src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
+        alt="HackerRank">
 
 </div>
 
 
-<div class="tool-card glass">
-
-    <div class="logo-container">
-
-        <img
-            src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
-            alt="LeetCode"
-            style="filter:invert(1);">
-
-    </div>
+<h3>
+    HackerRank
+</h3>
 
 
-    <h3>
-        LeetCode
-    </h3>
+<p>
+    Improve problem-solving and coding logic.
+</p>
 
-
-    <p>
-        Master Data Structures and Algorithms.
-    </p>
 
 </div>
 
+<div class="tool-card glass">
+
+<div class="logo-container">
+
+    <img
+        src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+        alt="LeetCode"
+        style="filter:invert(1);">
+
+</div>
+
+
+<h3>
+    LeetCode
+</h3>
+
+
+<p>
+    Master Data Structures and Algorithms.
+</p>
+
+
+</div>
 
 </div>
 
@@ -1602,7 +1622,6 @@ Practice on industry-standard platforms supported by SIC.
     font-weight:700;
     ">
 
-
 BACKED & RECOGNIZED BY
 
 
@@ -1610,26 +1629,21 @@ BACKED & RECOGNIZED BY
 
 <div class="backed-logos">
 
+<img
+ src="https://csi.coep.org.in/csi_logo.png"
+ alt="CSI">
 
 <img
-    src="https://csi.coep.org.in/csi_logo.png"
-    alt="CSI">
-
-
-<img
-    src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
-    alt="AMRITA">
-
+ src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
+ alt="AMRITA">
 
 <img
-    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
-    alt="IEDC">
-
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
+ alt="IEDC">
 
 <img
-    src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
-    alt="IIC">
-
+ src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
+ alt="IIC">
 
 </div>
 
@@ -1645,100 +1659,102 @@ BACKED & RECOGNIZED BY
 
 <div class="footer-grid">
 
-
 <!-- ABOUT -->
 
 <div class="footer-col">
 
-    <h3>
-        Software Innovators Club
-    </h3>
+
+<h3>
+    Software Innovators Club
+</h3>
 
 
-    <p>
-        Empowering students to collaborate,
-        innovate, and excel at Amrita Kochi.
-    </p>
+<p>
+    Empowering students to collaborate,
+    innovate, and excel at Amrita Kochi.
+</p>
+
 
 </div>
-
 
 <!-- CONTACT -->
 
 <div class="footer-col">
 
-    <h3>
-        Contact Us
-    </h3>
+
+<h3>
+    Contact Us
+</h3>
 
 
-    <p>
-        Amrita Vishwa Vidyapeetham,
-        Kochi Campus
-    </p>
+<p>
+    Amrita Vishwa Vidyapeetham,
+    Kochi Campus
+</p>
 
 
-    <p>
+<p>
 
-        <strong>
-            Email:
-        </strong>
+    <strong>
+        Email:
+    </strong>
 
-        sicasaskochi@gmail.com
+    sicasaskochi@gmail.com
 
-    </p>
+</p>
 
 
-    <p>
+<p>
 
-        <strong>
-            Phone:
-        </strong>
+    <strong>
+        Phone:
+    </strong>
 
-        +91 6238314481
+    +91 6238314481
 
-    </p>
+</p>
+
 
 </div>
-
 
 <!-- LOCATION -->
 
 <div class="footer-col">
 
-    <div class="location-section">
+
+<div class="location-section">
 
 
-        <h3>
+    <h3>
 
-            <i class="fas fa-location-dot"></i>
+        <i class="fas fa-location-dot"></i>
 
-            Our Location
+        Our Location
 
-        </h3>
-
-
-        <p>
-            Amrita Vishwa Vidyapeetham Kochi Campus
-        </p>
+    </h3>
 
 
-        <div class="map-container">
+    <p>
+        Amrita Vishwa Vidyapeetham Kochi Campus
+    </p>
 
-            <iframe
-                src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
 
-        </div>
+    <div class="map-container">
 
+        <iframe
+            src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
     </div>
 
+
 </div>
 
+
+</div>
 
 </div>
 
@@ -1797,6 +1813,7 @@ document
 
             const dropdown =
                 btn.parentElement;
+
 
             dropdown.classList.toggle('active');
 
