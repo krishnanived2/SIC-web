@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -14,9 +15,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
 rel="stylesheet">
 
-
 <style>
 
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
 
 *{
     margin:0;
@@ -24,7 +27,6 @@ rel="stylesheet">
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-
 
 
 html{
@@ -43,9 +45,13 @@ body{
     position:relative;
 
     overflow-x:hidden;
+
 }
 
 
+/* =====================================================
+   MOVING BACKGROUND
+===================================================== */
 
 .moving-background{
 
@@ -76,18 +82,30 @@ body{
 
     display:flex;
 
+    /*
+       VERY FAST
+       DESKTOP = 3 SECONDS
+    */
+
     animation:
         backgroundSlide
-        15s
+        3s
         linear
         infinite;
+
+    will-change:transform;
 
 }
 
 
+/* =====================================================
+   BACKGROUND IMAGE
+===================================================== */
+
 .background-image{
 
     width:50%;
+
     height:100%;
 
     flex-shrink:0;
@@ -111,6 +129,15 @@ body{
 }
 
 
+/* =====================================================
+   CONTINUOUS FAST MOVEMENT
+
+   0%   = LEFT
+   100% = RIGHT
+
+   SPEED = 3 SECONDS
+===================================================== */
+
 @keyframes backgroundSlide{
 
     0%{
@@ -127,6 +154,10 @@ body{
 
 }
 
+
+/* =====================================================
+   BACKGROUND OVERLAY
+===================================================== */
 
 .moving-background::after{
 
@@ -147,6 +178,10 @@ body{
 }
 
 
+/* =====================================================
+   BACK BUTTON CONTAINER
+===================================================== */
+
 .back-container{
 
     max-width:1400px;
@@ -166,6 +201,9 @@ body{
 }
 
 
+/* =====================================================
+   BACK BUTTON
+===================================================== */
 
 .back-btn{
 
@@ -214,6 +252,9 @@ body{
 }
 
 
+/* =====================================================
+   TEAM SECTION
+===================================================== */
 
 .team-section{
 
@@ -232,6 +273,9 @@ body{
 }
 
 
+/* =====================================================
+   TEAM TITLE
+===================================================== */
 
 .team-title{
 
@@ -254,11 +298,16 @@ body{
 }
 
 
+/* =====================================================
+   TEAM CATEGORY
+===================================================== */
+
 .team-category{
 
     margin-bottom:80px;
 
 }
+
 
 .team-category h3{
 
@@ -272,6 +321,9 @@ body{
 }
 
 
+/* =====================================================
+   TEAM ROW
+===================================================== */
 
 .team-row{
 
@@ -288,6 +340,9 @@ body{
 }
 
 
+/* =====================================================
+   TEAM CARD
+===================================================== */
 
 .team-card{
 
@@ -321,7 +376,6 @@ body{
 }
 
 
-
 .team-card:hover{
 
     transform:translateY(-10px);
@@ -335,6 +389,9 @@ body{
 }
 
 
+/* =====================================================
+   TEAM IMAGE
+===================================================== */
 
 .team-card img{
 
@@ -380,6 +437,10 @@ body{
 }
 
 
+/* =====================================================
+   TEAM TEXT
+===================================================== */
+
 .team-card h4{
 
     margin:12px 0;
@@ -400,6 +461,10 @@ body{
 }
 
 
+/* =====================================================
+   EMPTY IMAGE
+===================================================== */
+
 .team-card img[src=""]{
 
     background:
@@ -416,6 +481,10 @@ body{
 
 }
 
+
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media (max-width:992px){
 
@@ -443,6 +512,10 @@ body{
 
 }
 
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width:600px){
 
@@ -472,15 +545,22 @@ body{
 
         display:flex;
 
+        /*
+           VERY FAST MOBILE
+           2.5 SECONDS
+        */
+
         animation:
 
-            backgroundSlide
+            backgroundSlideMobile
 
-            15s
+            2.5s
 
             linear
 
             infinite;
+
+        will-change:transform;
 
     }
 
@@ -498,7 +578,6 @@ body{
         background-repeat:no-repeat;
 
     }
-
 
 
     .back-container{
@@ -519,7 +598,6 @@ body{
     }
 
 
-
     .team-section{
 
         padding:
@@ -531,7 +609,6 @@ body{
             60px;
 
     }
-
 
 
     .team-title{
@@ -606,6 +683,30 @@ body{
 }
 
 
+/* =====================================================
+   MOBILE ANIMATION
+===================================================== */
+
+@keyframes backgroundSlideMobile{
+
+    0%{
+
+        transform:translateX(-50%);
+
+    }
+
+    100%{
+
+        transform:translateX(0%);
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
 
 @media (max-width:380px){
 
@@ -646,53 +747,68 @@ body{
 
 </head>
 
-
 <body>
 
-
+<!-- =====================================================
+     MOVING BACKGROUND
+===================================================== -->
 
 <div class="moving-background">
 
-    <div class="background-track">
+```
+<div class="background-track">
 
-        <!-- FIRST IMAGE -->
+    <!-- FIRST BACKGROUND -->
 
-        <div class="background-image"></div>
+    <div class="background-image"></div>
 
 
-        <!-- SECOND IDENTICAL IMAGE -->
+    <!-- SECOND IDENTICAL BACKGROUND -->
 
-        <div class="background-image"></div>
+    <div class="background-image"></div>
 
-    </div>
+</div>
+```
 
 </div>
 
-
+<!-- =====================================================
+     BACK BUTTON
+===================================================== -->
 
 <div class="back-container">
 
-    <button
-        class="back-btn"
-        onclick="history.back()">
+```
+<button
+    class="back-btn"
+    onclick="history.back()">
 
-        <i class="fas fa-arrow-left"></i>
+    <i class="fas fa-arrow-left"></i>
 
-        Back
+    Back
 
-    </button>
+</button>
+```
 
 </div>
 
-
+<!-- =====================================================
+     TEAM SECTION
+===================================================== -->
 
 <section class="team-section">
 
-
 <h2 class="team-title">
-    Our Team
+
+```
+Our Team
+```
+
 </h2>
 
+<!-- =====================================================
+     FACULTY COORDINATOR
+===================================================== -->
 
 <div class="team-category">
 
@@ -702,12 +818,11 @@ body{
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png"
-alt="Dr Anupama KN">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png"
+ alt="Dr Anupama KN">
 
 <h4>
     Dr.Anupama KN
@@ -719,12 +834,13 @@ alt="Dr Anupama KN">
 
 </div>
 
-
 </div>
 
 </div>
 
-
+<!-- =====================================================
+     MENTORS
+===================================================== -->
 
 <div class="team-category">
 
@@ -734,12 +850,11 @@ alt="Dr Anupama KN">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg"
-alt="Kiran S">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg"
+ alt="Kiran S">
 
 <h4>
     Kiran S
@@ -747,13 +862,11 @@ alt="Kiran S">
 
 </div>
 
-
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg"
-alt="Narayanan G">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg"
+ alt="Narayanan G">
 
 <h4>
     Narayanan G
@@ -761,12 +874,13 @@ alt="Narayanan G">
 
 </div>
 
-
 </div>
 
 </div>
 
-
+<!-- =====================================================
+     LEAD
+===================================================== -->
 
 <div class="team-category">
 
@@ -776,12 +890,11 @@ alt="Narayanan G">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg"
-alt="Vivek Krishnan H">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg"
+ alt="Vivek Krishnan H">
 
 <h4>
     Vivek Krishnan H
@@ -789,12 +902,13 @@ alt="Vivek Krishnan H">
 
 </div>
 
-
 </div>
 
 </div>
 
-
+<!-- =====================================================
+     CO LEAD
+===================================================== -->
 
 <div class="team-category">
 
@@ -804,13 +918,12 @@ alt="Vivek Krishnan H">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg"
-class="fit-center"
-alt="Abhilash Singh">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg"
+ class="fit-center"
+ alt="Abhilash Singh">
 
 <h4>
     Abhilash Singh
@@ -818,12 +931,13 @@ alt="Abhilash Singh">
 
 </div>
 
-
 </div>
 
 </div>
 
-
+<!-- =====================================================
+     MARKETING TEAM
+===================================================== -->
 
 <div class="team-category">
 
@@ -833,12 +947,11 @@ alt="Abhilash Singh">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg"
-alt="Parvana K Pillai">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg"
+ alt="Parvana K Pillai">
 
 <h4>
     Parvana K Pillai
@@ -850,13 +963,11 @@ alt="Parvana K Pillai">
 
 </div>
 
-
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg"
-alt="Medha Pradeep">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg"
+ alt="Medha Pradeep">
 
 <h4>
     Medha Pradeep
@@ -868,11 +979,13 @@ alt="Medha Pradeep">
 
 </div>
 
-
 </div>
 
 </div>
 
+<!-- =====================================================
+     TECHNICAL TEAM
+===================================================== -->
 
 <div class="team-category">
 
@@ -882,12 +995,11 @@ alt="Medha Pradeep">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg"
-alt="John J Karian">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg"
+ alt="John J Karian">
 
 <h4>
     John J Karian
@@ -899,13 +1011,11 @@ alt="John J Karian">
 
 </div>
 
-
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg"
-alt="Krishnanived Madusudanan">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg"
+ alt="Krishnanived Madusudanan">
 
 <h4>
     Krishnanived Madusudanan
@@ -917,12 +1027,13 @@ alt="Krishnanived Madusudanan">
 
 </div>
 
-
 </div>
 
 </div>
 
-
+<!-- =====================================================
+     CREATIVE TEAM
+===================================================== -->
 
 <div class="team-category">
 
@@ -932,12 +1043,11 @@ alt="Krishnanived Madusudanan">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src=""
-alt="Archa S Nair">
+ src=""
+ alt="Archa S Nair">
 
 <h4>
     Archa S Nair
@@ -949,13 +1059,11 @@ alt="Archa S Nair">
 
 </div>
 
-
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p18.jpg"
-alt="Devu Swathitha">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p18.jpg"
+ alt="Devu Swathitha">
 
 <h4>
     Devu Swathitha
@@ -967,13 +1075,13 @@ alt="Devu Swathitha">
 
 </div>
 
-
 </div>
 
 </div>
 
-
-
+<!-- =====================================================
+     MEDIA LEAD
+===================================================== -->
 
 <div class="team-category">
 
@@ -983,12 +1091,11 @@ alt="Devu Swathitha">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg"
-alt="Gowri Parvathy Sailesh">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg"
+ alt="Gowri Parvathy Sailesh">
 
 <h4>
     Gowri Parvathy Sailesh
@@ -996,13 +1103,13 @@ alt="Gowri Parvathy Sailesh">
 
 </div>
 
-
 </div>
 
 </div>
 
-
-
+<!-- =====================================================
+     DOCUMENTATION LEAD
+===================================================== -->
 
 <div class="team-category">
 
@@ -1012,12 +1119,11 @@ alt="Gowri Parvathy Sailesh">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg"
-alt="Niranjana A S">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg"
+ alt="Niranjana A S">
 
 <h4>
     Niranjana A S
@@ -1025,14 +1131,13 @@ alt="Niranjana A S">
 
 </div>
 
-
 </div>
 
 </div>
 
-
-
-
+<!-- =====================================================
+     FINANCE LEAD
+===================================================== -->
 
 <div class="team-category">
 
@@ -1042,12 +1147,11 @@ alt="Niranjana A S">
 
 <div class="team-row">
 
-
 <div class="team-card">
 
 <img
-src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png"
-alt="Suparna Sajeev">
+ src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png"
+ alt="Suparna Sajeev">
 
 <h4>
     Suparna Sajeev
@@ -1055,14 +1159,11 @@ alt="Suparna Sajeev">
 
 </div>
 
-
 </div>
 
 </div>
-
 
 </section>
-
 
 </body>
 
