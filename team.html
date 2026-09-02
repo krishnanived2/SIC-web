@@ -1,586 +1,892 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upcoming Events</title>
 
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* ===== GLOBAL RESET ===== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    <title>Our Team - SIC</title>
 
-body{
-  min-height:100vh;
-  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
-  background-size:400% 400%;
-  animation: gradientMove 15s ease infinite;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
-}
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
-/* ===== SECTION ===== */
-.events-section{
-  padding:60px 10px;
-  max-width:1200px;
-  width:100%;
-  text-align:center;
-  color:white;
-}
 
-.events-section h1{
-  font-size:38px;
-  margin-bottom:40px;
-  background:linear-gradient(90deg,#ffffff,#8a7dff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+    <style>
 
-.events-section span{
-  border-bottom:3px solid #8a7dff;
-}
+        /* =========================================
+           GLOBAL RESET
+        ========================================= */
 
-/* ===== GRID ===== */
-.events-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:25px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* ===== GLASS CARD ===== */
-.event-card{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:20px;
-  overflow:hidden;
-  transition:0.4s ease;
-  display:flex;
-  flex-direction:column;
-  box-shadow:0 8px 32px rgba(0,0,0,0.3);
-}
 
-.event-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(138,125,255,0.6);
-}
+        /* =========================================
+           BODY
+        ========================================= */
 
-/* ===== IMAGE ===== */
-.event-card img{
-  width:100%;
-  height:auto;              /* Shows full image */
-  max-height:260px;         /* Prevents too tall images */
-  object-fit:contain;       /* Keeps full image visible */
-  background:#111;          /* Clean background if ratio differs */
-  padding:10px;
-}
+        body {
+            min-height: 100vh;
 
-/* ===== CONTENT ===== */
-.event-content{
-  padding:20px;
-  text-align:left;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  color:white;
-}
+            /* Dark teal background from your screenshot */
+            background: #2B5263;
 
-.event-content h2{
-  font-size:20px;
-  margin-bottom:10px;
-}
+            color: white;
 
-.event-content p{
-  font-size:14px;
-  opacity:0.85;
-  margin-bottom:6px;
-}
+            overflow-x: hidden;
+        }
 
-/* ===== BUTTON ===== */
-.event-content button{
-  margin-top:auto;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:linear-gradient(90deg,#8a7dff,#6c63ff);
-  color:white;
-  cursor:pointer;
-  font-size:14px;
-  transition:0.3s ease;
-  box-shadow:0 0 15px rgba(138,125,255,0.5);
-}
 
-.event-content button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 25px rgba(138,125,255,0.9);
-}
+        /* =========================================
+           BACK BUTTON
+        ========================================= */
 
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px){
-  .events-section h1{
-    font-size:26px;
-  }
+        .back-container {
+            width: 100%;
+            max-width: 1400px;
 
-  .event-content{
-    padding:18px;
-  }
+            margin: 0 auto;
 
-  .event-content h2{
-    font-size:18px;
-  }
-}
+            padding: 30px 25px 0;
+        }
 
-</style>
+
+        .back-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            background: rgba(255, 255, 255, 0.10);
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            transition: all 0.3s ease;
+        }
+
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+
+            transform: translateX(-5px);
+
+            border-color: #8a7dff;
+
+            box-shadow: 0 0 15px rgba(138, 125, 255, 0.4);
+        }
+
+
+        /* =========================================
+           TEAM SECTION
+        ========================================= */
+
+        .team-section {
+            width: 100%;
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+            padding: 45px 20px 90px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           MAIN TITLE
+        ========================================= */
+
+        .team-title {
+            font-size: 44px;
+
+            font-weight: 800;
+
+            margin-bottom: 65px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #b9adff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+        }
+
+
+        /* =========================================
+           CATEGORY
+        ========================================= */
+
+        .team-category {
+            margin-bottom: 85px;
+        }
+
+
+        .team-category h3 {
+            font-size: 28px;
+
+            font-weight: 700;
+
+            margin-bottom: 40px;
+
+            color: #ffffff;
+
+            text-shadow:
+                0 0 10px rgba(138, 125, 255, 0.6);
+        }
+
+
+        /* =========================================
+           TEAM ROW
+        ========================================= */
+
+        .team-row {
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: stretch;
+
+            flex-wrap: wrap;
+
+            gap: 30px;
+        }
+
+
+        /* =========================================
+           TEAM CARD
+        ========================================= */
+
+        .team-card {
+            width: 280px;
+
+            min-height: 330px;
+
+            padding: 30px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            border-radius: 22px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.30);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+
+        /* =========================================
+           CARD HOVER
+        ========================================= */
+
+        .team-card:hover {
+            transform: translateY(-10px);
+
+            border-color:
+                rgba(138, 125, 255, 0.55);
+
+            box-shadow:
+                0 0 25px rgba(138, 125, 255, 0.55);
+        }
+
+
+        /* =========================================
+           TEAM IMAGE
+        ========================================= */
+
+        .team-card img {
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            object-position: top center;
+
+            display: block;
+
+            margin-bottom: 22px;
+
+            border: 3px solid rgba(255, 255, 255, 0.30);
+
+            background: rgba(255, 255, 255, 0.05);
+
+            transition: transform 0.35s ease;
+        }
+
+
+        .team-card:hover img {
+            transform: scale(1.04);
+        }
+
+
+        /* =========================================
+           SPECIAL IMAGE POSITION
+        ========================================= */
+
+        .fit-center {
+            object-position: center top !important;
+        }
+
+
+        /* =========================================
+           MEMBER NAME
+        ========================================= */
+
+        .team-card h4 {
+            margin: 8px 0 8px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: #ffffff;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================
+           MEMBER ROLE
+        ========================================= */
+
+        .team-card p {
+            margin: 4px 0;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: rgba(255, 255, 255, 0.75);
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           EMPTY IMAGE PLACEHOLDER
+        ========================================= */
+
+        .no-image {
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+            border: 3px solid rgba(255, 255, 255, 0.25);
+
+            background: rgba(255, 255, 255, 0.08);
+
+            color: rgba(255, 255, 255, 0.6);
+
+            font-size: 45px;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .team-title {
+                font-size: 38px;
+
+                margin-bottom: 55px;
+            }
+
+            .team-category h3 {
+                font-size: 25px;
+            }
+
+            .team-card {
+                width: 270px;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .back-container {
+                padding: 20px 15px 0;
+            }
+
+
+            .back-btn {
+                padding: 10px 19px;
+
+                font-size: 14px;
+            }
+
+
+            .team-section {
+                padding:
+                    35px 15px 60px;
+            }
+
+
+            .team-title {
+                font-size: 30px;
+
+                margin-bottom: 45px;
+            }
+
+
+            .team-category {
+                margin-bottom: 65px;
+            }
+
+
+            .team-category h3 {
+                font-size: 22px;
+
+                margin-bottom: 30px;
+            }
+
+
+            .team-row {
+                gap: 20px;
+            }
+
+
+            .team-card {
+                width: 100%;
+
+                max-width: 320px;
+
+                min-height: 310px;
+
+                padding: 25px 20px;
+            }
+
+
+            .team-card img,
+            .no-image {
+                width: 150px;
+                height: 150px;
+            }
+
+
+            .team-card h4 {
+                font-size: 17px;
+            }
+
+
+            .team-card p {
+                font-size: 13px;
+            }
+        }
+
+
+    </style>
+
 </head>
-
 
 
 <body>
 
 
-<!-- ========================================
-     BACK BUTTON
-======================================== -->
+    <!-- =========================================
+         BACK BUTTON
+    ========================================= -->
 
-<div class="back-container">
+    <div class="back-container">
 
-    <button
-        class="back-btn"
-        onclick="history.back()">
+        <button
+            class="back-btn"
+            onclick="history.back()">
 
-        <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-left"></i>
 
-        Back
+            Back
 
-    </button>
-
-</div>
-
-
-
-<!-- ========================================
-     TEAM SECTION
-======================================== -->
-
-<section class="team-section">
-
-
-    <!-- MAIN TITLE -->
-
-    <h2 class="team-title">
-        Our Team
-    </h2>
-
-
-
-    <!-- ====================================
-         FACULTY COORDINATOR
-    ===================================== -->
-
-    <div class="team-category">
-
-        <h3>
-            Faculty Coordinator
-        </h3>
-
-        <div class="team-row">
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png"
-                    alt="Dr Anupama KN">
-
-                <h4>
-                    Dr.Anupama KN
-                </h4>
-
-                <p>
-                    Faculty Coordinator
-                </p>
-
-            </div>
-
-        </div>
+        </button>
 
     </div>
 
 
 
-    <!-- ====================================
-         MENTORS
-    ===================================== -->
+    <!-- =========================================
+         OUR TEAM
+    ========================================= -->
 
-    <div class="team-category">
-
-        <h3>
-            Mentors
-        </h3>
-
-        <div class="team-row">
+    <section class="team-section">
 
 
-            <div class="team-card">
+        <!-- MAIN TITLE -->
 
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg"
-                    alt="Kiran S">
-
-                <h4>
-                    Kiran S
-                </h4>
-
-            </div>
+        <h1 class="team-title">
+            Our Team
+        </h1>
 
 
 
-            <div class="team-card">
+        <!-- =====================================
+             FACULTY COORDINATOR
+        ====================================== -->
 
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg"
-                    alt="Narayanan G">
+        <div class="team-category">
 
-                <h4>
-                    Narayanan G
-                </h4>
-
-            </div>
+            <h3>
+                Faculty Coordinator
+            </h3>
 
 
-        </div>
+            <div class="team-row">
 
-    </div>
+                <div class="team-card">
 
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png"
+                        alt="Dr Anupama KN">
 
+                    <h4>
+                        Dr.Anupama KN
+                    </h4>
 
-    <!-- ====================================
-         LEAD
-    ===================================== -->
+                    <p>
+                        Faculty Coordinator
+                    </p>
 
-    <div class="team-category">
-
-        <h3>
-            Lead
-        </h3>
-
-        <div class="team-row">
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg"
-                    alt="Vivek Krishnan H">
-
-                <h4>
-                    Vivek Krishnan H
-                </h4>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+
+
+        <!-- =====================================
+             MENTORS
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Mentors
+            </h3>
+
+
+            <div class="team-row">
+
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg"
+                        alt="Kiran S">
+
+                    <h4>
+                        Kiran S
+                    </h4>
+
+                </div>
 
 
 
-    <!-- ====================================
-         CO LEAD
-    ===================================== -->
+                <div class="team-card">
 
-    <div class="team-category">
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg"
+                        alt="Narayanan G">
 
-        <h3>
-            Co Lead
-        </h3>
+                    <h4>
+                        Narayanan G
+                    </h4>
 
-        <div class="team-row">
+                </div>
 
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg"
-                    class="fit-center"
-                    alt="Abhilash Singh">
-
-                <h4>
-                    Abhilash Singh
-                </h4>
 
             </div>
 
         </div>
 
-    </div>
 
 
+        <!-- =====================================
+             LEAD
+        ====================================== -->
 
-    <!-- ====================================
-         MARKETING TEAM
-    ===================================== -->
+        <div class="team-category">
 
-    <div class="team-category">
+            <h3>
+                Lead
+            </h3>
 
-        <h3>
-            Marketing Team
-        </h3>
 
-        <div class="team-row">
+            <div class="team-row">
 
+                <div class="team-card">
 
-            <div class="team-card">
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg"
+                        alt="Vivek Krishnan H">
 
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg"
-                    alt="Parvana K Pillai">
+                    <h4>
+                        Vivek Krishnan H
+                    </h4>
 
-                <h4>
-                    Parvana K Pillai
-                </h4>
-
-                <p>
-                    Marketing Lead I
-                </p>
-
-            </div>
-
-
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg"
-                    alt="Medha Pradeep">
-
-                <h4>
-                    Medha Pradeep
-                </h4>
-
-                <p>
-                    Marketing Lead II
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ====================================
-         TECHNICAL TEAM
-    ===================================== -->
-
-    <div class="team-category">
-
-        <h3>
-            Technical Team
-        </h3>
-
-        <div class="team-row">
-
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg"
-                    alt="John J Karian">
-
-                <h4>
-                    John J Karian
-                </h4>
-
-                <p>
-                    Technical Lead I
-                </p>
-
-            </div>
-
-
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg"
-                    alt="Krishnanived Madusudanan">
-
-                <h4>
-                    Krishnanived Madusudanan
-                </h4>
-
-                <p>
-                    Technical Lead II
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ====================================
-         CREATIVE TEAM
-    ===================================== -->
-
-    <div class="team-category">
-
-        <h3>
-            Creative Team
-        </h3>
-
-        <div class="team-row">
-
-
-            <div class="team-card">
-
-                <img
-                    src=""
-                    alt="Archa S Nair">
-
-                <h4>
-                    Archa S Nair
-                </h4>
-
-                <p>
-                    Creative Lead I
-                </p>
-
-            </div>
-
-
-
-            <div class="team-card">
-
-                <img
-                    src=""
-                    alt="Devu Swathitha">
-
-                <h4>
-                    Devu Swathitha
-                </h4>
-
-                <p>
-                    Creative Lead II
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ====================================
-         MEDIA LEAD
-    ===================================== -->
-
-    <div class="team-category">
-
-        <h3>
-            Media Lead
-        </h3>
-
-        <div class="team-row">
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg"
-                    alt="Gowri Parvathy Sailesh">
-
-                <h4>
-                    Gowri Parvathy Sailesh
-                </h4>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
 
+        <!-- =====================================
+             CO LEAD
+        ====================================== -->
 
-    <!-- ====================================
-         DOCUMENTATION LEAD
-    ===================================== -->
+        <div class="team-category">
 
-    <div class="team-category">
-
-        <h3>
-            Documentation Lead
-        </h3>
-
-        <div class="team-row">
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg"
-                    alt="Niranjana A S">
-
-                <h4>
-                    Niranjana A S
-                </h4>
-
-            </div>
-
-        </div>
-
-    </div>
+            <h3>
+                Co Lead
+            </h3>
 
 
+            <div class="team-row">
 
-    <!-- ====================================
-         FINANCE LEAD
-    ===================================== -->
+                <div class="team-card">
 
-    <div class="team-category">
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg"
+                        class="fit-center"
+                        alt="Abhilash Singh">
 
-        <h3>
-            Finance Lead
-        </h3>
+                    <h4>
+                        Abhilash Singh
+                    </h4>
 
-        <div class="team-row">
-
-            <div class="team-card">
-
-                <img
-                    src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png"
-                    alt="Suparna Sajeev">
-
-                <h4>
-                    Suparna Sajeev
-                </h4>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
 
 
-</section>
+        <!-- =====================================
+             MARKETING TEAM
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Marketing Team
+            </h3>
+
+
+            <div class="team-row">
+
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg"
+                        alt="Parvana K Pillai">
+
+                    <h4>
+                        Parvana K Pillai
+                    </h4>
+
+                    <p>
+                        Marketing Lead I
+                    </p>
+
+                </div>
+
+
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg"
+                        alt="Medha Pradeep">
+
+                    <h4>
+                        Medha Pradeep
+                    </h4>
+
+                    <p>
+                        Marketing Lead II
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             TECHNICAL TEAM
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Technical Team
+            </h3>
+
+
+            <div class="team-row">
+
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg"
+                        alt="John J Karian">
+
+                    <h4>
+                        John J Karian
+                    </h4>
+
+                    <p>
+                        Technical Lead I
+                    </p>
+
+                </div>
+
+
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg"
+                        alt="Krishnanived Madusudanan">
+
+                    <h4>
+                        Krishnanived Madusudanan
+                    </h4>
+
+                    <p>
+                        Technical Lead II
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             CREATIVE TEAM
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Creative Team
+            </h3>
+
+
+            <div class="team-row">
+
+
+                <div class="team-card">
+
+                    <!-- Replace this with Archa's image URL -->
+                    <div class="no-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <h4>
+                        Archa S Nair
+                    </h4>
+
+                    <p>
+                        Creative Lead I
+                    </p>
+
+                </div>
+
+
+
+                <div class="team-card">
+
+                    <!-- Replace this with Devu's image URL -->
+                    <div class="no-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <h4>
+                        Devu Swathitha
+                    </h4>
+
+                    <p>
+                        Creative Lead II
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             MEDIA LEAD
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Media Lead
+            </h3>
+
+
+            <div class="team-row">
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg"
+                        alt="Gowri Parvathy Sailesh">
+
+                    <h4>
+                        Gowri Parvathy Sailesh
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             DOCUMENTATION LEAD
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Documentation Lead
+            </h3>
+
+
+            <div class="team-row">
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg"
+                        alt="Niranjana A S">
+
+                    <h4>
+                        Niranjana A S
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FINANCE LEAD
+        ====================================== -->
+
+        <div class="team-category">
+
+            <h3>
+                Finance Lead
+            </h3>
+
+
+            <div class="team-row">
+
+                <div class="team-card">
+
+                    <img
+                        src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png"
+                        alt="Suparna Sajeev">
+
+                    <h4>
+                        Suparna Sajeev
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
 
 
 </body>
+
 </html>
