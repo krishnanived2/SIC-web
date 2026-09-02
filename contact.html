@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,11 +8,16 @@
 
 <title>SIC Contact</title>
 
+
+<!-- FONT AWESOME -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
 rel="stylesheet">
+
 
 <style>
 
@@ -28,14 +32,11 @@ rel="stylesheet">
     font-family:'Poppins',sans-serif;
 }
 
+
 html{
     overflow-x:hidden;
 }
 
-
-/* =====================================================
-   BODY
-===================================================== */
 
 body{
 
@@ -43,7 +44,8 @@ body{
 
     color:white;
 
-    background:#0a0a0f;
+    /* SAME BACKGROUND AS OUR TEAM PAGE */
+    background:#2B5263;
 
     position:relative;
 
@@ -56,130 +58,6 @@ body{
     align-items:center;
 
     padding:40px 20px;
-
-}
-
-
-/* =====================================================
-   MOVING BACKGROUND
-===================================================== */
-
-.moving-background{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:100vh;
-
-    overflow:hidden;
-
-    z-index:-10;
-
-}
-
-
-/* =====================================================
-   BACKGROUND TRACK
-===================================================== */
-
-.background-track{
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:200%;
-
-    height:100%;
-
-    display:flex;
-
-    animation:
-        backgroundSlide
-        2.5s
-        linear
-        infinite;
-
-}
-
-
-/* =====================================================
-   BACKGROUND IMAGE
-===================================================== */
-
-.background-image{
-
-    width:50%;
-
-    height:100%;
-
-    flex-shrink:0;
-
-    background-image:
-
-        linear-gradient(
-            to bottom,
-            rgba(10,10,15,0.60),
-            rgba(20,20,30,0.90)
-        ),
-
-        url("https://images.unsplash.com/photo-1626218174358-7769486c4b79?q=80&w=1974&auto=format&fit=crop");
-
-    background-size:cover;
-
-    background-position:center center;
-
-    background-repeat:no-repeat;
-
-}
-
-
-/* =====================================================
-   LEFT → RIGHT ANIMATION
-===================================================== */
-
-@keyframes backgroundSlide{
-
-    0%{
-
-        transform:translateX(-50%);
-
-    }
-
-    100%{
-
-        transform:translateX(0%);
-
-    }
-
-}
-
-
-/* =====================================================
-   DARK OVERLAY
-===================================================== */
-
-.moving-background::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(0,0,0,0.08);
-
-    pointer-events:none;
 
 }
 
@@ -209,7 +87,7 @@ body{
     border:1px solid rgba(255,255,255,0.15);
 
     box-shadow:
-        0 8px 32px rgba(0,0,0,0.4);
+        0 8px 32px rgba(0,0,0,0.35);
 
     color:white;
 
@@ -238,7 +116,7 @@ body{
 
     color:white;
 
-    padding:8px 18px;
+    padding:10px 20px;
 
     border-radius:30px;
 
@@ -254,7 +132,7 @@ body{
 
     gap:8px;
 
-    transition:0.3s ease;
+    transition:all 0.3s ease;
 
     z-index:10;
 
@@ -298,9 +176,7 @@ body{
 
 .footer-column{
 
-    flex:
-
-        1 1 220px;
+    flex:1 1 220px;
 
     min-width:220px;
 
@@ -318,7 +194,6 @@ body{
     margin-bottom:18px;
 
     background:
-
         linear-gradient(
             90deg,
             #ffffff,
@@ -328,6 +203,8 @@ body{
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
+    background-clip:text;
 
 }
 
@@ -356,7 +233,7 @@ body{
 
     color:rgba(255,255,255,0.8);
 
-    transition:0.3s;
+    transition:all 0.3s ease;
 
 }
 
@@ -396,7 +273,7 @@ body{
 
     text-decoration:none;
 
-    transition:0.3s;
+    transition:all 0.3s ease;
 
 }
 
@@ -478,79 +355,19 @@ body{
     }
 
 
-    /* ---------------------------------------------
-       MOBILE BACKGROUND
-    --------------------------------------------- */
-
-    .moving-background{
-
-        width:100%;
-
-        height:100vh;
-
-    }
-
-
-    .background-track{
-
-        width:200%;
-
-        height:100%;
-
-        display:flex;
-
-        animation:
-
-            backgroundSlide
-
-            15s
-
-            linear
-
-            infinite;
-
-    }
-
-
-    .background-image{
-
-        width:50%;
-
-        height:100%;
-
-        background-size:cover;
-
-        background-position:center center;
-
-        background-repeat:no-repeat;
-
-    }
-
-
-    /* ---------------------------------------------
-       FOOTER
-    --------------------------------------------- */
-
     .footer{
 
         width:95%;
 
         padding:
-
             80px
-
             20px
-
             20px;
 
         border-radius:20px;
 
     }
 
-
-    /* ---------------------------------------------
-       FOOTER CONTAINER
-    --------------------------------------------- */
 
     .footer-container{
 
@@ -572,9 +389,7 @@ body{
     }
 
 
-    /* ---------------------------------------------
-       BACK BUTTON
-    --------------------------------------------- */
+    /* BACK BUTTON */
 
     .back-btn{
 
@@ -582,16 +397,14 @@ body{
 
         left:20px;
 
-        padding:6px 14px;
+        padding:7px 15px;
 
         font-size:13px;
 
     }
 
 
-    /* ---------------------------------------------
-       HEADINGS
-    --------------------------------------------- */
+    /* HEADINGS */
 
     .footer h3{
 
@@ -600,9 +413,7 @@ body{
     }
 
 
-    /* ---------------------------------------------
-       TEXT
-    --------------------------------------------- */
+    /* TEXT */
 
     .footer p{
 
@@ -618,9 +429,7 @@ body{
     }
 
 
-    /* ---------------------------------------------
-       BOTTOM
-    --------------------------------------------- */
+    /* BOTTOM */
 
     .bottom{
 
@@ -669,30 +478,9 @@ body{
 
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     MOVING BACKGROUND
-===================================================== -->
-
-<div class="moving-background">
-
-<div class="background-track">
-
-    <!-- FIRST IMAGE -->
-
-    <div class="background-image"></div>
-
-
-    <!-- SECOND IMAGE
-         Required for continuous movement -->
-
-    <div class="background-image"></div>
-
-</div>
-
-
-</div>
 
 <!-- =====================================================
      CONTACT FOOTER
@@ -701,221 +489,227 @@ body{
 <footer class="footer">
 
 
-<!-- BACK BUTTON -->
+    <!-- BACK BUTTON -->
 
-<button
-    class="back-btn"
-    onclick="history.back()">
+    <button
+        class="back-btn"
+        onclick="history.back()">
 
-    <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-arrow-left"></i>
 
-    Back
+        Back
 
-</button>
+    </button>
 
-
-
-<!-- FOOTER CONTAINER -->
-
-<div class="footer-container">
 
 
     <!-- =================================================
-         CLUBS
+         FOOTER CONTAINER
     ================================================== -->
 
-    <div class="footer-column">
+    <div class="footer-container">
 
-        <h3>
-            Clubs
-        </h3>
 
-        <ul>
+        <!-- =================================================
+             CLUBS
+        ================================================== -->
 
-            <li>
-                <a href="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
-                    IEDC
+        <div class="footer-column">
+
+            <h3>
+                Clubs
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png">
+                        IEDC
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://csiasas.vercel.app/images/CSI.PNG">
+                        CSI
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
+                        IIC
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUPPORT
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+                Support
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform">
+
+                        Join Community
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?usp=send_form&pli=1&authuser=0">
+
+                        Become a Member
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        FAQ’s
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+
+            <p>
+                Vivek Krishnan H
+            </p>
+
+
+            <p>
+
+                <a href="tel:+919746460409">
+
+                    +91 9746460409
+
                 </a>
-            </li>
 
-            <li>
-                <a href="https://csiasas.vercel.app/images/CSI.PNG">
-                    CSI
+            </p>
+
+
+            <p>
+
+                <a
+                    href="mailto:KH.EN.P2MCA26159@kh.students.amrita.edu"
+                    class="email-link">
+
+                    KH.EN.P2MCA26159@kh.students.amrita.edu
+
                 </a>
-            </li>
 
-            <li>
-                <a href="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg">
-                    IIC
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GET IN TOUCH
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h3>
+                Get in Touch
+            </h3>
+
+
+            <p>
+
+                27WW+H26, Old NH17, Edappally North,<br>
+
+                Amrita Nagar, Brahmasthanam,<br>
+
+                Kochi, Ernakulam, Kerala 682024
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Email:
+                </strong>
+
+                <a href="mailto:sicasaskochi@gmail.com">
+
+                    sicasaskochi@gmail.com
+
                 </a>
-            </li>
 
-        </ul>
+            </p>
+
+
+            <p>
+
+                <strong>
+                    Phone:
+                </strong>
+
+                <a href="tel:+916238314481">
+
+                    +91 6238314481
+
+                </a>
+
+            </p>
+
+        </div>
+
 
     </div>
 
 
 
     <!-- =================================================
-         SUPPORT
+         COPYRIGHT
     ================================================== -->
 
-    <div class="footer-column">
+    <div class="bottom">
 
-        <h3>
-            Support
-        </h3>
-
-        <ul>
-
-            <li>
-
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform">
-
-                    Join Community
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform?usp=send_form&pli=1&authuser=0">
-
-                    Become a Member
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    FAQ’s
-
-                </a>
-
-            </li>
-
-        </ul>
+        © 2026 SIC. All Rights Reserved.
 
     </div>
 
-
-
-    <!-- =================================================
-         CONTACT
-    ================================================== -->
-
-    <div class="footer-column">
-
-        <h3>
-            Contact
-        </h3>
-
-        <p>
-            Vivek Krishnan H
-        </p>
-
-        <p>
-
-            <a href="tel:+919746460409">
-
-                +91 9746460409
-
-            </a>
-
-        </p>
-
-
-        <p>
-
-            <a
-                href="mailto:KH.EN.P2MCA26159@kh.students.amrita.edu"
-                class="email-link">
-
-                KH.EN.P2MCA26159@kh.students.amrita.edu
-
-            </a>
-
-        </p>
-
-    </div>
-
-
-
-    <!-- =================================================
-         GET IN TOUCH
-    ================================================== -->
-
-    <div class="footer-column">
-
-        <h3>
-            Get in Touch
-        </h3>
-
-
-        <p>
-
-            27WW+H26, Old NH17, Edappally North,<br>
-
-            Amrita Nagar, Brahmasthanam,<br>
-
-            Kochi, Ernakulam, Kerala 682024
-
-        </p>
-
-
-        <p>
-
-            <strong>
-                Email:
-            </strong>
-
-            <a href="mailto:sicasaskochi@gmail.com">
-
-                sicasaskochi@gmail.com
-
-            </a>
-
-        </p>
-
-
-        <p>
-
-            <strong>
-                Phone:
-            </strong>
-
-            <a href="tel:+916238314481">
-
-                +91 6238314481
-
-            </a>
-
-        </p>
-
-    </div>
-
-
-</div>
-
-
-
-<!-- =================================================
-     COPYRIGHT
-================================================== -->
-
-<div class="bottom">
-
-    © 2026 SIC. All Rights Reserved.
-
-</div>
 
 </footer>
+
 
 </body>
 
