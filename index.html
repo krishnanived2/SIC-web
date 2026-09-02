@@ -1,1873 +1,1344 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIC - Software Innovators Club</title>
-
-<!-- GOOGLE FONT -->
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<style>
-
-/* =====================================================
-   ROOT VARIABLES
-===================================================== */
-
-:root {
-
-    --glass: rgba(255,255,255,0.08);
-    --glass-card: rgba(255,255,255,0.06);
-    --border: rgba(255,255,255,0.3);
-
-    --primary: #9d92ff;
-
-    --text: #ffffff;
-
-    --whatsapp: #25D366;
-
-    --insta-gradient:
-        linear-gradient(
-            45deg,
-            #f09433 0%,
-            #e6683c 25%,
-            #dc2743 50%,
-            #cc2366 75%,
-            #bc1888 100%
-        );
-}
-
-
-/* =====================================================
-   GLOBAL RESET
-===================================================== */
-
-* {
-
-    margin:0;
-    padding:0;
-
-    box-sizing:border-box;
-
-    font-family:'Poppins',sans-serif;
-}
-
-
-html {
-
-    scroll-behavior:smooth;
-
-}
-
-
-/* =====================================================
-   BODY
-===================================================== */
-
-body {
-
-    position:relative;
-
-    min-height:100vh;
-
-    background:#0a0a0f;
-
-    color:var(--text);
-
-    overflow-x:hidden;
-
-}
-
-
-/* =====================================================
-   FAST MOVING BACKGROUND IMAGE
-
-   FAST:
-   5 SECONDS
-
-   STRONG:
-   LEFT ↔ RIGHT MOVEMENT
-===================================================== */
-
-body::before {
-
-    content:"";
-
-    position:fixed;
-
-    top:-10%;
-
-    left:-35%;
-
-    width:170%;
-
-    height:120%;
-
-    z-index:-3;
-
-    background-image:
-
-        linear-gradient(
-            to bottom,
-            rgba(10,10,15,0.55),
-            rgba(20,20,30,0.80)
-        ),
-
-        url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-
-    background-size:cover;
-
-    background-repeat:no-repeat;
-
-    background-position:center;
-
-    transform:translateX(-15%);
-
-    /* FAST BACKGROUND */
-    animation:
-        backgroundMove 2.5s linear infinite alternate;
-
-    will-change:transform;
-
-}
-
-
-/* =====================================================
-   EXTRA DARK OVERLAY
-===================================================== */
-
-body::after {
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-2;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5,8,15,0.10),
-            rgba(5,8,15,0.30)
-        );
-
-}
-
-
-/* =====================================================
-   FAST BACKGROUND ANIMATION
-
-   LEFT → RIGHT
-   RIGHT → LEFT
-
-   TOTAL CYCLE = 10 SECONDS
-   EACH DIRECTION = 5 SECONDS
-===================================================== */
-
-@keyframes backgroundMove {
-
-    0% {
-
-        transform:translateX(-15%);
-
-    }
-
-    50% {
-
-        transform:translateX(0%);
-
-    }
-
-    100% {
-
-        transform:translateX(15%);
-
-    }
-
-}
-
-
-/* =====================================================
-   GLASS EFFECT
-===================================================== */
-
-.glass {
-
-    backdrop-filter:blur(8px);
-
-    -webkit-backdrop-filter:blur(8px);
-
-    border:1px solid var(--border);
-
-    border-radius:20px;
-
-    background:var(--glass);
-
-    box-shadow:
-        0 4px 30px rgba(0,0,0,0.15);
-
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header {
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:15px 6%;
-
-    position:fixed;
-
-    width:100%;
-
-    top:0;
-
-    left:0;
-
-    z-index:2000;
-
-    backdrop-filter:blur(10px);
-
-    -webkit-backdrop-filter:blur(10px);
-
-    background:rgba(10,10,15,0.70);
-
-    border-bottom:1px solid var(--border);
-
-}
-
-
-/* =====================================================
-   SIC LOGO
-===================================================== */
-
-header img.sic-logo {
-
-    height:45px;
-
-    width:auto;
-
-    object-fit:contain;
-
-}
-
-
-/* =====================================================
-   BACK BUTTON
-===================================================== */
-
-.back-btn {
-
-    background:transparent;
-
-    border:1px solid var(--border);
-
-    color:white;
-
-    padding:6px 14px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    font-size:14px;
-
-}
-
-
-.back-btn:hover {
-
-    background:rgba(255,255,255,0.1);
-
-    transform:translateX(-3px);
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-nav {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-}
-
-
-nav a {
-
-    text-decoration:none;
-
-    color:rgba(255,255,255,0.8);
-
-    font-size:14px;
-
-    font-weight:500;
-
-    transition:0.3s;
-
-}
-
-
-nav a:hover {
-
-    color:var(--primary);
-
-}
-
-
-/* =====================================================
-   JOIN BUTTON
-===================================================== */
-
-.join-btn {
-
-    padding:10px 22px;
-
-    border-radius:30px;
-
-    background:var(--primary) !important;
-
-    color:white !important;
-
-    font-weight:600;
-
-    box-shadow:
-        0 4px 15px rgba(138,125,255,0.3);
-
-}
-
-
-/* =====================================================
-   DROPDOWN
-===================================================== */
-
-.dropdown {
-
-    position:relative;
-
-}
-
-
-.dropbtn {
-
-    cursor:pointer;
-
-    color:rgba(255,255,255,0.8);
-
-    font-size:14px;
-
-    padding:10px 0;
-
-}
-
-
-.dropdown-content {
-
-    position:absolute;
-
-    top:100%;
-
-    left:0;
-
-    min-width:200px;
-
-    display:none;
-
-    padding:10px;
-
-    background:rgba(20,20,30,0.95) !important;
-
-    z-index:3000;
-
-}
-
-
-.dropdown-content a {
-
-    display:block;
-
-    padding:12px;
-
-    border-radius:10px;
-
-}
-
-
-.dropdown-content a:hover {
-
-    background:rgba(255,255,255,0.05);
-
-    color:var(--primary);
-
-}
-
-
-@media (min-width:901px) {
-
-    .dropdown:hover .dropdown-content {
-
-        display:block;
-
-    }
-
-}
-
-
-.dropdown.active .dropdown-content {
-
-    display:block;
-
-}
-
-
-/* =====================================================
-   MOBILE MENU ICON
-===================================================== */
-
-.menu-icon {
-
-    display:none;
-
-    flex-direction:column;
-
-    cursor:pointer;
-
-}
-
-
-.menu-icon span {
-
-    width:25px;
-
-    height:2px;
-
-    background:white;
-
-    margin:4px 0;
-
-}
-
-
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
-
-@media (max-width:900px) {
-
-    .menu-icon {
-
-        display:flex;
-
-    }
-
-
-    nav {
-
-        display:none;
-
-        flex-direction:column;
-
-        position:absolute;
-
-        top:75px;
-
-        right:6%;
-
-        width:250px;
-
-        padding:20px;
-
-        background:rgba(10,10,15,0.97);
-
-        border-radius:15px;
-
-        border:1px solid var(--border);
-
-    }
-
-
-    nav.active {
-
-        display:flex;
-
-    }
-
-
-    .dropdown-content {
-
-        position:static;
-
-        background:transparent !important;
-
-        box-shadow:none;
-
-        border:none;
-
-        min-width:auto;
-
-    }
-
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:120px 20px 60px;
-
-    text-align:center;
-
-}
-
-
-.hero-content {
-
-    width:100%;
-
-    max-width:850px;
-
-    padding:60px 40px;
-
-}
-
-
-/* =====================================================
-   HERO TITLE
-===================================================== */
-
-.hero h1 {
-
-    font-size:clamp(32px,5vw,56px);
-
-    margin-bottom:20px;
-
-    background:
-        linear-gradient(
-            to right,
-            #fff,
-            #c3befa
-        );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-}
-
-
-/* =====================================================
-   HERO DESCRIPTION
-===================================================== */
-
-.hero p {
-
-    font-size:18px;
-
-    opacity:0.9;
-
-    margin-bottom:30px;
-
-    max-width:600px;
-
-    margin-left:auto;
-
-    margin-right:auto;
-
-}
-
-
-/* =====================================================
-   HERO BUTTONS
-===================================================== */
-
-.hero-buttons {
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-bottom:40px;
-
-}
-
-
-.hero-buttons a {
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-
-    padding:12px 28px;
-
-    text-decoration:none;
-
-    border-radius:12px;
-
-    font-weight:600;
-
-    transition:all 0.3s ease;
-
-}
-
-
-.primary-btn {
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-
-.whatsapp-btn {
-
-    background:var(--whatsapp) !important;
-
-    color:white !important;
-
-}
-
-
-.instagram-btn {
-
-    background:var(--insta-gradient) !important;
-
-    color:white !important;
-
-}
-
-
-.hero-buttons a:hover {
-
-    transform:translateY(-5px);
-
-    filter:brightness(1.1);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.4);
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-
-.stat-box {
-
-    padding:20px;
-
-    min-width:140px;
-
-    flex:1;
-
-    background:var(--glass-card);
-
-}
-
-
-.stat-box h2 {
-
-    color:var(--primary);
-
-    font-size:32px;
-
-    font-weight:800;
-
-}
-
-
-.stat-box p {
-
-    font-size:14px;
-
-    opacity:0.7;
-
-    margin:0;
-
-}
-
-
-/* =====================================================
-   SKILLS SECTION
-===================================================== */
-
-.skills {
-
-    padding:80px 6%;
-
-    text-align:center;
-
-}
-
-
-.skills h2 {
-
-    font-size:36px;
-
-    margin-bottom:10px;
-
-}
-
-
-.tools {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:30px;
-
-    margin-top:50px;
-
-    flex-wrap:wrap;
-
-}
-
-
-.tool-card {
-
-    width:320px;
-
-    padding:40px 30px;
-
-    transition:0.4s;
-
-    background:var(--glass-card);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-
-.tool-card:hover {
-
-    transform:translateY(-10px);
-
-    background:rgba(255,255,255,0.12);
-
-    border-color:white;
-
-}
-
-
-.tool-card .logo-container {
-
-    height:80px;
-
-    margin-bottom:25px;
-
-}
-
-
-.tool-card img {
-
-    max-height:100%;
-
-    max-width:200px;
-
-    object-fit:contain;
-
-}
-
-
-.tool-card h3 {
-
-    color:var(--primary);
-
-    margin-bottom:10px;
-
-}
-
-
-/* =====================================================
-   BACKED SECTION
-===================================================== */
-
-.backed {
-
-    text-align:center;
-
-    padding:80px 6%;
-
-    background:rgba(0,0,0,0.2);
-
-    margin-top:40px;
-
-}
-
-
-.backed-logos {
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:60px;
-
-    margin-top:40px;
-
-}
-
-
-.backed-logos img {
-
-    height:60px;
-
-    max-width:180px;
-
-    object-fit:contain;
-
-    transition:0.3s;
-
-    filter:brightness(0.9);
-
-}
-
-
-.backed-logos img:hover {
-
-    transform:scale(1.1);
-
-    filter:brightness(1.2);
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    padding:60px 6%;
-
-    margin:40px 6%;
-
-}
-
-
-.footer-grid {
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:40px;
-
-}
-
-
-.footer-col h3 {
-
-    margin-bottom:20px;
-
-    color:var(--primary);
-
-}
-
-
-.footer-col p,
-.footer-col li {
-
-    font-size:14px;
-
-    opacity:0.8;
-
-    line-height:1.6;
-
-}
-
-
-.footer-col ul {
-
-    list-style:none;
-
-}
-
-
-/* =====================================================
-   LOCATION
-===================================================== */
-
-.location-section h3 {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-}
-
-
-.map-container {
-
-    width:100%;
-
-    margin-top:15px;
-
-    overflow:hidden;
-
-    border-radius:15px;
-
-    border:1px solid rgba(255,255,255,0.2);
-
-}
-
-
-.map-container iframe {
-
-    width:100%;
-
-    height:220px;
-
-    border:0;
-
-    display:block;
-
-}
-
-
-/* =====================================================
-   FOOTER BOTTOM
-===================================================== */
-
-.footer-bottom {
-
-    margin-top:50px;
-
-    padding-top:20px;
-
-    border-top:1px solid var(--border);
-
-    text-align:center;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    opacity:0.6;
-
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width:900px) {
-
-    header {
-
-        padding:15px 5%;
-
-    }
-
-
-    .hero-content {
-
-        padding:50px 30px;
-
-    }
-
-
-    .skills {
-
-        padding:70px 5%;
-
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width:600px) {
-
-    /* FAST MOBILE BACKGROUND */
-
-    body::before {
-
-        width:190%;
-
-        height:120%;
-
-        left:-45%;
-
-        background-size:cover;
-
-        animation:
-            backgroundMoveMobile 4s linear infinite alternate;
-
-    }
-
-
-    header {
-
-        padding:12px 5%;
-
-    }
-
-
-    header img.sic-logo {
-
-        height:38px;
-
-    }
-
-
-    .back-btn {
-
-        padding:5px 10px;
-
-        font-size:12px;
-
-    }
-
-
-    .hero {
-
-        padding:110px 15px 50px;
-
-    }
-
-
-    .hero-content {
-
-        padding:40px 20px;
-
-        border-radius:18px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size:32px;
-
-    }
-
-
-    .hero p {
-
-        font-size:15px;
-
-        line-height:1.7;
-
-    }
-
-
-    .hero-buttons {
-
-        flex-direction:column;
-
-        width:100%;
-
-    }
-
-
-    .hero-buttons a {
-
-        width:100%;
-
-    }
-
-
-    .stats {
-
-        flex-direction:column;
-
-        gap:12px;
-
-    }
-
-
-    .stat-box {
-
-        width:100%;
-
-    }
-
-
-    .skills {
-
-        padding:60px 20px;
-
-    }
-
-
-    .skills h2 {
-
-        font-size:28px;
-
-    }
-
-
-    .tools {
-
-        gap:20px;
-
-        margin-top:35px;
-
-    }
-
-
-    .tool-card {
-
-        width:100%;
-
-        max-width:350px;
-
-        padding:35px 25px;
-
-    }
-
-
-    .backed {
-
-        padding:60px 20px;
-
-    }
-
-
-    .backed-logos {
-
-        gap:30px;
-
-    }
-
-
-    .backed-logos img {
-
-        height:50px;
-
-        max-width:140px;
-
-    }
-
-
-    footer {
-
-        margin:25px 4%;
-
-        padding:40px 20px;
-
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns:1fr;
-
-        gap:30px;
-
-        text-align:center;
-
-    }
-
-
-    .location-section h3 {
-
-        justify-content:center;
-
-    }
-
-
-    .map-container iframe {
-
-        height:200px;
-
-    }
-
-
-    .footer-bottom {
-
-        font-size:10px;
-
-        line-height:1.8;
-
-        letter-spacing:1px;
-
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE BACKGROUND ANIMATION
-===================================================== */
-
-@keyframes backgroundMoveMobile {
-
-    0% {
-
-        transform:translateX(-20%);
-
-    }
-
-    50% {
-
-        transform:translateX(0%);
-
-    }
-
-    100% {
-
-        transform:translateX(20%);
-
-    }
-
-}
-
-
-/* =====================================================
-   VERY SMALL MOBILE
-===================================================== */
-
-@media (max-width:380px) {
-
-    .hero h1 {
-
-        font-size:28px;
-
-    }
-
-
-    .hero-content {
-
-        padding:35px 15px;
-
-    }
-
-
-    .stat-box h2 {
-
-        font-size:27px;
-
-    }
-
-
-    .back-btn {
-
-        font-size:11px;
-
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIC - Software Innovators Club | Amrita Kochi</title>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.07); 
+            --glass-card: rgba(255, 255, 255, 0.05);
+            --glass-card-hover: rgba(255, 255, 255, 0.12);
+            --border: rgba(255, 255, 255, 0.18);
+            --border-hover: rgba(157, 146, 255, 0.6);
+            --primary: #9d92ff;
+            --primary-glow: rgba(157, 146, 255, 0.4);
+            --secondary: #00f2fe;
+            --accent: #ff758c;
+            --text: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.75);
+            --whatsapp: #25D366;
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0c0d14;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(108, 92, 231, 0.18) 0px, transparent 50%),
+                radial-gradient(at 100% 50%, rgba(0, 242, 254, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(157, 146, 255, 0.15) 0px, transparent 50%),
+                linear-gradient(to bottom, rgba(10, 10, 18, 0.85), rgba(15, 15, 25, 0.95)), 
+                url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* GLASS MORPHISM BASE */
+        .glass {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--glass);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card {
+            background: var(--card-gradient);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            background: var(--glass-card-hover);
+            box-shadow: 0 12px 30px rgba(157, 146, 255, 0.2);
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 6%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            backdrop-filter: blur(15px);
+            background: rgba(10, 10, 18, 0.75);
+            border-bottom: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        header img.sic-logo {
+            height: 44px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(157, 146, 255, 0.4));
+        }
+
+        .brand-text {
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 7px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:not(.join-btn)::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        nav a:not(.join-btn):hover::after {
+            width: 100%;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .join-btn {
+            padding: 9px 22px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #7c6cf7, #9d92ff) !important;
+            color: white !important;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 18px rgba(124, 108, 247, 0.4);
+            border: none;
+            transition: 0.3s !important;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(124, 108, 247, 0.6);
+            filter: brightness(1.1);
+        }
+
+        /* DROPDOWN */
+        .dropdown { position: relative; }
+        .dropbtn { 
+            cursor: pointer; 
+            color: rgba(255,255,255,0.85); 
+            font-size: 14px; 
+            font-weight: 500;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        .dropbtn:hover { color: var(--primary); }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            display: none;
+            padding: 8px;
+            background: rgba(16, 17, 28, 0.95) !important;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            z-index: 3000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-content a { 
+            display: block; 
+            padding: 10px 14px; 
+            border-radius: 8px; 
+            color: rgba(255,255,255,0.85);
+            transition: 0.2s;
+        }
+        .dropdown-content a:hover { 
+            background: rgba(157, 146, 255, 0.15); 
+            color: var(--primary); 
+            padding-left: 18px;
+        }
+        
+        @media (min-width: 901px) {
+            .dropdown:hover .dropdown-content { display: block; }
+        }
+
+        .dropdown.active .dropdown-content { display: block; }
+
+        /* MOBILE MENU */
+        .menu-icon { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
+        .menu-icon span { width: 26px; height: 2.5px; background: white; border-radius: 2px; transition: 0.3s; }
+
+        @media (max-width: 900px) {
+            .menu-icon { display: flex; }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                right: 5%;
+                width: 270px;
+                padding: 24px;
+                background: rgba(13, 14, 24, 0.98);
+                border-radius: 18px;
+                border: 1px solid var(--border);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+                align-items: flex-start;
+                gap: 18px;
+            }
+            nav.active { display: flex; }
+            .dropdown-content { position: static; background: rgba(255,255,255,0.03) !important; box-shadow: none; border: none; width: 100%; margin-top: 5px; }
+            .join-btn { width: 100%; text-align: center; }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 130px 20px 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            padding: 55px 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: rgba(157, 146, 255, 0.12);
+            border: 1px solid rgba(157, 146, 255, 0.35);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #d1cbff;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5.5vw, 60px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 30%, #c4beff 70%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.hero-desc {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-muted);
+            margin: 0 auto 35px auto;
+            max-width: 680px;
+            line-height: 1.7;
+        }
+
+        /* BUTTONS */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 45px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 28px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+
+        .primary-btn { 
+            background: linear-gradient(135deg, #7c6cf7, #9d92ff); 
+            color: white; 
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+        
+        .whatsapp-btn { background: var(--whatsapp) !important; color: white !important; }
+        .instagram-btn { background: var(--insta-gradient) !important; color: white !important; }
+        
+        .scroll-down-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .scroll-down-btn:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-4px);
+            filter: brightness(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        /* STATS */
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 15px; 
+            margin-top: 10px;
+        }
+        
+        .stat-box { 
+            padding: 20px 15px; 
+            background: var(--glass-card); 
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary);
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-box h2 { 
+            color: var(--primary); 
+            font-size: clamp(26px, 3.5vw, 36px); 
+            font-weight: 800; 
+            margin-bottom: 4px;
+        }
+        
+        .stat-box p { 
+            font-size: 13px; 
+            color: var(--text-muted); 
+            font-weight: 500;
+        }
+
+        /* SCROLL DOWN MOUSE INDICATOR */
+        .scroll-indicator-wrap {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scroll-indicator-link {
+            color: var(--text-muted);
+            font-size: 13px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+        }
+
+        .scroll-indicator-link:hover {
+            color: var(--primary);
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            padding-top: 6px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 4px;
+            animation: scrollWheel 1.5s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(12px); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        /* SECTION BASE STYLES */
+        section {
+            padding: 80px 6%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 40%, #c4beff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-sub {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* TRACKS / DOMAINS SECTION */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .domain-card {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .domain-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: rgba(157, 146, 255, 0.15);
+            border: 1px solid rgba(157, 146, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .domain-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .domain-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .domain-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .domain-tag {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #d8d3ff;
+        }
+
+        /* WHY SIC / ADVANTAGES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        .feature-badge {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(157, 146, 255, 0.25) 0%, rgba(255, 255, 255, 0.02) 80%);
+            border: 1px solid rgba(157, 146, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+            margin: 0 auto 20px auto;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* SKILLS SECTION */
+        .tools { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .tool-card {
+            width: 320px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .tool-card .logo-container { 
+            height: 80px; 
+            margin-bottom: 22px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tool-card img { 
+            max-height: 100%; 
+            max-width: 180px; 
+            object-fit: contain; 
+            transition: 0.3s;
+        }
+
+        .tool-card:hover img {
+            transform: scale(1.08);
+        }
+        
+        .tool-card h3 { color: var(--primary); margin-bottom: 8px; font-size: 22px; }
+        .tool-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+        .tool-link {
+            margin-top: auto;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .tool-link:hover {
+            gap: 10px;
+            color: white;
+        }
+
+        /* FAQ ACCORDION SECTION */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--glass-card);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(157, 146, 255, 0.4);
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 24px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 24px 20px 24px;
+        }
+
+        /* BACKED SECTION */
+        .backed {
+            text-align: center;
+            padding: 70px 6%;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .backed-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px 60px;
+            margin-top: 35px;
+        }
+
+        .logo-box {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .logo-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .backed-logos img {
+            height: 52px;
+            max-width: 170px;
+            object-fit: contain;
+            transition: 0.3s;
+            filter: brightness(0.95);
+        }
+
+        /* FOOTER */
+        footer { 
+            padding: 60px 6% 30px 6%; 
+            margin: 40px 6% 20px 6%; 
+        }
+        
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 40px; 
+        }
+        
+        .footer-col h3 { 
+            margin-bottom: 18px; 
+            color: var(--primary); 
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-col p, .footer-col li { 
+            font-size: 14px; 
+            color: var(--text-muted); 
+            line-height: 1.7; 
+        }
+
+        .footer-col ul { list-style: none; }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .contact-info-list i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .footer-bottom {
+            margin-top: 45px; 
+            padding-top: 25px; 
+            border-top: 1px solid var(--border);
+            text-align: center; 
+            font-size: 13px; 
+            letter-spacing: 1px; 
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .social-circle:hover {
+            background: var(--primary);
+            color: #0c0d14;
+            transform: translateY(-3px);
+        }
+
+        /* SCROLL TO TOP BUTTON */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: #0c0d14;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(157, 146, 255, 0.5);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            background: white;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
+<!-- NAVIGATION HEADER -->
 <header>
-
-<button
- class="back-btn"
- onclick="history.back()">
-
-
-← Back
-
-
-</button>
-
-<img
- src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo 1.png"
- alt="SIC Logo"
- class="sic-logo">
-
-<div
-    class="menu-icon"
-    id="mobile-toggle">
-
-
-<span></span>
-<span></span>
-<span></span>
-
-
-</div>
-
-<nav id="nav-list">
-
-<a href="#">
-    Home
-</a>
-
-<a href="about.html">
-    About
-</a>
-
-<div
-    class="dropdown"
-    id="events-dropdown">
-
-
-<div class="dropbtn">
-    Events ▼
-</div>
-
-
-<div class="dropdown-content glass">
-
-    <a href="come.html">
-        Upcoming Events
-    </a>
-
-
-    <a href="event.html">
-        Past Events
-    </a>
-
-</div>
-
-
-</div>
-
-<a href="team.html">
-    Team
-</a>
-
-<a href="contact.html">
-    Contact
-</a>
-
-<a
- href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
- class="join-btn">
-
-
-Be a Member
-
-
-</a>
-
-</nav>
-
-</header>
-
-<!-- =====================================================
-     HERO SECTION
-===================================================== -->
-
-<section class="hero">
-
-<div class="hero-content glass">
-
-<h1>
-    Join 150+ Innovators
-</h1>
-
-<p>
-    Fuel your passion for software development through
-    community-led practice, live projects, and expert mentorship.
-</p>
-
-<div class="hero-buttons">
-
-<a
- href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform"
- class="primary-btn"
- target="_blank">
-
-
-<i class="fas fa-user-plus"></i>
-
-Join SIC
-
-
-</a>
-
-<a
- href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV"
- class="whatsapp-btn"
- target="_blank">
-
-
-<i class="fab fa-whatsapp"></i>
-
-WhatsApp
-
-
-</a>
-
-<a
- href="https://www.instagram.com/sic.asas"
- class="instagram-btn"
- target="_blank">
-
-
-<i class="fab fa-instagram"></i>
-
-Instagram
-
-
-</a>
-
-</div>
-
-<div class="stats">
-
-<div class="stat-box glass">
-
-
-<h2>
-    20+
-</h2>
-
-<p>
-    Mentors
-</p>
-
-
-</div>
-
-<div class="stat-box glass">
-
-
-<h2>
-    150+
-</h2>
-
-<p>
-    Active Members
-</p>
-
-
-</div>
-
-<div class="stat-box glass">
-
-
-<h2>
-    6+
-</h2>
-
-<p>
-    Live Projects
-</p>
-
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     SKILLS SECTION
-===================================================== -->
-
-<section
-    class="skills"
-    id="about">
-
-<h2>
-    Evaluate Your Skills
-</h2>
-
-<p style="opacity:0.7;">
-
-
-Practice on industry-standard platforms supported by SIC.
-
-
-</p>
-
-<div class="tools">
-
-<div class="tool-card glass">
-
-
-<div class="logo-container">
-
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
-        alt="HackerRank">
-
-</div>
-
-
-<h3>
-    HackerRank
-</h3>
-
-
-<p>
-    Improve problem-solving and coding logic.
-</p>
-
-
-</div>
-
-<div class="tool-card glass">
-
-<div class="logo-container">
-
-    <img
-        src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
-        alt="LeetCode"
-        style="filter:invert(1);">
-
-</div>
-
-
-<h3>
-    LeetCode
-</h3>
-
-
-<p>
-    Master Data Structures and Algorithms.
-</p>
-
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     BACKED SECTION
-===================================================== -->
-
-<section class="backed">
-
-<p
-    style="
-    letter-spacing:4px;
-    font-size:12px;
-    opacity:0.8;
-    font-weight:700;
-    ">
-
-BACKED & RECOGNIZED BY
-
-
-</p>
-
-<div class="backed-logos">
-
-<img
- src="https://csi.coep.org.in/csi_logo.png"
- alt="CSI">
-
-<img
- src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png"
- alt="AMRITA">
-
-<img
- src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg"
- alt="IEDC">
-
-<img
- src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png"
- alt="IIC">
-
-</div>
-
-</section>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer
-    class="glass"
-    id="contact">
-
-<div class="footer-grid">
-
-<!-- ABOUT -->
-
-<div class="footer-col">
-
-
-<h3>
-    Software Innovators Club
-</h3>
-
-
-<p>
-    Empowering students to collaborate,
-    innovate, and excel at Amrita Kochi.
-</p>
-
-
-</div>
-
-<!-- CONTACT -->
-
-<div class="footer-col">
-
-
-<h3>
-    Contact Us
-</h3>
-
-
-<p>
-    Amrita Vishwa Vidyapeetham,
-    Kochi Campus
-</p>
-
-
-<p>
-
-    <strong>
-        Email:
-    </strong>
-
-    sicasaskochi@gmail.com
-
-</p>
-
-
-<p>
-
-    <strong>
-        Phone:
-    </strong>
-
-    +91 6238314481
-
-</p>
-
-
-</div>
-
-<!-- LOCATION -->
-
-<div class="footer-col">
-
-
-<div class="location-section">
-
-
-    <h3>
-
-        <i class="fas fa-location-dot"></i>
-
-        Our Location
-
-    </h3>
-
-
-    <p>
-        Amrita Vishwa Vidyapeetham Kochi Campus
-    </p>
-
-
-    <div class="map-container">
-
-        <iframe
-            src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
+    <div class="brand-container">
+        <button class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</button>
+        <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/Logo%201.png" alt="SIC Logo" class="sic-logo">
+        <span class="brand-text">SIC</span>
     </div>
 
+    <div class="menu-icon" id="mobile-toggle">
+        <span></span><span></span><span></span>
+    </div>
 
-</div>
+    <nav id="nav-list">
+        <a href="#home">Home</a>
+        <a href="#domains">Tracks</a>
+        <a href="#features">Why SIC</a>
+        <a href="#skills">Practice</a>
+        <div class="dropdown" id="events-dropdown">
+            <div class="dropbtn">Events <i class="fas fa-chevron-down" style="font-size: 11px;"></i></div>
+            <div class="dropdown-content glass">
+                <a href="come.html"><i class="fas fa-calendar-plus" style="margin-right: 8px;"></i> Upcoming Events</a>
+                <a href="event.html"><i class="fas fa-history" style="margin-right: 8px;"></i> Past Events</a>
+            </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" target="_blank" class="join-btn">Be a Member</a>
+    </nav>
+</header>
 
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content glass">
+        <div class="badge-pill">
+            <i class="fas fa-sparkles"></i> Amrita Kochi's Premier Tech Community
+        </div>
+        <h1>Join 150+ Innovators</h1>
+        <p class="hero-desc">Fuel your passion for software development through community-led practice, live projects, hackathons, and expert industry mentorship.</p>
 
-</div>
+        <div class="hero-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="btn primary-btn" target="_blank">
+                <i class="fas fa-user-plus"></i> Join SIC
+            </a>
+            <!-- CLICK BUTTON TO SCROLL DOWN TO TRACKS/DOMAINS -->
+            <a href="#domains" class="btn scroll-down-btn" id="explore-btn">
+                <i class="fas fa-arrow-down"></i> Explore Club
+            </a>
+            <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="btn whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/sic.asas" class="btn instagram-btn" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
 
-</div>
+        <div class="stats">
+            <div class="stat-box"><h2>20+</h2><p>Expert Mentors</p></div>
+            <div class="stat-box"><h2>150+</h2><p>Active Members</p></div>
+            <div class="stat-box"><h2>6+</h2><p>Live Projects</p></div>
+            <div class="stat-box"><h2>15+</h2><p>Workshops & Events</p></div>
+        </div>
 
-<!-- COPYRIGHT -->
+        <!-- MOUSE SCROLL DOWN INDICATOR -->
+        <div class="scroll-indicator-wrap">
+            <a href="#domains" class="scroll-indicator-link">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </a>
+        </div>
+    </div>
+</section>
 
-<div class="footer-bottom">
+<!-- TECHNICAL DOMAINS & TRACKS SECTION -->
+<section id="domains">
+    <div class="section-header">
+        <span class="section-tag">Specializations</span>
+        <h2 class="section-title">Explore Our Domains</h2>
+        <p class="section-sub">Choose your pathway, collaborate in teams, and build impactful real-world software solutions.</p>
+    </div>
 
+    <div class="domains-grid">
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-code"></i></div>
+                <h3>Web & Full Stack</h3>
+                <p>Architect modern web applications from responsive frontends to scalable cloud backends.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">React.js</span>
+                <span class="domain-tag">Node.js</span>
+                <span class="domain-tag">Next.js</span>
+                <span class="domain-tag">PostgreSQL</span>
+            </div>
+        </div>
 
-© 2026 SOFTWARE INNOVATORS CLUB |
-DEVELOPED BY SIC MEMBERS
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI & Machine Learning</h3>
+                <p>Build intelligent models, generative AI applications, and deep learning algorithms.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Python</span>
+                <span class="domain-tag">PyTorch</span>
+                <span class="domain-tag">GenAI</span>
+                <span class="domain-tag">NLP</span>
+            </div>
+        </div>
 
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                <h3>Mobile App Dev</h3>
+                <p>Craft fluid, cross-platform Android & iOS applications using next-gen frameworks.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Flutter</span>
+                <span class="domain-tag">React Native</span>
+                <span class="domain-tag">Kotlin</span>
+                <span class="domain-tag">Firebase</span>
+            </div>
+        </div>
 
-</div>
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Cyber Security & CTF</h3>
+                <p>Participate in CTF challenges, learn penetration testing, and explore network defense.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Ethical Hacking</span>
+                <span class="domain-tag">CTFs</span>
+                <span class="domain-tag">Cryptography</span>
+            </div>
+        </div>
 
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Cloud & DevOps</h3>
+                <p>Master containerization, continuous integration, cloud deployments, and automation.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Docker</span>
+                <span class="domain-tag">Kubernetes</span>
+                <span class="domain-tag">AWS</span>
+                <span class="domain-tag">CI/CD</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-terminal"></i></div>
+                <h3>Competitive Coding</h3>
+                <p>Crack advanced Data Structures & Algorithms, tackle contests, and prepare for top tier interviews.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">C++</span>
+                <span class="domain-tag">DSA</span>
+                <span class="domain-tag">LeetCode</span>
+                <span class="domain-tag">Codeforces</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE SIC -->
+<section id="features" style="background: rgba(0,0,0,0.18);">
+    <div class="section-header">
+        <span class="section-tag">Member Benefits</span>
+        <h2 class="section-title">Why Join SIC?</h2>
+        <p class="section-sub">We don't just learn theory; we build, deploy, compete, and grow together.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card glass-card">
+            <div class="feature-badge"><i class="fas fa-rocket"></i></div>
+            <h3>Live Industry Projects</h3>
+            <p>Work on production-grade software solutions with real clients and modern engineering stacks.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+            <div class="feature-badge"><i class="fas fa-trophy"></i></div>
+            <h3>Hackathons & Competitions</h3>
+            <p>Form dynamic teams and participate in national and global coding contests and hackathons.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+            <div class="feature-badge"><i class="fas fa-users-gear"></i></div>
+            <h3>1-on-1 Peer Mentorship</h3>
+            <p>Get guided by experienced senior students, alumni, and industry specialists at every step.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+            <div class="feature-badge"><i class="fas fa-certificate"></i></div>
+            <h3>Bootcamps & Certificates</h3>
+            <p>Earn official recognition and enhance your resume with hands-on technical workshop series.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRACTICE PLATFORMS SECTION -->
+<section class="skills" id="skills">
+    <div class="section-header">
+        <span class="section-tag">Practice & Excel</span>
+        <h2 class="section-title">Evaluate Your Skills</h2>
+        <p class="section-sub">Practice on industry-standard platforms actively supported and leveraged by SIC.</p>
+    </div>
+    
+    <div class="tools">
+        <div class="tool-card glass-card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png" alt="HackerRank">
+            </div>
+            <h3>HackerRank</h3>
+            <p>Strengthen your problem-solving foundations, core logic, and basic language proficiencies.</p>
+            <a href="https://www.hackerrank.com" target="_blank" class="tool-link">Start Practicing <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="tool-card glass-card">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" style="filter: invert(1);">
+            </div>
+            <h3>LeetCode</h3>
+            <p>Master Data Structures, dynamic programming, and algorithm optimization for placement tests.</p>
+            <a href="https://leetcode.com" target="_blank" class="tool-link">Solve Problems <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq">
+    <div class="section-header">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Quick answers to common queries regarding membership and activities.</p>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Who can join Software Innovators Club (SIC)?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                Any passionate student from Amrita Vishwa Vidyapeetham Kochi Campus who is enthusiastic about programming, tech development, and problem solving can apply to become a member.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do I need prior advanced coding experience to join?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                No! SIC welcomes beginners as well as experienced coders. We conduct foundational bootcamps and provide peer mentorship to help everyone skill up from scratch.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How often are workshops and events conducted?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                We conduct regular weekly practice sessions, monthly hands-on workshops, internal hackathons, and guest lectures from industry professionals throughout the academic semester.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BACKED & RECOGNITION SECTION -->
+<section class="backed">
+    <p style="letter-spacing:4px; font-size:12px; opacity:0.8; font-weight:700;">BACKED & RECOGNIZED BY</p>
+    <div class="backed-logos">
+        <div class="logo-box"><img src="https://csi.coep.org.in/csi_logo.png" alt="CSI"></div>
+        <div class="logo-box"><img src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png" alt="AMRITA"></div>
+        <div class="logo-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg" alt="IEDC"></div>
+        <div class="logo-box"><img src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png" alt="IIC"></div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="glass" id="contact">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3><i class="fas fa-laptop-code"></i> SIC Club</h3>
+            <p>Empowering students to collaborate, innovate, and excel at Amrita Vishwa Vidyapeetham Kochi Campus through technology and passion.</p>
+            <div style="margin-top: 15px;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" target="_blank" class="join-btn" style="display:inline-block; text-decoration:none;">Join Community</a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3><i class="fas fa-link"></i> Quick Navigation</h3>
+            <ul>
+                <li><a href="#home"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Home</a></li>
+                <li><a href="#domains"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Technical Tracks</a></li>
+                <li><a href="#features"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Benefits</a></li>
+                <li><a href="come.html"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Upcoming Events</a></li>
+                <li><a href="team.html"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Executive Team</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3><i class="fas fa-headset"></i> Contact Us</h3>
+            <ul class="contact-info-list">
+                <li><i class="fas fa-location-dot"></i> <span>Amrita Vishwa Vidyapeetham, Kochi Campus</span></li>
+                <li><i class="fas fa-envelope"></i> <span>sicasaskochi@gmail.com</span></li>
+                <li><i class="fas fa-phone"></i> <span>+91 6238314481</span></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3><i class="fas fa-map-location-dot"></i> Campus Location</h3>
+            <p>Visit our club headquarters at Amrita Kochi.</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div>© 2026 SOFTWARE INNOVATORS CLUB | DEVELOPED BY SIC MEMBERS</div>
+        <div class="footer-social-links">
+            <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" target="_blank" class="social-circle" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/sic.asas" target="_blank" class="social-circle" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:sicasaskochi@gmail.com" class="social-circle" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
 </footer>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<!-- FLOATING SCROLL TO TOP BUTTON -->
+<button class="scroll-to-top" id="scrollTopBtn" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
+<!-- JAVASCRIPT LOGIC -->
 <script>
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-const toggle =
-    document.getElementById('mobile-toggle');
-
-
-const nav =
-    document.getElementById('nav-list');
-
-
-toggle.addEventListener('click', function(e) {
-
-    e.stopPropagation();
-
-    nav.classList.toggle('active');
-
-});
-
-
-/* =====================================================
-   DROPDOWN
-===================================================== */
-
-document
-    .querySelectorAll('.dropbtn')
-    .forEach(function(btn) {
-
-        btn.addEventListener('click', function(e) {
-
-            e.stopPropagation();
-
-            const dropdown =
-                btn.parentElement;
-
-
-            dropdown.classList.toggle('active');
-
-
-            document
-                .querySelectorAll('.dropdown')
-                .forEach(function(d) {
-
-                    if(d !== dropdown) {
-
-                        d.classList.remove('active');
-
-                    }
-
-                });
-
-        });
-
+    // Mobile Menu Toggle
+    const toggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('nav-list');
+    
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nav.classList.toggle('active');
     });
 
-
-/* =====================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
-===================================================== */
-
-document.addEventListener('click', function() {
-
-    nav.classList.remove('active');
-
-
-    document
-        .querySelectorAll('.dropdown')
-        .forEach(function(d) {
-
-            d.classList.remove('active');
-
+    // Dropdown Toggles for Mobile & Touch
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const dropdown = btn.parentElement;
+            dropdown.classList.toggle('active');
+            
+            document.querySelectorAll('.dropdown').forEach(d => {
+                if(d !== dropdown) d.classList.remove('active');
+            });
         });
+    });
 
-});
+    // Close Menu and Dropdowns on outside click
+    document.addEventListener('click', () => {
+        nav.classList.remove('active');
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    });
 
+    // Close mobile nav when clicking on navigation links
+    document.querySelectorAll('#nav-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
 
-/* =====================================================
-   PREVENT NAV CLICK FROM CLOSING MENU
-===================================================== */
+    // Smooth Scroll Button Action (Explore Button & Scroll Down Indicator)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-nav.addEventListener('click', function(e) {
+    // FAQ Accordion Interaction
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const parent = q.parentElement;
+            const wasActive = parent.classList.contains('active');
+            
+            // Close other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
 
-    e.stopPropagation();
+            // Toggle clicked FAQ
+            if (!wasActive) {
+                parent.classList.add('active');
+            }
+        });
+    });
 
-});
+    // Scroll To Top Floating Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
 
-
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 </script>
 
 </body>
-
 </html>
