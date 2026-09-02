@@ -1,381 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Team - SIC</title>
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet">
+<title>Upcoming Events</title>
 
 <style>
 
-/* ========================================
-   GLOBAL RESET
-======================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ===== GLOBAL RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-
-/* ========================================
-   BODY
-   Background matched to your screenshot
-======================================== */
-
-body {
-    background: #2B5263;
-    color: white;
-    min-height: 100vh;
+body{
+  min-height:100vh;
+  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c3c);
+  background-size:400% 400%;
+  animation: gradientMove 15s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
 
-
-/* ========================================
-   BACK BUTTON
-======================================== */
-
-.back-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 30px 20px 0;
-
-    display: flex;
-    justify-content: flex-start;
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-.back-btn {
-    background: rgba(255, 255, 255, 0.10);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255, 255, 255, 0.20);
-
-    color: white;
-
-    padding: 12px 24px;
-
-    border-radius: 30px;
-
-    cursor: pointer;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    transition: all 0.3s ease;
-
-    text-decoration: none;
+/* ===== SECTION ===== */
+.events-section{
+  padding:60px 10px;
+  max-width:1200px;
+  width:100%;
+  text-align:center;
+  color:white;
 }
 
-.back-btn:hover {
-    background: rgba(255, 255, 255, 0.18);
-
-    transform: translateX(-5px);
-
-    border-color: #8a7dff;
+.events-section h1{
+  font-size:38px;
+  margin-bottom:40px;
+  background:linear-gradient(90deg,#ffffff,#8a7dff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-
-/* ========================================
-   TEAM SECTION
-======================================== */
-
-.team-section {
-    padding: 40px 15px 80px;
-
-    text-align: center;
-
-    max-width: 1400px;
-
-    margin: auto;
+.events-section span{
+  border-bottom:3px solid #8a7dff;
 }
 
-
-/* ========================================
-   MAIN TITLE
-======================================== */
-
-.team-title {
-    font-size: 42px;
-
-    margin-bottom: 60px;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #b7a8ff
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* ===== GRID ===== */
+.events-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:25px;
 }
 
-
-/* ========================================
-   TEAM CATEGORY
-======================================== */
-
-.team-category {
-    margin-bottom: 80px;
+/* ===== GLASS CARD ===== */
+.event-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.4s ease;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
 
-
-/* CATEGORY TITLE */
-
-.team-category h3 {
-    font-size: 26px;
-
-    margin-bottom: 40px;
-
-    color: white;
-
-    text-shadow:
-        0 0 10px rgba(138, 125, 255, 0.6);
+.event-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(138,125,255,0.6);
 }
 
-
-/* ========================================
-   TEAM ROW
-======================================== */
-
-.team-row {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: stretch;
-
-    gap: 30px;
-
-    flex-wrap: wrap;
+/* ===== IMAGE ===== */
+.event-card img{
+  width:100%;
+  height:auto;              /* Shows full image */
+  max-height:260px;         /* Prevents too tall images */
+  object-fit:contain;       /* Keeps full image visible */
+  background:#111;          /* Clean background if ratio differs */
+  padding:10px;
 }
 
-
-/* ========================================
-   TEAM CARD
-======================================== */
-
-.team-card {
-    flex: 1 1 250px;
-
-    max-width: 280px;
-
-    padding: 30px 20px;
-
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
-
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.35);
-
-    transition: all 0.4s ease;
+/* ===== CONTENT ===== */
+.event-content{
+  padding:20px;
+  text-align:left;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  color:white;
 }
 
-
-/* CARD HOVER */
-
-.team-card:hover {
-    transform: translateY(-10px);
-
-    box-shadow:
-        0 0 25px rgba(138, 125, 255, 0.65);
-
-    border-color:
-        rgba(138, 125, 255, 0.5);
+.event-content h2{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
-
-/* ========================================
-   TEAM IMAGE
-======================================== */
-
-.team-card img {
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-
-    object-position: top center;
-
-    display: block;
-
-    margin: 0 auto 20px;
-
-    border:
-        3px solid rgba(255, 255, 255, 0.30);
-
-    background: rgba(255, 255, 255, 0.05);
+.event-content p{
+  font-size:14px;
+  opacity:0.85;
+  margin-bottom:6px;
 }
 
-
-/* Special image positioning */
-
-.fit-center {
-    object-position: center top !important;
+/* ===== BUTTON ===== */
+.event-content button{
+  margin-top:auto;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#8a7dff,#6c63ff);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.3s ease;
+  box-shadow:0 0 15px rgba(138,125,255,0.5);
 }
 
-
-/* ========================================
-   TEAM MEMBER NAME
-======================================== */
-
-.team-card h4 {
-    margin: 12px 0;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    color: white;
+.event-content button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 25px rgba(138,125,255,0.9);
 }
 
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px){
+  .events-section h1{
+    font-size:26px;
+  }
 
-/* ========================================
-   TEAM MEMBER ROLE
-======================================== */
+  .event-content{
+    padding:18px;
+  }
 
-.team-card p {
-    font-size: 14px;
-
-    color: rgba(255, 255, 255, 0.75);
-
-    margin: 6px 0;
-}
-
-
-/* ========================================
-   MOBILE RESPONSIVE
-======================================== */
-
-@media (max-width: 600px) {
-
-    body {
-        background: #2B5263;
-    }
-
-    .back-container {
-        padding: 20px 15px 0;
-    }
-
-    .back-btn {
-        padding: 10px 18px;
-
-        font-size: 14px;
-    }
-
-    .team-section {
-        padding:
-            30px 15px 60px;
-    }
-
-    .team-title {
-        font-size: 30px;
-
-        margin-bottom: 40px;
-    }
-
-    .team-category {
-        margin-bottom: 60px;
-    }
-
-    .team-category h3 {
-        font-size: 22px;
-
-        margin-bottom: 30px;
-    }
-
-    .team-row {
-        gap: 20px;
-    }
-
-    .team-card {
-        width: 100%;
-
-        max-width: 320px;
-
-        padding: 25px 20px;
-    }
-
-    .team-card img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .team-card h4 {
-        font-size: 17px;
-    }
-
-    .team-card p {
-        font-size: 13px;
-    }
-}
-
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-    .team-title {
-        font-size: 36px;
-    }
-
-    .team-card {
-        max-width: 260px;
-    }
-
-}
-
-
-/* ========================================
-   LARGE SCREEN
-======================================== */
-
-@media (min-width: 1400px) {
-
-    .team-section {
-        max-width: 1500px;
-    }
-
-}
-
-
-/* ========================================
-   ACCESSIBILITY
-======================================== */
-
-button {
-    font-family: inherit;
+  .event-content h2{
+    font-size:18px;
+  }
 }
 
 </style>
-
 </head>
+
 
 
 <body>
