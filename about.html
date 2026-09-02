@@ -5,12 +5,17 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>About - Software Innovators Club</title>
 
+
+<!-- GOOGLE FONT -->
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
 rel="stylesheet">
+
 
 <style>
 
@@ -24,6 +29,7 @@ rel="stylesheet">
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
+
 
 html{
     overflow-x:hidden;
@@ -40,7 +46,8 @@ body{
 
     color:white;
 
-    background:#0a0a0f;
+    /* SAME BACKGROUND AS OUR TEAM AND CONTACT PAGE */
+    background:#2B5263;
 
     position:relative;
 
@@ -53,130 +60,6 @@ body{
     align-items:center;
 
     padding:40px 20px;
-
-}
-
-
-/* =====================================================
-   MOVING BACKGROUND
-===================================================== */
-
-.moving-background{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:100vh;
-
-    overflow:hidden;
-
-    z-index:-10;
-
-}
-
-
-/* =====================================================
-   BACKGROUND TRACK
-===================================================== */
-
-.background-track{
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:200%;
-
-    height:100%;
-
-    display:flex;
-
-    animation:
-        backgroundSlide
-        2.5s
-        linear
-        infinite;
-
-}
-
-
-/* =====================================================
-   BACKGROUND IMAGE
-===================================================== */
-
-.background-image{
-
-    width:50%;
-
-    height:100%;
-
-    flex-shrink:0;
-
-    background-image:
-
-        linear-gradient(
-            to bottom,
-            rgba(10,10,15,0.60),
-            rgba(20,20,30,0.90)
-        ),
-
-        url("https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?q=80&w=1200&auto=format&fit=crop");
-
-    background-size:cover;
-
-    background-position:center center;
-
-    background-repeat:no-repeat;
-
-}
-
-
-/* =====================================================
-   LEFT → RIGHT ANIMATION
-===================================================== */
-
-@keyframes backgroundSlide{
-
-    0%{
-
-        transform:translateX(-50%);
-
-    }
-
-    100%{
-
-        transform:translateX(0%);
-
-    }
-
-}
-
-
-/* =====================================================
-   EXTRA DARK OVERLAY
-===================================================== */
-
-.moving-background::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(0,0,0,0.08);
-
-    pointer-events:none;
 
 }
 
@@ -229,7 +112,7 @@ body{
     text-align:center;
 
     box-shadow:
-        0 8px 32px rgba(0,0,0,0.4);
+        0 8px 32px rgba(0,0,0,0.35);
 
     transition:0.4s ease;
 
@@ -266,7 +149,7 @@ body{
 
     color:white;
 
-    padding:8px 18px;
+    padding:9px 19px;
 
     border-radius:30px;
 
@@ -315,6 +198,8 @@ h1{
 
     margin-bottom:25px;
 
+    font-weight:800;
+
     background:
 
         linear-gradient(
@@ -327,11 +212,13 @@ h1{
 
     -webkit-text-fill-color:transparent;
 
+    background-clip:text;
+
 }
 
 
 /* =====================================================
-   IMAGE
+   ABOUT IMAGE
 ===================================================== */
 
 .about-box img{
@@ -340,9 +227,17 @@ h1{
 
     max-width:420px;
 
+    height:auto;
+
     border-radius:20px;
 
     margin:25px 0;
+
+    display:block;
+
+    margin-left:auto;
+
+    margin-right:auto;
 
     box-shadow:
         0 10px 30px rgba(0,0,0,0.4);
@@ -388,6 +283,15 @@ h1{
 
     }
 
+
+    .about-box{
+
+        padding-left:35px;
+
+        padding-right:35px;
+
+    }
+
 }
 
 
@@ -408,60 +312,15 @@ h1{
     }
 
 
-    /* ---------------------------------------------
-       MOBILE BACKGROUND
-    --------------------------------------------- */
-
-    .moving-background{
-
-        width:100%;
-
-        height:100vh;
-
-    }
-
-
-    .background-track{
-
-        width:200%;
-
-        height:100%;
-
-        animation:
-
-            backgroundSlide
-
-            15s
-
-            linear
-
-            infinite;
-
-    }
-
-
-    .background-image{
-
-        width:50%;
-
-        height:100%;
-
-        background-size:cover;
-
-        background-position:center center;
-
-    }
-
-
-    /* ---------------------------------------------
+    /* =============================================
        ABOUT BOX
-    --------------------------------------------- */
+    ============================================= */
 
     .about-box{
 
         padding:
 
-            80px
+            75px
 
             25px
 
@@ -472,9 +331,9 @@ h1{
     }
 
 
-    /* ---------------------------------------------
+    /* =============================================
        BACK BUTTON
-    --------------------------------------------- */
+    ============================================= */
 
     .back-btn{
 
@@ -482,20 +341,22 @@ h1{
 
         left:20px;
 
-        padding:6px 14px;
+        padding:7px 15px;
 
         font-size:13px;
 
     }
 
 
-    /* ---------------------------------------------
+    /* =============================================
        HEADING
-    --------------------------------------------- */
+    ============================================= */
 
     h1{
 
-        font-size:26px;
+        font-size:27px;
+
+        line-height:1.3;
 
         margin-top:10px;
 
@@ -504,9 +365,9 @@ h1{
     }
 
 
-    /* ---------------------------------------------
+    /* =============================================
        ABOUT IMAGE
-    --------------------------------------------- */
+    ============================================= */
 
     .about-box img{
 
@@ -514,22 +375,24 @@ h1{
 
         max-width:100%;
 
-        margin:20px 0;
+        margin:20px auto;
 
         border-radius:15px;
 
     }
 
 
-    /* ---------------------------------------------
+    /* =============================================
        PARAGRAPH
-    --------------------------------------------- */
+    ============================================= */
 
     .about-box p{
 
         font-size:15px;
 
         line-height:1.8;
+
+        margin-bottom:20px;
 
     }
 
@@ -553,7 +416,7 @@ h1{
 
         padding:
 
-            75px
+            70px
 
             18px
 
@@ -573,6 +436,21 @@ h1{
 
         font-size:14px;
 
+        line-height:1.7;
+
+    }
+
+
+    .back-btn{
+
+        top:17px;
+
+        left:17px;
+
+        padding:6px 13px;
+
+        font-size:12px;
+
     }
 
 }
@@ -581,30 +459,9 @@ h1{
 
 </head>
 
+
 <body>
 
-<!-- =====================================================
-     MOVING BACKGROUND
-===================================================== -->
-
-<div class="moving-background">
-
-<div class="background-track">
-
-    <!-- FIRST BACKGROUND IMAGE -->
-
-    <div class="background-image"></div>
-
-
-    <!-- SECOND IDENTICAL IMAGE
-         This makes the movement continuous -->
-
-    <div class="background-image"></div>
-
-</div>
-
-
-</div>
 
 <!-- =====================================================
      ABOUT SECTION
@@ -613,66 +470,79 @@ h1{
 <section class="section">
 
 
-<div class="about-box">
+    <div class="about-box">
 
 
-    <!-- BACK BUTTON -->
+        <!-- =============================================
+             BACK BUTTON
+        ============================================== -->
 
-    <button
-        class="back-btn"
-        onclick="history.back()">
+        <button
+            class="back-btn"
+            onclick="history.back()">
 
-        <span>←</span>
+            <span>←</span>
 
-        Back
+            Back
 
-    </button>
-
-
-
-    <!-- TITLE -->
-
-    <h1>
-        About Software Innovators Club
-    </h1>
+        </button>
 
 
 
-    <!-- ABOUT IMAGE -->
+        <!-- =============================================
+             TITLE
+        ============================================== -->
 
-    <img
-        src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg"
-        alt="Developers working together">
+        <h1>
 
+            About Software Innovators Club
 
-
-    <!-- DESCRIPTION -->
-
-    <p>
-
-        Software Innovators Club @ Amrita Kochi Campus aims to
-        create a dynamic community of developers, creators,
-        and innovators by providing opportunities for learning,
-        collaboration, and real-world problem solving.
-
-    </p>
+        </h1>
 
 
 
-    <p>
+        <!-- =============================================
+             ABOUT IMAGE
+        ============================================== -->
 
-        Membership is open to all students interested in building
-        impactful technology. The club provides a digital-first
-        environment to explore ideas, strengthen technical
-        foundations, and work on meaningful projects.
+        <img
 
-    </p>
+            src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg"
+
+            alt="Developers working together">
 
 
-</div>
+
+        <!-- =============================================
+             DESCRIPTION
+        ============================================== -->
+
+        <p>
+
+            Software Innovators Club @ Amrita Kochi Campus aims to
+            create a dynamic community of developers, creators,
+            and innovators by providing opportunities for learning,
+            collaboration, and real-world problem solving.
+
+        </p>
+
+
+
+        <p>
+
+            Membership is open to all students interested in building
+            impactful technology. The club provides a digital-first
+            environment to explore ideas, strengthen technical
+            foundations, and work on meaningful projects.
+
+        </p>
+
+
+    </div>
 
 
 </section>
+
 
 </body>
 
