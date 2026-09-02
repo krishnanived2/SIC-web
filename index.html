@@ -11,20 +11,22 @@
 
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.07); 
-            --glass-card: rgba(255, 255, 255, 0.05);
-            --glass-card-hover: rgba(255, 255, 255, 0.12);
-            --border: rgba(255, 255, 255, 0.18);
-            --border-hover: rgba(157, 146, 255, 0.6);
+            --bg-dark: #070a14;
+            --glass: rgba(255, 255, 255, 0.06); 
+            --glass-card: rgba(255, 255, 255, 0.04);
+            --glass-card-hover: rgba(255, 255, 255, 0.09);
+            --border: rgba(255, 255, 255, 0.14);
+            --border-hover: rgba(157, 146, 255, 0.65);
             --primary: #9d92ff;
-            --primary-glow: rgba(157, 146, 255, 0.4);
-            --secondary: #00f2fe;
-            --accent: #ff758c;
+            --primary-glow: rgba(157, 146, 255, 0.45);
+            --cyan: #00e5ff;
+            --cyan-glow: rgba(0, 229, 255, 0.35);
+            --accent: #ff6b8b;
             --text: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.75);
+            --text-muted: rgba(255, 255, 255, 0.78);
             --whatsapp: #25D366;
             --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
         }
 
         * {
@@ -38,49 +40,108 @@
             scroll-behavior: smooth;
         }
 
+        /* ===== PURE DYNAMIC CSS TECH BACKGROUND ===== */
         body {
-            background-color: #0c0d14;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(108, 92, 231, 0.18) 0px, transparent 50%),
-                radial-gradient(at 100% 50%, rgba(0, 242, 254, 0.12) 0px, transparent 50%),
-                radial-gradient(at 50% 100%, rgba(157, 146, 255, 0.15) 0px, transparent 50%),
-                linear-gradient(to bottom, rgba(10, 10, 18, 0.85), rgba(15, 15, 25, 0.95)), 
-                url('https://images.unsplash.com/photo-1665211098610-2bbff59df295?q=80&w=1200&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: var(--bg-dark);
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* GLASS MORPHISM BASE */
+        .bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 40%, #0c1228 0%, #050711 100%);
+        }
+
+        .cyber-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 55px 55px;
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, transparent 80%);
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(95px);
+            opacity: 0.5;
+            animation: floatOrb 18s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, #6c5ce7 0%, transparent 70%);
+            top: -120px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, #00d2d3 0%, transparent 70%);
+            bottom: 5%;
+            right: -120px;
+            animation-duration: 22s;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, #a29bfe 0%, transparent 70%);
+            top: 45%;
+            left: 30%;
+            animation-duration: 16s;
+            animation-delay: -8s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(60px, 40px) scale(1.1); }
+            100% { transform: translate(-40px, 80px) scale(0.95); }
+        }
+
+        /* ===== GLASS MORPHISM UTILITIES ===== */
         .glass {
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 22px;
             background: var(--glass);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.4);
         }
 
         .glass-card {
             background: var(--card-gradient);
             border: 1px solid var(--border);
-            border-radius: 18px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
         .glass-card:hover {
             transform: translateY(-8px);
             border-color: var(--border-hover);
             background: var(--glass-card-hover);
-            box-shadow: 0 12px 30px rgba(157, 146, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(157, 146, 255, 0.25);
         }
 
-        /* HEADER */
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             display: flex;
             justify-content: space-between;
@@ -90,8 +151,9 @@
             width: 100%;
             top: 0;
             z-index: 2000;
-            backdrop-filter: blur(15px);
-            background: rgba(10, 10, 18, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(7, 10, 20, 0.85);
             border-bottom: 1px solid var(--border);
             transition: 0.3s;
         }
@@ -103,45 +165,24 @@
         }
 
         header img.sic-logo {
-            height: 44px;
+            height: 42px;
             object-fit: contain;
-            filter: drop-shadow(0 0 8px rgba(157, 146, 255, 0.4));
+            filter: drop-shadow(0 0 10px rgba(157, 146, 255, 0.6));
         }
 
         .brand-text {
             font-weight: 800;
-            font-size: 20px;
+            font-size: 21px;
             letter-spacing: 1px;
-            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, #ffffff 20%, #9d92ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .back-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 7px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--primary);
-            color: var(--primary);
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 22px;
+            gap: 20px;
         }
 
         nav a {
@@ -165,14 +206,11 @@
             border-radius: 2px;
         }
 
-        nav a:not(.join-btn):hover::after {
-            width: 100%;
-        }
-
+        nav a:not(.join-btn):hover::after { width: 100%; }
         nav a:hover { color: var(--primary); }
 
         .join-btn {
-            padding: 9px 22px;
+            padding: 9px 24px;
             border-radius: 30px;
             background: linear-gradient(135deg, #7c6cf7, #9d92ff) !important;
             color: white !important;
@@ -185,7 +223,7 @@
 
         .join-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(124, 108, 247, 0.6);
+            box-shadow: 0 6px 25px rgba(124, 108, 247, 0.7);
             filter: brightness(1.1);
         }
 
@@ -199,7 +237,7 @@
             padding: 10px 0;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             transition: 0.3s;
         }
         .dropbtn:hover { color: var(--primary); }
@@ -208,14 +246,14 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 210px;
+            min-width: 220px;
             display: none;
-            padding: 8px;
-            background: rgba(16, 17, 28, 0.95) !important;
+            padding: 10px;
+            background: rgba(12, 16, 32, 0.96) !important;
             border: 1px solid var(--border);
             border-radius: 14px;
             z-index: 3000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             animation: fadeIn 0.2s ease-in-out;
         }
 
@@ -247,7 +285,7 @@
         .menu-icon { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
         .menu-icon span { width: 26px; height: 2.5px; background: white; border-radius: 2px; transition: 0.3s; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .menu-icon { display: flex; }
             nav {
                 display: none;
@@ -257,10 +295,10 @@
                 right: 5%;
                 width: 270px;
                 padding: 24px;
-                background: rgba(13, 14, 24, 0.98);
+                background: rgba(10, 12, 26, 0.98);
                 border-radius: 18px;
                 border: 1px solid var(--border);
-                box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.7);
                 align-items: flex-start;
                 gap: 18px;
             }
@@ -269,19 +307,19 @@
             .join-btn { width: 100%; text-align: center; }
         }
 
-        /* HERO SECTION */
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 130px 20px 80px 20px;
+            padding: 130px 20px 70px 20px;
             text-align: center;
             position: relative;
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 940px;
             width: 100%;
             padding: 55px 35px;
             position: relative;
@@ -292,23 +330,26 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 18px;
+            padding: 7px 20px;
             background: rgba(157, 146, 255, 0.12);
             border: 1px solid rgba(157, 146, 255, 0.35);
             border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
             color: #d1cbff;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             letter-spacing: 0.5px;
+            box-shadow: 0 0 20px rgba(157, 146, 255, 0.2);
         }
 
+        .badge-pill i { color: #ffd166; }
+
         .hero h1 {
-            font-size: clamp(34px, 5.5vw, 60px);
+            font-size: clamp(34px, 5.5vw, 62px);
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 30%, #c4beff 70%, #00f2fe 100%);
+            background: linear-gradient(135deg, #ffffff 30%, #c4beff 70%, #00e5ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -321,7 +362,7 @@
             line-height: 1.7;
         }
 
-        /* BUTTONS */
+        /* HERO ACTION BUTTONS */
         .hero-buttons {
             display: flex;
             justify-content: center;
@@ -335,11 +376,11 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 13px 28px;
+            padding: 13px 26px;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14.5px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
@@ -375,7 +416,7 @@
         /* STATS */
         .stats { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
             gap: 15px; 
             margin-top: 10px;
         }
@@ -426,9 +467,7 @@
             transition: 0.3s;
         }
 
-        .scroll-indicator-link:hover {
-            color: var(--primary);
-        }
+        .scroll-indicator-link:hover { color: var(--primary); }
 
         .scroll-mouse {
             width: 24px;
@@ -462,13 +501,13 @@
 
         /* SECTION BASE STYLES */
         section {
-            padding: 80px 6%;
+            padding: 85px 6%;
             position: relative;
         }
 
         .section-header {
             text-align: center;
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto 50px auto;
         }
 
@@ -483,8 +522,8 @@
         }
 
         .section-title {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 700;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
             margin-bottom: 12px;
             background: linear-gradient(135deg, #ffffff 40%, #c4beff 100%);
             -webkit-background-clip: text;
@@ -497,12 +536,61 @@
             line-height: 1.6;
         }
 
-        /* TRACKS / DOMAINS SECTION */
+        /* ===== ABOUT OVERVIEW SECTION ===== */
+        .about-overview-card {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 45px 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        @media(max-width: 800px) {
+            .about-overview-card { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-visual-box {
+            width: 100%;
+            height: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-visual-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .about-visual-box:hover img { transform: scale(1.05); }
+
+        /* ===== TECHNICAL DOMAINS SECTION ===== */
         .domains-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
@@ -556,7 +644,438 @@
             color: #d8d3ff;
         }
 
-        /* WHY SIC / ADVANTAGES */
+        /* ===== ALL EVENTS SHOWCASE HUB (UPCOMING & PAST) ===== */
+        .events-hub-section {
+            background: rgba(0, 0, 0, 0.25);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-tabs-wrap {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .hub-tab-btn {
+            padding: 10px 22px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hub-tab-btn.active, .hub-tab-btn:hover {
+            background: linear-gradient(135deg, #7c6cf7, #9d92ff);
+            color: white;
+            border-color: #9d92ff;
+            box-shadow: 0 4px 18px rgba(124, 108, 247, 0.4);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .event-hub-card {
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            background: var(--card-gradient);
+            transition: 0.35s;
+        }
+
+        .event-hub-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(157, 146, 255, 0.25);
+        }
+
+        /* EVENT POSTER HEADER */
+        .event-poster-box {
+            width: 100%;
+            height: 190px;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .event-poster-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.35s ease;
+        }
+
+        .event-hub-card:hover .event-poster-box img {
+            transform: scale(1.06);
+        }
+
+        .event-card-header {
+            padding: 16px 20px 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-tag-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(157, 146, 255, 0.15);
+            border: 1px solid var(--primary);
+            color: #d6d0ff;
+            text-transform: uppercase;
+        }
+
+        .badge-completed {
+            background: rgba(0, 229, 255, 0.12);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .badge-upcoming {
+            background: rgba(0, 230, 118, 0.12);
+            border-color: #00e676;
+            color: #00e676;
+        }
+
+        .event-card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card-body h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .event-card-body p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .event-info-pill-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .event-info-pill-list li {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .event-info-pill-list i { color: var(--primary); width: 14px; }
+
+        /* GALLERY THUMBNAILS */
+        .event-mini-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+            gap: 7px;
+            margin-bottom: 18px;
+        }
+
+        .mini-img-box {
+            height: 65px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .mini-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .mini-img-box:hover img { transform: scale(1.1); }
+
+        .card-btn-action {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-link {
+            flex: 1;
+            padding: 11px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .action-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #070913;
+        }
+
+        .action-link.primary {
+            background: linear-gradient(135deg, #7c6cf7, #9d92ff);
+            border: none;
+        }
+
+        .action-link.primary:hover {
+            filter: brightness(1.15);
+            color: white;
+        }
+
+        /* ===== EXECUTIVE TEAM SECTION ===== */
+        .team-section-wrap {
+            padding: 85px 6%;
+            position: relative;
+        }
+
+        .team-group-block {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .team-group-block h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ffffff;
+            display: inline-block;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .team-member-card {
+            width: 260px;
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--card-gradient);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            transition: 0.35s;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(157, 146, 255, 0.3);
+        }
+
+        .team-avatar-wrap {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: 18px;
+            overflow: hidden;
+            border: 3px solid rgba(157, 146, 255, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-avatar-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: 0.3s;
+        }
+
+        .team-member-card:hover .team-avatar-wrap img {
+            transform: scale(1.08);
+        }
+
+        .team-avatar-placeholder {
+            font-size: 45px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .team-member-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .team-member-card p {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ===== LIVE REGISTRATION FORM SECTION ===== */
+        .registration-section {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 85px 20px;
+            scroll-margin-top: 100px;
+        }
+
+        .form-box {
+            background: var(--card-gradient);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-box h2 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ffffff, #8a7dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-box p.form-sub {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14.5px;
+            margin-bottom: 35px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        @media(max-width: 650px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .input-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .input-group label {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .input-group input, .input-group select {
+            padding: 12px 16px;
+            background: rgba(10, 15, 25, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #8a7dff;
+            box-shadow: 0 0 12px rgba(138, 125, 255, 0.4);
+        }
+
+        .input-group select option {
+            background: #121824;
+            color: white;
+        }
+
+        .submit-reg-btn {
+            grid-column: 1 / -1;
+            margin-top: 15px;
+            padding: 14px;
+            background: linear-gradient(90deg, #8a7dff, #6c63ff);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(138, 125, 255, 0.4);
+        }
+
+        .submit-reg-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(138, 125, 255, 0.8);
+        }
+
+        .success-msg {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 230, 118, 0.15);
+            border: 1px solid #00e676;
+            border-radius: 12px;
+            color: #00e676;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ===== WHY SIC / BENEFITS ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -584,18 +1103,10 @@
             margin: 0 auto 20px auto;
         }
 
-        .feature-card h3 {
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
+        .feature-card h3 { font-size: 19px; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        .feature-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* SKILLS SECTION */
+        /* ===== PRACTICE TOOLS ===== */
         .tools { 
             display: flex; 
             justify-content: center; 
@@ -629,10 +1140,7 @@
             transition: 0.3s;
         }
 
-        .tool-card:hover img {
-            transform: scale(1.08);
-        }
-        
+        .tool-card:hover img { transform: scale(1.08); }
         .tool-card h3 { color: var(--primary); margin-bottom: 8px; font-size: 22px; }
         .tool-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
 
@@ -648,14 +1156,11 @@
             transition: 0.2s;
         }
 
-        .tool-link:hover {
-            gap: 10px;
-            color: white;
-        }
+        .tool-link:hover { gap: 10px; color: white; }
 
-        /* FAQ ACCORDION SECTION */
+        /* ===== FAQ ACCORDION ===== */
         .faq-container {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -670,9 +1175,7 @@
             transition: 0.3s;
         }
 
-        .faq-item:hover {
-            border-color: rgba(157, 146, 255, 0.4);
-        }
+        .faq-item:hover { border-color: rgba(157, 146, 255, 0.4); }
 
         .faq-question {
             padding: 18px 24px;
@@ -691,9 +1194,7 @@
             transition: transform 0.3s ease;
         }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
 
         .faq-answer {
             max-height: 0;
@@ -710,58 +1211,15 @@
             padding: 0 24px 20px 24px;
         }
 
-        /* BACKED SECTION */
-        .backed {
-            text-align: center;
-            padding: 70px 6%;
-            background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .backed-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px 60px;
-            margin-top: 35px;
-        }
-
-        .logo-box {
-            padding: 12px 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .logo-box:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-4px);
-            border-color: var(--primary);
-        }
-
-        .backed-logos img {
-            height: 52px;
-            max-width: 170px;
-            object-fit: contain;
-            transition: 0.3s;
-            filter: brightness(0.95);
-        }
-
-        /* FOOTER */
+        /* ===== COMPLETE CONTACT & FOOTER ===== */
         footer { 
-            padding: 60px 6% 30px 6%; 
+            padding: 70px 6% 30px 6%; 
             margin: 40px 6% 20px 6%; 
         }
         
         .footer-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
             gap: 40px; 
         }
         
@@ -781,10 +1239,7 @@
         }
 
         .footer-col ul { list-style: none; }
-        
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
+        .footer-col ul li { margin-bottom: 10px; }
 
         .footer-col ul li a {
             color: var(--text-muted);
@@ -842,10 +1297,7 @@
             gap: 15px;
         }
 
-        .footer-social-links {
-            display: flex;
-            gap: 12px;
-        }
+        .footer-social-links { display: flex; gap: 12px; }
 
         .social-circle {
             width: 36px;
@@ -864,11 +1316,11 @@
 
         .social-circle:hover {
             background: var(--primary);
-            color: #0c0d14;
+            color: #070913;
             transform: translateY(-3px);
         }
 
-        /* SCROLL TO TOP BUTTON */
+        /* ===== FLOATING BACK TO TOP BUTTON ===== */
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -876,7 +1328,7 @@
             width: 45px;
             height: 45px;
             background: var(--primary);
-            color: #0c0d14;
+            color: #070913;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -905,6 +1357,14 @@
 
 <body>
 
+<!-- PURE CSS DYNAMIC TECH BACKGROUND -->
+<div class="bg-canvas">
+    <div class="cyber-grid"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+</div>
+
 <!-- NAVIGATION HEADER -->
 <header>
     <div class="brand-container">
@@ -919,19 +1379,22 @@
 
     <nav id="nav-list">
         <a href="#home">Home</a>
-        <a href="#features">Why SIC</a>
+        <a href="#about-overview">About</a>
+        <a href="#domains">Tracks</a>
+        <a href="#events-hub">Events</a>
+        <a href="#team">Team</a>
         <a href="#skills">Practice</a>
+        <a href="#register">Register</a>
         <div class="dropdown" id="events-dropdown">
-            <div class="dropbtn">Events <i class="fas fa-chevron-down" style="font-size: 11px;"></i></div>
+            <div class="dropbtn">Explore <i class="fas fa-chevron-down" style="font-size: 11px;"></i></div>
             <div class="dropdown-content glass">
-                <a href="come.html"><i class="fas fa-calendar-plus" style="margin-right: 8px;"></i> Upcoming Events</a>
-                <a href="event.html"><i class="fas fa-history" style="margin-right: 8px;"></i> Past Events</a>
+                <a href="#events-hub"><i class="fas fa-calendar-days" style="margin-right: 8px;"></i> All Events Hub</a>
+                <a href="#team"><i class="fas fa-users" style="margin-right: 8px;"></i> Executive Team</a>
+                <a href="#faq"><i class="fas fa-question-circle" style="margin-right: 8px;"></i> FAQs</a>
             </div>
         </div>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" target="_blank" class="join-btn">Be a Member</a>
+        <a href="#contact">Contact</a>
+        <a href="#register" class="join-btn">Be a Member</a>
     </nav>
 </header>
 
@@ -945,13 +1408,25 @@
         <p class="hero-desc">Fuel your passion for software development through community-led practice, live projects, hackathons, and expert industry mentorship.</p>
 
         <div class="hero-buttons">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" class="btn primary-btn" target="_blank">
-                <i class="fas fa-user-plus"></i> Join SIC
+            <a href="#register" class="btn primary-btn">
+                <i class="fas fa-user-plus"></i> Join SIC Now
             </a>
-            <!-- CLICK BUTTON TO SCROLL DOWN TO TRACKS/DOMAINS -->
+            
+            <!-- BUTTON CLICK TO SCROLL DOWN TO DOMAINS -->
             <a href="#domains" class="btn scroll-down-btn" id="explore-btn">
-                <i class="fas fa-arrow-down"></i> Explore Club
+                <i class="fas fa-arrow-down"></i> Explore Tracks
             </a>
+            
+            <!-- BUTTON CLICK TO SCROLL DOWN TO EVENTS -->
+            <a href="#events-hub" class="btn scroll-down-btn">
+                <i class="fas fa-calendar-star"></i> Events Showcase
+            </a>
+            
+            <!-- BUTTON CLICK TO SCROLL DOWN TO TEAM -->
+            <a href="#team" class="btn scroll-down-btn">
+                <i class="fas fa-users"></i> Meet Our Team
+            </a>
+            
             <a href="https://chat.whatsapp.com/GZWNB5qrrzt04fLwbo5gNV" class="btn whatsapp-btn" target="_blank">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
@@ -964,12 +1439,12 @@
             <div class="stat-box"><h2>20+</h2><p>Expert Mentors</p></div>
             <div class="stat-box"><h2>150+</h2><p>Active Members</p></div>
             <div class="stat-box"><h2>6+</h2><p>Live Projects</p></div>
-            <div class="stat-box"><h2>15+</h2><p>Workshops & Events</p></div>
+            <div class="stat-box"><h2>12+</h2><p>Events Conducted</p></div>
         </div>
 
         <!-- MOUSE SCROLL DOWN INDICATOR -->
         <div class="scroll-indicator-wrap">
-            <a href="#domains" class="scroll-indicator-link">
+            <a href="#about-overview" class="scroll-indicator-link">
                 <div class="scroll-mouse">
                     <div class="scroll-wheel"></div>
                 </div>
@@ -979,9 +1454,557 @@
     </div>
 </section>
 
+<!-- ABOUT SECTION OVERVIEW -->
+<section id="about-overview">
+    <div class="section-header">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">About Software Innovators Club</h2>
+        <p class="section-sub">A student-driven hub dedicated to technology innovation and practical mastery at Amrita Kochi.</p>
+    </div>
+
+    <div class="about-overview-card glass-card">
+        <div class="about-text">
+            <h3>Fostering the Future of Tech</h3>
+            <p>Software Innovators Club (SIC) @ Amrita Kochi Campus aims to create a dynamic community of developers, creators, and innovators by providing opportunities for hands-on learning, collaboration, and real-world problem solving.</p>
+            <p>Membership is open to all students interested in building impactful technology. We provide a digital-first environment to explore ideas, strengthen technical foundations, and work on meaningful projects.</p>
+            <a href="#domains" class="action-link primary" style="display:inline-flex; width:auto; padding:10px 22px;"><i class="fas fa-layer-group"></i> Explore Tracks & Focus</a>
+        </div>
+        <div class="about-visual-box">
+            <img src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg" alt="Developers Collaborating">
+        </div>
+    </div>
+</section>
+
+<!-- TECHNICAL DOMAINS & TRACKS SECTION -->
+<section id="domains">
+    <div class="section-header">
+        <span class="section-tag">Specializations</span>
+        <h2 class="section-title">Explore Our Domains</h2>
+        <p class="section-sub">Choose your pathway, collaborate in teams, and build impactful real-world software solutions.</p>
+    </div>
+
+    <div class="domains-grid">
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-code"></i></div>
+                <h3>Web & Full Stack</h3>
+                <p>Architect modern web applications from responsive frontends to scalable cloud backends.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">React.js</span>
+                <span class="domain-tag">Node.js</span>
+                <span class="domain-tag">Next.js</span>
+                <span class="domain-tag">PostgreSQL</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI & Machine Learning</h3>
+                <p>Build intelligent models, generative AI applications, and deep learning algorithms.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Python</span>
+                <span class="domain-tag">PyTorch</span>
+                <span class="domain-tag">GenAI</span>
+                <span class="domain-tag">NLP</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                <h3>Mobile App Dev</h3>
+                <p>Craft fluid, cross-platform Android & iOS applications using next-gen frameworks.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Flutter</span>
+                <span class="domain-tag">React Native</span>
+                <span class="domain-tag">Kotlin</span>
+                <span class="domain-tag">Firebase</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Cyber Security & CTF</h3>
+                <p>Participate in CTF challenges, learn penetration testing, and explore network defense.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Ethical Hacking</span>
+                <span class="domain-tag">CTFs</span>
+                <span class="domain-tag">Cryptography</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Cloud & DevOps</h3>
+                <p>Master containerization, continuous integration, cloud deployments, and automation.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">Docker</span>
+                <span class="domain-tag">Kubernetes</span>
+                <span class="domain-tag">AWS</span>
+                <span class="domain-tag">CI/CD</span>
+            </div>
+        </div>
+
+        <div class="domain-card glass-card">
+            <div>
+                <div class="domain-icon"><i class="fas fa-terminal"></i></div>
+                <h3>Competitive Coding</h3>
+                <p>Crack advanced Data Structures & Algorithms, tackle contests, and prepare for top tier interviews.</p>
+            </div>
+            <div class="domain-tags">
+                <span class="domain-tag">C++</span>
+                <span class="domain-tag">DSA</span>
+                <span class="domain-tag">LeetCode</span>
+                <span class="domain-tag">Codeforces</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ALL EVENTS SHOWCASE HUB (UPCOMING & PAST) -->
+<section class="events-hub-section" id="events-hub">
+    <div class="section-header">
+        <span class="section-tag">Club Activities</span>
+        <h2 class="section-title">Events & Competitions Hub</h2>
+        <p class="section-sub">Explore our flagship event reports, winning team highlights, and register for upcoming coding sprints.</p>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="filter-tabs-wrap">
+        <button class="hub-tab-btn active" onclick="filterHub('all', this)">All Events (7)</button>
+        <button class="hub-tab-btn" onclick="filterHub('upcoming', this)">Upcoming Sprints</button>
+        <button class="hub-tab-btn" onclick="filterHub('past', this)">Past Highlights & Gallery</button>
+    </div>
+
+    <div class="events-grid">
+        
+        <!-- EVENT 1: CODE CONQUEST (UPCOMING) -->
+        <div class="event-hub-card glass-card" data-category="upcoming">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.png" alt="Code Conquest Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-upcoming"><i class="fas fa-bolt"></i> Open Now</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> Season 2026</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Code Conquest</h3>
+                <p>High-stakes algorithmic battle testing DSA, time complexity optimization, and rapid debugging skills.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-clock"></i> <strong>Time:</strong> 4:30 PM - 6:30 PM</li>
+                    <li><i class="fas fa-award"></i> <strong>Prize:</strong> Cash Rewards & Certificates</li>
+                    <li><i class="fas fa-laptop-code"></i> <strong>Platform:</strong> Online / CS Lab</li>
+                </ul>
+
+                <div class="card-btn-action">
+                    <a href="#register" class="action-link primary" onclick="selectEventInForm('Code Conquest')"><i class="fas fa-arrow-down"></i> Register Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 2: SPRINT & SOLVE (PAST & ONGOING) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png" alt="Sprint & Solve Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 27 August</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Sprint & Solve</h3>
+                <p>The Ultimate Brain Race with 60 participants testing observation, memory, logic, word hunting, and speed typing.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-location-dot"></i> <strong>Venue:</strong> Lab 6, Amrita Kochi</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Vivek Krishnan H & Pavithra R Menon</li>
+                    <li><i class="fas fa-chalkboard-user"></i> <strong>Faculty:</strong> Ms. Anupama KN</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d1.jpeg" alt="Sprint & Solve 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d2.jpeg" alt="Sprint & Solve 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d3.jpeg" alt="Sprint & Solve 3"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d4.jpeg" alt="Sprint & Solve 4"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d5.jpeg" alt="Sprint & Solve 5"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="d.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 3: MIND SPARK (PAST) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg" alt="Mind Spark Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 28 Feb 2025</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Mind Spark</h3>
+                <p>A multi-phase puzzle challenge testing observation, memory, movie clip deduction, and master key decoding.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-location-dot"></i> <strong>Venue:</strong> Lab 6, Amrita Kochi</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Pavithra R Menon & Vivek Krishnan H</li>
+                    <li><i class="fas fa-trophy"></i> <strong>Winning Team:</strong> Int MCA 2021, BCom 2022 & BCA 2024</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c1.jpeg" alt="Mind Spark 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c2.jpeg" alt="Mind Spark 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c3.jpeg" alt="Mind Spark 3"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c4.jpeg" alt="Mind Spark 4"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="c.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 4: TREASURE HUNT (PAST) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg" alt="Treasure Hunt Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 8-10 Apr 2025</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Treasure Hunt (Savishkaara)</h3>
+                <p>A thrilling 3-day technical hunt with digital code-breaking, scavenger hunts, and physical checkpoints across campus.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-map-location-dot"></i> <strong>Location:</strong> Various Campus Venues</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Pruthu Prasad & Pavithra R Menon</li>
+                    <li><i class="fas fa-chalkboard-user"></i> <strong>Faculty:</strong> Ms. M Soumya Krishnan</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b1.jpeg" alt="Treasure Hunt 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b2.jpeg" alt="Treasure Hunt 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b3.jpeg" alt="Treasure Hunt 3"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b4.jpeg" alt="Treasure Hunt 4"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="b.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 5: SYNERGY SPRINT (PAST) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg" alt="Synergy Sprint Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 23 Jan 2026</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Synergy Sprint</h3>
+                <p>Fast-paced startup ideation, branding, and on-the-spot pitching sprint fostering innovation and presentation skills.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-location-dot"></i> <strong>Venue:</strong> Lab 6, Amrita Kochi</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Parvana K Pillai & Pavithra R Menon</li>
+                    <li><i class="fas fa-trophy"></i> <strong>Winners:</strong> MCA Team</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a1.jpeg" alt="Synergy Sprint 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a2.jpeg" alt="Synergy Sprint 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a3.jpeg" alt="Synergy Sprint 3"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a4.jpeg" alt="Synergy Sprint 4"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="a.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 6: ESCAPE ROOM (PAST) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p34.jpeg" alt="Escape Room Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 15 Nov 2024</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Escape Room</h3>
+                <p>63 participants navigated 3 puzzle levels with cryptic crosswords, storyline locks, and problem solving.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-location-dot"></i> <strong>Venue:</strong> Lab 6, Amrita Kochi</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Pavithra R Menon & Abhilash Singh</li>
+                    <li><i class="fas fa-trophy"></i> <strong>Winners:</strong> Team 9 (BCA DS & BCom)</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e1.jpeg" alt="Escape Room 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e2.jpeg" alt="Escape Room 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e3.jpeg" alt="Escape Room 3"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="e.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENT 7: CODE SURGE (PAST) -->
+        <div class="event-hub-card glass-card" data-category="past">
+            <div class="event-poster-box">
+                <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p45.jpeg" alt="Code Surge Poster">
+            </div>
+            <div class="event-card-header">
+                <span class="event-tag-badge badge-completed"><i class="fas fa-check-circle"></i> Completed</span>
+                <span style="font-size:12px; color:rgba(255,255,255,0.7);"><i class="fas fa-calendar"></i> 24 Sept 2026</span>
+            </div>
+            <div class="event-card-body">
+                <h3>Code Surge</h3>
+                <p>An online competitive coding contest hosted on HackerRank with real-time live leaderboards and junior/senior divisions.</p>
+
+                <ul class="event-info-pill-list">
+                    <li><i class="fas fa-location-dot"></i> <strong>Venue:</strong> Lab 3 & HackerRank</li>
+                    <li><i class="fas fa-user-tie"></i> <strong>Coordinators:</strong> Pruthu Prasad & Jagath Jyothis</li>
+                    <li><i class="fas fa-chalkboard-user"></i> <strong>Faculty:</strong> Ms. Anupama KN</li>
+                </ul>
+
+                <div class="event-mini-gallery">
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f1.jpeg" alt="Code Surge 1"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f2.jpeg" alt="Code Surge 2"></div>
+                    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f3.jpeg" alt="Code Surge 3"></div>
+		    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f4.jpeg" alt="Code Surge 4"></div>
+		    <div class="mini-img-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f5.jpeg" alt="Code Surge 5"></div>
+                </div>
+
+                <div class="card-btn-action">
+                    <a href="f.html" class="action-link"><i class="fas fa-circle-check"></i> Event Completed</a>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXECUTIVE TEAM SECTION -->
+<section class="team-section-wrap" id="team">
+    <div class="section-header">
+        <span class="section-tag">Leadership</span>
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-sub">The dedicated students and faculty behind Software Innovators Club @ Amrita Kochi.</p>
+    </div>
+
+    <!-- FACULTY COORDINATOR -->
+    <div class="team-group-block">
+        <h3>Faculty Coordinator</h3>
+        <div class="team-grid">
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png" alt="Dr Anupama KN">
+                </div>
+                <h4>Dr. Anupama KN</h4>
+                <p>Faculty Coordinator</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENTORS -->
+    <div class="team-group-block">
+        <h3>Mentors</h3>
+        <div class="team-grid">
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg" alt="Kiran S">
+                </div>
+                <h4>Kiran S</h4>
+                <p>Mentor</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg" alt="Narayanan G">
+                </div>
+                <h4>Narayanan G</h4>
+                <p>Mentor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- LEADERSHIP (LEAD & CO-LEAD) -->
+    <div class="team-group-block">
+        <h3>Club Leadership</h3>
+        <div class="team-grid">
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg" alt="Vivek Krishnan H">
+                </div>
+                <h4>Vivek Krishnan H</h4>
+                <p>Club Lead</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg" alt="Abhilash Singh">
+                </div>
+                <h4>Abhilash Singh</h4>
+                <p>Co-Lead</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TECHNICAL & MARKETING TEAMS -->
+    <div class="team-group-block">
+        <h3>Technical & Marketing Leads</h3>
+        <div class="team-grid">
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg" alt="John J Karian">
+                </div>
+                <h4>John J Karian</h4>
+                <p>Technical Lead I</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg" alt="Krishnanived Madusudanan">
+                </div>
+                <h4>Krishnanived Madusudanan</h4>
+                <p>Technical Lead II</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg" alt="Parvana K Pillai">
+                </div>
+                <h4>Parvana K Pillai</h4>
+                <p>Marketing Lead I</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg" alt="Medha Pradeep">
+                </div>
+                <h4>Medha Pradeep</h4>
+                <p>Marketing Lead II</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATIVE, MEDIA, DOCS & FINANCE -->
+    <div class="team-group-block">
+        <h3>Creative, Media, Documentation & Finance</h3>
+        <div class="team-grid">
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <div class="team-avatar-placeholder"><i class="fas fa-user"></i></div>
+                </div>
+                <h4>Archa S Nair</h4>
+                <p>Creative Lead I</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <div class="team-avatar-placeholder"><i class="fas fa-user"></i></div>
+                </div>
+                <h4>Devu Swathitha</h4>
+                <p>Creative Lead II</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg" alt="Gowri Parvathy Sailesh">
+                </div>
+                <h4>Gowri Parvathy Sailesh</h4>
+                <p>Media Lead</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg" alt="Niranjana A S">
+                </div>
+                <h4>Niranjana A S</h4>
+                <p>Documentation Lead</p>
+            </div>
+            <div class="team-member-card glass-card">
+                <div class="team-avatar-wrap">
+                    <img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png" alt="Suparna Sajeev">
+                </div>
+                <h4>Suparna Sajeev</h4>
+                <p>Finance Lead</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIVE EVENT REGISTRATION FORM SECTION -->
+<section class="registration-section" id="register">
+    <div class="form-box">
+        <h2>Join SIC & Event Registration</h2>
+        <p class="form-sub">Secure your membership or register for upcoming competitive sprints. Confirmation will be sent to your WhatsApp/Email.</p>
+
+        <form id="regForm" onsubmit="handleRegistration(event)">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="regName" placeholder="e.g. Rahul Nair" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-envelope"></i> Email Address *</label>
+                    <input type="email" id="regEmail" placeholder="e.g. rahul@students.amrita.edu" required>
+                </div>
+		
+		<div class="input-group">
+                    <label><i class="fas fa-envelope"></i> Outlook Mail *</label>
+                    <input type="email" id="regEmail" placeholder="e.g. KH.EN.U4BCA2314@students.amrita.edu" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fab fa-whatsapp"></i> WhatsApp Number *</label>
+                    <input type="tel" id="regPhone" placeholder="e.g. 9876543210" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fas fa-graduation-cap"></i> Department & Semester *</label>
+                    <input type="text" id="regDept" placeholder="e.g. BCA / MCA" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label><i class="fas fa-trophy"></i> What are you registering for? *</label>
+                    <select id="eventSelect" required>
+                        <option value="General Club Membership">General Club Membership (Software Innovators Club)</option>
+              
+                    </select>
+                </div>
+                <button type="submit" class="submit-reg-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Registration
+                </button>
+            </div>
+        </form>
+
+        <div class="success-msg" id="successMessage">
+            🎉 Registration Successful! We have received your response. You will be added to the SIC community group shortly.
+        </div>
+    </div>
+</section>
 
 <!-- WHY CHOOSE SIC -->
-<section id="features" style="background: rgba(0,0,0,0.18);">
+<section id="features" style="background: rgba(0,0,0,0.2);">
     <div class="section-header">
         <span class="section-tag">Member Benefits</span>
         <h2 class="section-title">Why Join SIC?</h2>
@@ -1085,59 +2108,61 @@
     </div>
 </section>
 
-<!-- BACKED & RECOGNITION SECTION -->
-<section class="backed">
-    <p style="letter-spacing:4px; font-size:12px; opacity:0.8; font-weight:700;">BACKED & RECOGNIZED BY</p>
-    <div class="backed-logos">
-        <div class="logo-box"><img src="https://csi.coep.org.in/csi_logo.png" alt="CSI"></div>
-        <div class="logo-box"><img src="https://webfiles.amrita.edu/2024/07/logo-branding-amrita-universiy-2024.png" alt="AMRITA"></div>
-        <div class="logo-box"><img src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/iedc%20logo.jpg" alt="IEDC"></div>
-        <div class="logo-box"><img src="https://jaipuriamba.edu.in/wp-content/uploads/2022/02/iiclogo-1.png" alt="IIC"></div>
-    </div>
-</section>
-
-<!-- FOOTER -->
+<!-- COMPLETE CONTACT & FOOTER -->
 <footer class="glass" id="contact">
     <div class="footer-grid">
         <div class="footer-col">
             <h3><i class="fas fa-laptop-code"></i> SIC Club</h3>
             <p>Empowering students to collaborate, innovate, and excel at Amrita Vishwa Vidyapeetham Kochi Campus through technology and passion.</p>
             <div style="margin-top: 15px;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjxrjTZvoDctScDxM-7f9P1E9_rvxrhU3yUXS7s8Lai11Ug/viewform" target="_blank" class="join-btn" style="display:inline-block; text-decoration:none;">Join Community</a>
+                <a href="#register" class="join-btn" style="display:inline-block; text-decoration:none;">Join Community</a>
             </div>
         </div>
 
+        <!-- RECOGNIZED CLUBS -->
+        <div class="footer-col">
+            <h3><i class="fas fa-handshake"></i> Recognized Clubs</h3>
+            <ul>
+                <li><a href="https://intranet.kh.amrita.edu/SIC/assets/images/brand/iedc.png" target="_blank"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> IEDC Amrita</a></li>
+                <li><a href="https://csiasas.vercel.app/images/CSI.PNG" target="_blank"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> CSI Student Branch</a></li>
+                <li><a href="https://webfiles.amrita.edu/2025/11/iic-amrita-logo.jpg" target="_blank"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> IIC Innovation Cell</a></li>
+            </ul>
+        </div>
+
+        <!-- QUICK LINKS -->
         <div class="footer-col">
             <h3><i class="fas fa-link"></i> Quick Navigation</h3>
             <ul>
                 <li><a href="#home"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Home</a></li>
+                <li><a href="#about-overview"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> About SIC</a></li>
                 <li><a href="#domains"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Technical Tracks</a></li>
-                <li><a href="#features"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Benefits</a></li>
-                <li><a href="come.html"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Upcoming Events</a></li>
-                <li><a href="team.html"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Executive Team</a></li>
+                <li><a href="#events-hub"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Events Hub</a></li>
+                <li><a href="#team"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Executive Team</a></li>
+                <li><a href="#register"><i class="fas fa-chevron-right" style="font-size: 11px;"></i> Membership & RSVP</a></li>
             </ul>
         </div>
 
+        <!-- CONTACT DETAILS -->
         <div class="footer-col">
             <h3><i class="fas fa-headset"></i> Contact Us</h3>
             <ul class="contact-info-list">
-                <li><i class="fas fa-location-dot"></i> <span>Amrita Vishwa Vidyapeetham, Kochi Campus</span></li>
-                <li><i class="fas fa-envelope"></i> <span>sicasaskochi@gmail.com</span></li>
-                <li><i class="fas fa-phone"></i> <span>+91 6238314481</span></li>
+                <li><i class="fas fa-user"></i> <span><strong>Lead:</strong> Vivek Krishnan H</span></li>
+                <li><i class="fas fa-phone"></i> <span><a href="tel:+919746460409" style="color:white; text-decoration:none;">+91 9746460409</a> / <a href="tel:+916238314481" style="color:white; text-decoration:none;">+91 6238314481</a></span></li>
+                <li><i class="fas fa-envelope"></i> <span><a href="mailto:sicasaskochi@gmail.com" style="color:white; text-decoration:none;">sicasaskochi@gmail.com</a></span></li>
+                <li><i class="fas fa-location-dot"></i> <span>27WW+H26, Old NH17, Edappally North, Amrita Nagar, Brahmasthanam, Kochi, Kerala 682024</span></li>
             </ul>
         </div>
+    </div>
 
-        <div class="footer-col">
-            <h3><i class="fas fa-map-location-dot"></i> Campus Location</h3>
-            <p>Visit our club headquarters at Amrita Kochi.</p>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+    <!-- LOCATION MAP -->
+    <div style="margin-top: 30px;">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps?q=Amrita+Vishwa+Vidyapeetham+Kochi&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 
@@ -1158,6 +2183,47 @@
 
 <!-- JAVASCRIPT LOGIC -->
 <script>
+    // Filter Events Hub (All / Upcoming / Past)
+    function filterHub(type, btn) {
+        document.querySelectorAll('.hub-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const cards = document.querySelectorAll('.event-hub-card');
+        cards.forEach(card => {
+            if (type === 'all' || card.getAttribute('data-category') === type) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Pre-select Event in Form
+    function selectEventInForm(eventName) {
+        const select = document.getElementById('eventSelect');
+        if (select) {
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value.toLowerCase().includes(eventName.toLowerCase()) || 
+                    select.options[i].text.toLowerCase().includes(eventName.toLowerCase())) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Handle Form Submit
+    function handleRegistration(e) {
+        e.preventDefault();
+        const successBox = document.getElementById('successMessage');
+        successBox.style.display = 'block';
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        setTimeout(() => {
+            document.getElementById('regForm').reset();
+        }, 1200);
+    }
+
     // Mobile Menu Toggle
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('nav-list');
@@ -1193,7 +2259,7 @@
         });
     });
 
-    // Smooth Scroll Button Action (Explore Button & Scroll Down Indicator)
+    // Smooth Scroll Button Action (Explore Buttons & Scroll Down Indicator)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
