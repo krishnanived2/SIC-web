@@ -7,6 +7,14 @@
 
     <title>SIC - Software Innovators Club | Amrita Kochi</title>
 
+    <!-- SPEED OPTIMIZATION: CONNECT EARLY TO IMAGE/CDN HOSTS -->
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+    <link rel="dns-prefetch" href="//raw.githubusercontent.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -87,6 +95,16 @@
         img {
             max-width: 100%;
             display: block;
+            image-rendering: auto;
+        }
+
+        /* Keep image boxes stable while photos load */
+        .event-poster-box img,
+        .mini-img-box img,
+        .team-avatar-wrap img,
+        .about-visual-box img {
+            will-change: auto;
+            contain: paint;
         }
 
         button,
@@ -3674,7 +3692,7 @@
             <img
                 src="https://as1.ftcdn.net/jpg/02/24/86/92/1000_F_224869243_WZHOVD3GqYq6ZUzRkZbQNTXzg1FzHwhd.jpg"
                 alt="Developers Collaborating"
-                loading="lazy">
+                loading="eager" decoding="async" fetchpriority="high">
 
         </div>
 
@@ -3912,7 +3930,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.png"
                     alt="Code Conquest Poster"
-                    loading="lazy">
+                    loading="eager" decoding="async" fetchpriority="high">
 
             </div>
 
@@ -4009,7 +4027,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p11%20(1).png"
                     alt="Sprint & Solve Poster"
-                    loading="lazy">
+                    loading="eager" decoding="async" fetchpriority="high">
 
             </div>
 
@@ -4081,35 +4099,35 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d1.jpeg"
                             alt="Sprint & Solve 1"
-                            loading="lazy">
+                            loading="eager" decoding="async" fetchpriority="high">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d2.jpeg"
                             alt="Sprint & Solve 2"
-                            loading="lazy">
+                            loading="eager" decoding="async" fetchpriority="high">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d3.jpeg"
                             alt="Sprint & Solve 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d4.jpeg"
                             alt="Sprint & Solve 4"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/d5.jpeg"
                             alt="Sprint & Solve 5"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4145,7 +4163,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p15.jpeg"
                     alt="Mind Spark Poster"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -4216,28 +4234,28 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c1.jpeg"
                             alt="Mind Spark 1"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c2.jpeg"
                             alt="Mind Spark 2"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c3.jpeg"
                             alt="Mind Spark 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/c4.jpeg"
                             alt="Mind Spark 4"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4273,7 +4291,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p14.jpeg"
                     alt="Treasure Hunt Poster"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -4345,28 +4363,28 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b1.jpeg"
                             alt="Treasure Hunt 1"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b2.jpeg"
                             alt="Treasure Hunt 2"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b3.jpeg"
                             alt="Treasure Hunt 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/b4.jpeg"
                             alt="Treasure Hunt 4"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4402,7 +4420,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p16.jpg"
                     alt="Synergy Sprint Poster"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -4474,28 +4492,28 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a1.jpeg"
                             alt="Synergy Sprint 1"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a2.jpeg"
                             alt="Synergy Sprint 2"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a3.jpeg"
                             alt="Synergy Sprint 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/a4.jpeg"
                             alt="Synergy Sprint 4"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4531,7 +4549,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p34.jpeg"
                     alt="Escape Room Poster"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -4603,21 +4621,21 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e1.jpeg"
                             alt="Escape Room 1"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e2.jpeg"
                             alt="Escape Room 2"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/e3.jpeg"
                             alt="Escape Room 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4653,7 +4671,7 @@
                 <img
                     src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p45.jpeg"
                     alt="Code Surge Poster"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -4725,35 +4743,35 @@
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f1.jpeg"
                             alt="Code Surge 1"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f2.jpeg"
                             alt="Code Surge 2"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f3.jpeg"
                             alt="Code Surge 3"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f4.jpeg"
                             alt="Code Surge 4"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                     <div class="mini-img-box">
                         <img
                             src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/f5.jpeg"
                             alt="Code Surge 5"
-                            loading="lazy">
+                            loading="lazy" decoding="async">
                     </div>
 
                 </div>
@@ -4827,7 +4845,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p10.png"
                         alt="Dr Anupama KN"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4863,7 +4881,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p22.jpeg"
                         alt="Kiran S"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4881,7 +4899,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/28.jpeg"
                         alt="Narayanan G"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4913,7 +4931,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p12.jpg"
                         alt="Vivek Krishnan H"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4935,7 +4953,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p9.jpeg"
                         alt="Abhilash Singh"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4971,7 +4989,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p13.jpeg"
                         alt="John J Karian"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -4993,7 +5011,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p20.jpg"
                         alt="Krishnanived Madusudanan"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5015,7 +5033,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p6.jpeg"
                         alt="Parvana K Pillai"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5037,7 +5055,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p7.jpeg"
                         alt="Medha Pradeep"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5073,7 +5091,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p50.jpg"
                         alt="Archa S Nair"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5095,7 +5113,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p18.jpg"
                         alt="Devu Swathitha"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
                 </div>
 
                 <h4>
@@ -5116,7 +5134,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p21.jpg"
                         alt="Gowri Parvathy Sailesh"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5138,7 +5156,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/26.jpeg"
                         alt="Niranjana A S"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5160,7 +5178,7 @@
                     <img
                         src="https://raw.githubusercontent.com/krishnanived2/SIC-web/refs/heads/main/p32.png"
                         alt="Suparna Sajeev"
-                        loading="lazy">
+                        loading="lazy" decoding="async">
 
                 </div>
 
@@ -5508,7 +5526,7 @@
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
                     alt="HackerRank"
-                    loading="lazy">
+                    loading="lazy" decoding="async">
 
             </div>
 
@@ -6535,6 +6553,47 @@ window.addEventListener(
 
 </script>
 
+<script>
+/* =========================================================
+   IMAGE SPEED OPTIMIZATION
+   - Visible images load immediately.
+   - Remaining gallery/team images are warmed into browser cache
+     shortly after the page becomes interactive.
+   ========================================================= */
+(function () {
+    function preloadRemainingImages() {
+        const images = Array.from(document.images);
+        const urls = images
+            .filter(img => img.loading === 'lazy')
+            .map(img => img.currentSrc || img.src)
+            .filter(Boolean);
+
+        let index = 0;
+        function loadNextBatch() {
+            const batch = urls.slice(index, index + 4);
+            index += 4;
+
+            batch.forEach(url => {
+                const preloader = new Image();
+                preloader.decoding = 'async';
+                preloader.src = url;
+            });
+
+            if (index < urls.length) {
+                setTimeout(loadNextBatch, 120);
+            }
+        }
+
+        loadNextBatch();
+    }
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(preloadRemainingImages, { timeout: 800 });
+    } else {
+        setTimeout(preloadRemainingImages, 500);
+    }
+})();
+</script>
+
 </body>
 </html>
-
